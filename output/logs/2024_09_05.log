@@ -1,0 +1,10 @@
+2024-09-05 15:04:57 - test_case_log - INFO - 这是一个info测试日志
+2024-09-05 15:04:57 - test_case_log - DEBUG - 这是一个debug测试日志
+2024-09-05 15:04:57 - test_case_log - WARNING - 这是一个warning测试日志
+2024-09-05 15:04:57 - test_case_log - ERROR - 这是一个error测试日志
+2024-09-05 15:04:57 - test_case_log - CRITICAL - 这是一个critical测试日志
+2024-09-05 15:28:01 - test_case_log - INFO - 这是一个info测试日志
+2024-09-05 15:28:01 - test_case_log - DEBUG - 这是一个debug测试日志
+2024-09-05 15:28:01 - test_case_log - WARNING - 这是一个warning测试日志
+2024-09-05 15:28:01 - test_case_log - ERROR - 这是一个error测试日志
+2024-09-05 15:28:01 - test_case_log - CRITICAL - 这是一个critical测试日志

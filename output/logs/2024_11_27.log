@@ -1,0 +1,71 @@
+2024-11-27 11:08:53 - test_case_log - INFO - 开始登录前置
+2024-11-27 11:08:55 - test_case_log - INFO - 准备打开url:https://mms.sermatec-cloud.com/login
+2024-11-27 11:08:55 - test_case_log - INFO - 准备打开url:https://mms.sermatec-cloud.com/login
+2024-11-27 11:08:57 - test_case_log - INFO - 打开url成功:https://mms.sermatec-cloud.com/login
+2024-11-27 11:08:57 - test_case_log - INFO - 打开url成功:https://mms.sermatec-cloud.com/login
+2024-11-27 11:08:57 - test_case_log - INFO - 准备最大化当前页面
+2024-11-27 11:08:57 - test_case_log - INFO - 准备最大化当前页面
+2024-11-27 11:08:57 - test_case_log - INFO - 最大化当前页面成功
+2024-11-27 11:08:57 - test_case_log - INFO - 最大化当前页面成功
+2024-11-27 11:08:57 - test_case_log - INFO - 准备输入内容:admin
+2024-11-27 11:08:57 - test_case_log - INFO - 准备输入内容:admin
+2024-11-27 11:08:57 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-11-27 11:08:57 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-11-27 11:08:58 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-11-27 11:08:58 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-11-27 11:08:59 - test_case_log - INFO - 输入内容成功:admin
+2024-11-27 11:08:59 - test_case_log - INFO - 输入内容成功:admin
+2024-11-27 11:08:59 - test_case_log - INFO - 准备输入内容:sermatec2023
+2024-11-27 11:08:59 - test_case_log - INFO - 准备输入内容:sermatec2023
+2024-11-27 11:08:59 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-11-27 11:08:59 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-11-27 11:08:59 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-11-27 11:08:59 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-11-27 11:08:59 - test_case_log - INFO - 输入内容成功:sermatec2023
+2024-11-27 11:08:59 - test_case_log - INFO - 输入内容成功:sermatec2023
+2024-11-27 11:08:59 - test_case_log - INFO - 准备点击
+2024-11-27 11:08:59 - test_case_log - INFO - 准备点击
+2024-11-27 11:08:59 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-11-27 11:08:59 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-11-27 11:08:59 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-11-27 11:08:59 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-11-27 11:08:59 - test_case_log - INFO - 点击成功
+2024-11-27 11:08:59 - test_case_log - INFO - 点击成功
+2024-11-27 11:08:59 - test_case_log - INFO - 前置登录成功
+2024-11-27 11:08:59 - test_case_log - INFO - 前置登录成功
+2024-11-27 11:08:59 - test_case_log - INFO - TestMyWorkOrder01开始执行用例
+2024-11-27 11:08:59 - test_case_log - INFO - TestMyWorkOrder01开始执行用例
+2024-11-27 11:08:59 - test_case_log - INFO - 准备点击
+2024-11-27 11:08:59 - test_case_log - INFO - 准备点击
+2024-11-27 11:08:59 - test_case_log - INFO - 等待('xpath', '//*[text()="工单管理"]')元素可见
+2024-11-27 11:08:59 - test_case_log - INFO - 等待('xpath', '//*[text()="工单管理"]')元素可见
+2024-11-27 11:09:00 - test_case_log - INFO - ('xpath', '//*[text()="工单管理"]')元素可见成功
+2024-11-27 11:09:00 - test_case_log - INFO - ('xpath', '//*[text()="工单管理"]')元素可见成功
+2024-11-27 11:09:00 - test_case_log - INFO - 点击成功
+2024-11-27 11:09:00 - test_case_log - INFO - 点击成功
+2024-11-27 11:09:00 - test_case_log - INFO - 准备点击
+2024-11-27 11:09:00 - test_case_log - INFO - 准备点击
+2024-11-27 11:09:00 - test_case_log - INFO - 等待('xpath', '//*[text()="我的工单"]')元素可见
+2024-11-27 11:09:00 - test_case_log - INFO - 等待('xpath', '//*[text()="我的工单"]')元素可见
+2024-11-27 11:09:01 - test_case_log - INFO - ('xpath', '//*[text()="我的工单"]')元素可见成功
+2024-11-27 11:09:01 - test_case_log - INFO - ('xpath', '//*[text()="我的工单"]')元素可见成功
+2024-11-27 11:09:02 - test_case_log - ERROR - 点击失败:Message: element click intercepted: Element <span>...</span> is not clickable at point (91, 363). Other element would receive the click: <a href="/task-management/my-task">...</a>
+  (Session info: chrome=131.0.6778.86)
+
+2024-11-27 11:09:02 - test_case_log - ERROR - 点击失败:Message: element click intercepted: Element <span>...</span> is not clickable at point (91, 363). Other element would receive the click: <a href="/task-management/my-task">...</a>
+  (Session info: chrome=131.0.6778.86)
+
+2024-11-27 11:09:02 - test_case_log - ERROR - TestMyWorkOrder01用例执行失败，错误信息为：Message: element click intercepted: Element <span>...</span> is not clickable at point (91, 363). Other element would receive the click: <a href="/task-management/my-task">...</a>
+  (Session info: chrome=131.0.6778.86)
+
+2024-11-27 11:09:02 - test_case_log - ERROR - TestMyWorkOrder01用例执行失败，错误信息为：Message: element click intercepted: Element <span>...</span> is not clickable at point (91, 363). Other element would receive the click: <a href="/task-management/my-task">...</a>
+  (Session info: chrome=131.0.6778.86)
+
+2024-11-27 11:09:02 - test_case_log - INFO - 准备截图
+2024-11-27 11:09:02 - test_case_log - INFO - 准备截图
+2024-11-27 11:09:02 - test_case_log - INFO - 截图成功:D:\CODE\AUTOMATED_UI_QA\output\screenshots\20241127/TestMyWorkOrder01.png
+2024-11-27 11:09:02 - test_case_log - INFO - 截图成功:D:\CODE\AUTOMATED_UI_QA\output\screenshots\20241127/TestMyWorkOrder01.png
+2024-11-27 11:09:02 - test_case_log - INFO - 开始登录后置
+2024-11-27 11:09:02 - test_case_log - INFO - 开始登录后置
+2024-11-27 11:09:02 - test_case_log - INFO - 登录后置完成
+2024-11-27 11:09:02 - test_case_log - INFO - 登录后置完成

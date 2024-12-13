@@ -1,0 +1,56 @@
+# 这是一个YAML配置文件的示例
+
+# 标量值
+title: "常用配置文件信息"
+version: 1.0.0
+is_enabled: true
+description: |
+  记录常用的配置数据
+    数据库配置信息
+    登录信息
+
+# 列表
+developers:
+  - name: "John Doe"
+    age: 30
+  - name: "Jane Smith"
+    age: 28
+
+# 映射（字典）
+database:
+  host: "localhost"
+  port: 3306
+  username: "root"
+  password: "123456"
+
+#login_info:
+#  url: "http://192.168.1.82:3322/login"
+#  username: "admin"
+#  password: "*sermatecroot24"
+login_info:
+  url: "https://mms.sermatec-cloud.com/login"
+  username: "admin"
+  password: "sermatec2023"
+
+# 列表包含映射
+servers:
+  - name: "Server 1"
+    address: "192.168.1.100"
+    ports:
+      - 8080
+      - 8081
+  - name: "Server 2"
+    address: "192.168.1.101"
+    ports:
+      - 9090
+
+# 复杂的嵌套结构
+company:
+  name: "Example Corp."
+  department:
+    sales:
+      manager: "Alice"
+      members: 10
+    development:
+      manager: "Bob"
+      members: 15

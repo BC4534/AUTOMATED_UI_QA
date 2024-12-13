@@ -1,0 +1,540 @@
+2024-10-12 17:52:07 - test_case_log - INFO - Test_Case_Login_Fail_001开始执行用例
+2024-10-12 17:52:07 - test_case_log - INFO - Test_Case_Login_Fail_001开始执行用例
+2024-10-12 17:52:09 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/
+2024-10-12 17:52:09 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/
+2024-10-12 17:52:10 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/
+2024-10-12 17:52:10 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/
+2024-10-12 17:52:10 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:10 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:10 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:10 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:10 - test_case_log - INFO - 准备输入内容:
+2024-10-12 17:52:10 - test_case_log - INFO - 准备输入内容:
+2024-10-12 17:52:10 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:10 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:10 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:10 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:10 - test_case_log - INFO - 输入内容成功:
+2024-10-12 17:52:10 - test_case_log - INFO - 输入内容成功:
+2024-10-12 17:52:10 - test_case_log - INFO - 准备输入内容:
+2024-10-12 17:52:10 - test_case_log - INFO - 准备输入内容:
+2024-10-12 17:52:10 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:10 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:10 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:10 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:10 - test_case_log - INFO - 输入内容成功:
+2024-10-12 17:52:10 - test_case_log - INFO - 输入内容成功:
+2024-10-12 17:52:10 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:10 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:10 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-10-12 17:52:10 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-10-12 17:52:10 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-10-12 17:52:10 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-10-12 17:52:10 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:10 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:10 - test_case_log - INFO - 准备获取元素文本信息
+2024-10-12 17:52:10 - test_case_log - INFO - 准备获取元素文本信息
+2024-10-12 17:52:10 - test_case_log - INFO - 等待('xpath', "//*[@id='username_help']/div")元素可见
+2024-10-12 17:52:10 - test_case_log - INFO - 等待('xpath', "//*[@id='username_help']/div")元素可见
+2024-10-12 17:52:11 - test_case_log - INFO - ('xpath', "//*[@id='username_help']/div")元素可见成功
+2024-10-12 17:52:11 - test_case_log - INFO - ('xpath', "//*[@id='username_help']/div")元素可见成功
+2024-10-12 17:52:11 - test_case_log - INFO - 获取元素文本信息成功:请输入必填字段
+2024-10-12 17:52:11 - test_case_log - INFO - 获取元素文本信息成功:请输入必填字段
+2024-10-12 17:52:11 - test_case_log - INFO - Test_Case_Login_Fail_001执行用例成功
+2024-10-12 17:52:11 - test_case_log - INFO - Test_Case_Login_Fail_001执行用例成功
+2024-10-12 17:52:11 - test_case_log - INFO - 准备退出浏览器
+2024-10-12 17:52:11 - test_case_log - INFO - 准备退出浏览器
+2024-10-12 17:52:13 - test_case_log - INFO - 退出浏览器成功
+2024-10-12 17:52:13 - test_case_log - INFO - 退出浏览器成功
+2024-10-12 17:52:13 - test_case_log - INFO - Test_Case_Login_Fail_002开始执行用例
+2024-10-12 17:52:13 - test_case_log - INFO - Test_Case_Login_Fail_002开始执行用例
+2024-10-12 17:52:15 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/
+2024-10-12 17:52:15 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/
+2024-10-12 17:52:15 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/
+2024-10-12 17:52:15 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/
+2024-10-12 17:52:15 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:15 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:15 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:15 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:15 - test_case_log - INFO - 准备输入内容:admin
+2024-10-12 17:52:15 - test_case_log - INFO - 准备输入内容:admin
+2024-10-12 17:52:15 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:15 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:17 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:17 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:17 - test_case_log - INFO - 输入内容成功:admin
+2024-10-12 17:52:17 - test_case_log - INFO - 输入内容成功:admin
+2024-10-12 17:52:17 - test_case_log - INFO - 准备输入内容:
+2024-10-12 17:52:17 - test_case_log - INFO - 准备输入内容:
+2024-10-12 17:52:17 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:17 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:17 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:17 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:17 - test_case_log - INFO - 输入内容成功:
+2024-10-12 17:52:17 - test_case_log - INFO - 输入内容成功:
+2024-10-12 17:52:17 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:17 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:17 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-10-12 17:52:17 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-10-12 17:52:17 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-10-12 17:52:17 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-10-12 17:52:17 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:17 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:17 - test_case_log - INFO - 准备获取元素文本信息
+2024-10-12 17:52:17 - test_case_log - INFO - 准备获取元素文本信息
+2024-10-12 17:52:17 - test_case_log - INFO - 等待('xpath', "//*[@id='password_help']/div")元素可见
+2024-10-12 17:52:17 - test_case_log - INFO - 等待('xpath', "//*[@id='password_help']/div")元素可见
+2024-10-12 17:52:18 - test_case_log - INFO - ('xpath', "//*[@id='password_help']/div")元素可见成功
+2024-10-12 17:52:18 - test_case_log - INFO - ('xpath', "//*[@id='password_help']/div")元素可见成功
+2024-10-12 17:52:18 - test_case_log - INFO - 获取元素文本信息成功:请输入必填字段
+2024-10-12 17:52:18 - test_case_log - INFO - 获取元素文本信息成功:请输入必填字段
+2024-10-12 17:52:18 - test_case_log - INFO - Test_Case_Login_Fail_002执行用例成功
+2024-10-12 17:52:18 - test_case_log - INFO - Test_Case_Login_Fail_002执行用例成功
+2024-10-12 17:52:18 - test_case_log - INFO - 准备退出浏览器
+2024-10-12 17:52:18 - test_case_log - INFO - 准备退出浏览器
+2024-10-12 17:52:20 - test_case_log - INFO - 退出浏览器成功
+2024-10-12 17:52:20 - test_case_log - INFO - 退出浏览器成功
+2024-10-12 17:52:20 - test_case_log - INFO - Test_Case_Login_Fail_003开始执行用例
+2024-10-12 17:52:20 - test_case_log - INFO - Test_Case_Login_Fail_003开始执行用例
+2024-10-12 17:52:21 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/
+2024-10-12 17:52:21 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/
+2024-10-12 17:52:22 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/
+2024-10-12 17:52:22 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/
+2024-10-12 17:52:22 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:22 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:22 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:22 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:22 - test_case_log - INFO - 准备输入内容:admin1
+2024-10-12 17:52:22 - test_case_log - INFO - 准备输入内容:admin1
+2024-10-12 17:52:22 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:22 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:22 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:22 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:23 - test_case_log - INFO - 输入内容成功:admin1
+2024-10-12 17:52:23 - test_case_log - INFO - 输入内容成功:admin1
+2024-10-12 17:52:23 - test_case_log - INFO - 准备输入内容:*sermatecroot24
+2024-10-12 17:52:23 - test_case_log - INFO - 准备输入内容:*sermatecroot24
+2024-10-12 17:52:23 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:23 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:23 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:23 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:23 - test_case_log - INFO - 输入内容成功:*sermatecroot24
+2024-10-12 17:52:23 - test_case_log - INFO - 输入内容成功:*sermatecroot24
+2024-10-12 17:52:23 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:23 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:23 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-10-12 17:52:23 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-10-12 17:52:23 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-10-12 17:52:23 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-10-12 17:52:23 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:23 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:23 - test_case_log - INFO - 准备获取元素文本信息
+2024-10-12 17:52:23 - test_case_log - INFO - 准备获取元素文本信息
+2024-10-12 17:52:23 - test_case_log - INFO - 等待('xpath', "//*[contains(text(),'用户名或密码错误')]")元素可见
+2024-10-12 17:52:23 - test_case_log - INFO - 等待('xpath', "//*[contains(text(),'用户名或密码错误')]")元素可见
+2024-10-12 17:52:24 - test_case_log - INFO - ('xpath', "//*[contains(text(),'用户名或密码错误')]")元素可见成功
+2024-10-12 17:52:24 - test_case_log - INFO - ('xpath', "//*[contains(text(),'用户名或密码错误')]")元素可见成功
+2024-10-12 17:52:24 - test_case_log - INFO - 获取元素文本信息成功:用户名或密码错误!
+2024-10-12 17:52:24 - test_case_log - INFO - 获取元素文本信息成功:用户名或密码错误!
+2024-10-12 17:52:24 - test_case_log - INFO - Test_Case_Login_Fail_003执行用例成功
+2024-10-12 17:52:24 - test_case_log - INFO - Test_Case_Login_Fail_003执行用例成功
+2024-10-12 17:52:24 - test_case_log - INFO - 准备退出浏览器
+2024-10-12 17:52:24 - test_case_log - INFO - 准备退出浏览器
+2024-10-12 17:52:26 - test_case_log - INFO - 退出浏览器成功
+2024-10-12 17:52:26 - test_case_log - INFO - 退出浏览器成功
+2024-10-12 17:52:26 - test_case_log - INFO - Test_Case_Login_Fail_004开始执行用例
+2024-10-12 17:52:26 - test_case_log - INFO - Test_Case_Login_Fail_004开始执行用例
+2024-10-12 17:52:27 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/
+2024-10-12 17:52:27 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/
+2024-10-12 17:52:29 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/
+2024-10-12 17:52:29 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/
+2024-10-12 17:52:29 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:29 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:29 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:29 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:29 - test_case_log - INFO - 准备输入内容:admin
+2024-10-12 17:52:29 - test_case_log - INFO - 准备输入内容:admin
+2024-10-12 17:52:29 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:29 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:30 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:30 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:30 - test_case_log - INFO - 输入内容成功:admin
+2024-10-12 17:52:30 - test_case_log - INFO - 输入内容成功:admin
+2024-10-12 17:52:30 - test_case_log - INFO - 准备输入内容:*sermatecroot2411
+2024-10-12 17:52:30 - test_case_log - INFO - 准备输入内容:*sermatecroot2411
+2024-10-12 17:52:30 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:30 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:30 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:30 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:30 - test_case_log - INFO - 输入内容成功:*sermatecroot2411
+2024-10-12 17:52:30 - test_case_log - INFO - 输入内容成功:*sermatecroot2411
+2024-10-12 17:52:30 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:30 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:30 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-10-12 17:52:30 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-10-12 17:52:30 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-10-12 17:52:30 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-10-12 17:52:30 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:30 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:30 - test_case_log - INFO - 准备获取元素文本信息
+2024-10-12 17:52:30 - test_case_log - INFO - 准备获取元素文本信息
+2024-10-12 17:52:30 - test_case_log - INFO - 等待('xpath', "//*[contains(text(),'用户名或密码错误')]")元素可见
+2024-10-12 17:52:30 - test_case_log - INFO - 等待('xpath', "//*[contains(text(),'用户名或密码错误')]")元素可见
+2024-10-12 17:52:31 - test_case_log - INFO - ('xpath', "//*[contains(text(),'用户名或密码错误')]")元素可见成功
+2024-10-12 17:52:31 - test_case_log - INFO - ('xpath', "//*[contains(text(),'用户名或密码错误')]")元素可见成功
+2024-10-12 17:52:31 - test_case_log - INFO - 获取元素文本信息成功:用户名或密码错误!
+2024-10-12 17:52:31 - test_case_log - INFO - 获取元素文本信息成功:用户名或密码错误!
+2024-10-12 17:52:31 - test_case_log - INFO - Test_Case_Login_Fail_004执行用例成功
+2024-10-12 17:52:31 - test_case_log - INFO - Test_Case_Login_Fail_004执行用例成功
+2024-10-12 17:52:31 - test_case_log - INFO - 准备退出浏览器
+2024-10-12 17:52:31 - test_case_log - INFO - 准备退出浏览器
+2024-10-12 17:52:33 - test_case_log - INFO - 退出浏览器成功
+2024-10-12 17:52:33 - test_case_log - INFO - 退出浏览器成功
+2024-10-12 17:52:33 - test_case_log - INFO - Test_Case_Login_Fail_005开始执行用例
+2024-10-12 17:52:33 - test_case_log - INFO - Test_Case_Login_Fail_005开始执行用例
+2024-10-12 17:52:34 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/
+2024-10-12 17:52:34 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/
+2024-10-12 17:52:35 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/
+2024-10-12 17:52:35 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/
+2024-10-12 17:52:35 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:35 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:35 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:35 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:35 - test_case_log - INFO - 准备输入内容:admin
+2024-10-12 17:52:35 - test_case_log - INFO - 准备输入内容:admin
+2024-10-12 17:52:35 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:35 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:35 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:35 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:36 - test_case_log - INFO - 输入内容成功:admin
+2024-10-12 17:52:36 - test_case_log - INFO - 输入内容成功:admin
+2024-10-12 17:52:36 - test_case_log - INFO - 准备输入内容:*sermatecroot24
+2024-10-12 17:52:36 - test_case_log - INFO - 准备输入内容:*sermatecroot24
+2024-10-12 17:52:36 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:36 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:36 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:36 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:36 - test_case_log - INFO - 输入内容成功:*sermatecroot24
+2024-10-12 17:52:36 - test_case_log - INFO - 输入内容成功:*sermatecroot24
+2024-10-12 17:52:37 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:37 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:37 - test_case_log - INFO - 等待('xpath', "//*[@class='ant-input-suffix']/span")元素可见
+2024-10-12 17:52:37 - test_case_log - INFO - 等待('xpath', "//*[@class='ant-input-suffix']/span")元素可见
+2024-10-12 17:52:37 - test_case_log - INFO - ('xpath', "//*[@class='ant-input-suffix']/span")元素可见成功
+2024-10-12 17:52:37 - test_case_log - INFO - ('xpath', "//*[@class='ant-input-suffix']/span")元素可见成功
+2024-10-12 17:52:37 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:37 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:38 - test_case_log - INFO - 准备获取元素属性信息
+2024-10-12 17:52:38 - test_case_log - INFO - 准备获取元素属性信息
+2024-10-12 17:52:38 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:38 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:38 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:38 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:38 - test_case_log - INFO - 获取元素属性信息成功:*sermatecroot24
+2024-10-12 17:52:38 - test_case_log - INFO - 获取元素属性信息成功:*sermatecroot24
+2024-10-12 17:52:38 - test_case_log - INFO - Test_Case_Login_Fail_005执行用例成功
+2024-10-12 17:52:38 - test_case_log - INFO - Test_Case_Login_Fail_005执行用例成功
+2024-10-12 17:52:38 - test_case_log - INFO - 准备退出浏览器
+2024-10-12 17:52:38 - test_case_log - INFO - 准备退出浏览器
+2024-10-12 17:52:40 - test_case_log - INFO - 退出浏览器成功
+2024-10-12 17:52:40 - test_case_log - INFO - 退出浏览器成功
+2024-10-12 17:52:40 - test_case_log - INFO - Test_Case_Login_Success_001开始执行用例
+2024-10-12 17:52:40 - test_case_log - INFO - Test_Case_Login_Success_001开始执行用例
+2024-10-12 17:52:41 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/login
+2024-10-12 17:52:41 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/login
+2024-10-12 17:52:42 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/login
+2024-10-12 17:52:42 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/login
+2024-10-12 17:52:42 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:42 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:42 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:42 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:42 - test_case_log - INFO - 准备输入内容:admin
+2024-10-12 17:52:42 - test_case_log - INFO - 准备输入内容:admin
+2024-10-12 17:52:42 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:42 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:42 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:42 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:42 - test_case_log - INFO - 输入内容成功:admin
+2024-10-12 17:52:42 - test_case_log - INFO - 输入内容成功:admin
+2024-10-12 17:52:42 - test_case_log - INFO - 准备输入内容:*sermatecroot24
+2024-10-12 17:52:42 - test_case_log - INFO - 准备输入内容:*sermatecroot24
+2024-10-12 17:52:42 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:42 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:42 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:42 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:43 - test_case_log - INFO - 输入内容成功:*sermatecroot24
+2024-10-12 17:52:43 - test_case_log - INFO - 输入内容成功:*sermatecroot24
+2024-10-12 17:52:43 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:43 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:43 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-10-12 17:52:43 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-10-12 17:52:43 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-10-12 17:52:43 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-10-12 17:52:43 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:43 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:43 - test_case_log - INFO - 准备获取元素文本信息
+2024-10-12 17:52:43 - test_case_log - INFO - 准备获取元素文本信息
+2024-10-12 17:52:43 - test_case_log - INFO - 等待('xpath', "//h3[contains(text(),'采日运维管理系统')]")元素可见
+2024-10-12 17:52:43 - test_case_log - INFO - 等待('xpath', "//h3[contains(text(),'采日运维管理系统')]")元素可见
+2024-10-12 17:52:44 - test_case_log - INFO - ('xpath', "//h3[contains(text(),'采日运维管理系统')]")元素可见成功
+2024-10-12 17:52:44 - test_case_log - INFO - ('xpath', "//h3[contains(text(),'采日运维管理系统')]")元素可见成功
+2024-10-12 17:52:44 - test_case_log - INFO - 获取元素文本信息成功:采日运维管理系统
+2024-10-12 17:52:44 - test_case_log - INFO - 获取元素文本信息成功:采日运维管理系统
+2024-10-12 17:52:44 - test_case_log - INFO - Test_Case_Login_Success_001执行用例成功
+2024-10-12 17:52:44 - test_case_log - INFO - Test_Case_Login_Success_001执行用例成功
+2024-10-12 17:52:44 - test_case_log - INFO - 开始登录前置
+2024-10-12 17:52:44 - test_case_log - INFO - 开始登录前置
+2024-10-12 17:52:45 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/login
+2024-10-12 17:52:45 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/login
+2024-10-12 17:52:46 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/login
+2024-10-12 17:52:46 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/login
+2024-10-12 17:52:46 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:46 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:46 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:46 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:46 - test_case_log - INFO - 准备输入内容:admin
+2024-10-12 17:52:46 - test_case_log - INFO - 准备输入内容:admin
+2024-10-12 17:52:46 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:46 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:47 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:47 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:47 - test_case_log - INFO - 输入内容成功:admin
+2024-10-12 17:52:47 - test_case_log - INFO - 输入内容成功:admin
+2024-10-12 17:52:47 - test_case_log - INFO - 准备输入内容:*sermatecroot24
+2024-10-12 17:52:47 - test_case_log - INFO - 准备输入内容:*sermatecroot24
+2024-10-12 17:52:47 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:47 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:47 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:47 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:47 - test_case_log - INFO - 输入内容成功:*sermatecroot24
+2024-10-12 17:52:47 - test_case_log - INFO - 输入内容成功:*sermatecroot24
+2024-10-12 17:52:47 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:47 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:47 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-10-12 17:52:47 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-10-12 17:52:47 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-10-12 17:52:47 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-10-12 17:52:47 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:47 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:47 - test_case_log - INFO - 前置登录成功
+2024-10-12 17:52:47 - test_case_log - INFO - 前置登录成功
+2024-10-12 17:52:47 - test_case_log - INFO - TestAccountManagement01开始执行用例
+2024-10-12 17:52:47 - test_case_log - INFO - TestAccountManagement01开始执行用例
+2024-10-12 17:52:47 - test_case_log - INFO - 点击系统配置
+2024-10-12 17:52:47 - test_case_log - INFO - 点击系统配置
+2024-10-12 17:52:47 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:47 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:47 - test_case_log - INFO - 等待('xpath', '//*[text()="系统配置"]')元素可见
+2024-10-12 17:52:47 - test_case_log - INFO - 等待('xpath', '//*[text()="系统配置"]')元素可见
+2024-10-12 17:52:48 - test_case_log - INFO - ('xpath', '//*[text()="系统配置"]')元素可见成功
+2024-10-12 17:52:48 - test_case_log - INFO - ('xpath', '//*[text()="系统配置"]')元素可见成功
+2024-10-12 17:52:48 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:48 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:48 - test_case_log - INFO - 点击账号管理
+2024-10-12 17:52:48 - test_case_log - INFO - 点击账号管理
+2024-10-12 17:52:48 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:48 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:48 - test_case_log - INFO - 等待('xpath', '//*[text()="账号管理"]')元素可见
+2024-10-12 17:52:48 - test_case_log - INFO - 等待('xpath', '//*[text()="账号管理"]')元素可见
+2024-10-12 17:52:50 - test_case_log - INFO - ('xpath', '//*[text()="账号管理"]')元素可见成功
+2024-10-12 17:52:50 - test_case_log - INFO - ('xpath', '//*[text()="账号管理"]')元素可见成功
+2024-10-12 17:52:50 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:50 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:50 - test_case_log - INFO - 读取新增账号按钮文本
+2024-10-12 17:52:50 - test_case_log - INFO - 读取新增账号按钮文本
+2024-10-12 17:52:50 - test_case_log - INFO - 准备获取元素文本信息
+2024-10-12 17:52:50 - test_case_log - INFO - 准备获取元素文本信息
+2024-10-12 17:52:50 - test_case_log - INFO - 等待('xpath', '//*[text()="新增账号"]')元素可见
+2024-10-12 17:52:50 - test_case_log - INFO - 等待('xpath', '//*[text()="新增账号"]')元素可见
+2024-10-12 17:52:52 - test_case_log - INFO - ('xpath', '//*[text()="新增账号"]')元素可见成功
+2024-10-12 17:52:52 - test_case_log - INFO - ('xpath', '//*[text()="新增账号"]')元素可见成功
+2024-10-12 17:52:52 - test_case_log - INFO - 获取元素文本信息成功:新增账号
+2024-10-12 17:52:52 - test_case_log - INFO - 获取元素文本信息成功:新增账号
+2024-10-12 17:52:52 - test_case_log - INFO - TestAccountManagement01执行用例成功
+2024-10-12 17:52:52 - test_case_log - INFO - TestAccountManagement01执行用例成功
+2024-10-12 17:52:52 - test_case_log - INFO - 开始登录前置
+2024-10-12 17:52:52 - test_case_log - INFO - 开始登录前置
+2024-10-12 17:52:53 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/login
+2024-10-12 17:52:53 - test_case_log - INFO - 准备打开url:http://192.168.1.82:3322/login
+2024-10-12 17:52:54 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/login
+2024-10-12 17:52:54 - test_case_log - INFO - 打开url成功:http://192.168.1.82:3322/login
+2024-10-12 17:52:54 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:54 - test_case_log - INFO - 准备最大化当前页面
+2024-10-12 17:52:54 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:54 - test_case_log - INFO - 最大化当前页面成功
+2024-10-12 17:52:54 - test_case_log - INFO - 准备输入内容:admin
+2024-10-12 17:52:54 - test_case_log - INFO - 准备输入内容:admin
+2024-10-12 17:52:54 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:54 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-10-12 17:52:55 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:55 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-10-12 17:52:55 - test_case_log - INFO - 输入内容成功:admin
+2024-10-12 17:52:55 - test_case_log - INFO - 输入内容成功:admin
+2024-10-12 17:52:55 - test_case_log - INFO - 准备输入内容:*sermatecroot24
+2024-10-12 17:52:55 - test_case_log - INFO - 准备输入内容:*sermatecroot24
+2024-10-12 17:52:55 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:55 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-10-12 17:52:55 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:55 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-10-12 17:52:55 - test_case_log - INFO - 输入内容成功:*sermatecroot24
+2024-10-12 17:52:55 - test_case_log - INFO - 输入内容成功:*sermatecroot24
+2024-10-12 17:52:55 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:55 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:55 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-10-12 17:52:55 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-10-12 17:52:55 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-10-12 17:52:55 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-10-12 17:52:56 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:56 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:56 - test_case_log - INFO - 前置登录成功
+2024-10-12 17:52:56 - test_case_log - INFO - 前置登录成功
+2024-10-12 17:52:56 - test_case_log - INFO - TestAccountManagement02开始执行用例
+2024-10-12 17:52:56 - test_case_log - INFO - TestAccountManagement02开始执行用例
+2024-10-12 17:52:56 - test_case_log - INFO - 点击系统配置
+2024-10-12 17:52:56 - test_case_log - INFO - 点击系统配置
+2024-10-12 17:52:56 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:56 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:56 - test_case_log - INFO - 等待('xpath', '//*[text()="系统配置"]')元素可见
+2024-10-12 17:52:56 - test_case_log - INFO - 等待('xpath', '//*[text()="系统配置"]')元素可见
+2024-10-12 17:52:57 - test_case_log - INFO - ('xpath', '//*[text()="系统配置"]')元素可见成功
+2024-10-12 17:52:57 - test_case_log - INFO - ('xpath', '//*[text()="系统配置"]')元素可见成功
+2024-10-12 17:52:57 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:57 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:57 - test_case_log - INFO - 点击账号管理
+2024-10-12 17:52:57 - test_case_log - INFO - 点击账号管理
+2024-10-12 17:52:57 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:57 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:57 - test_case_log - INFO - 等待('xpath', '//*[text()="账号管理"]')元素可见
+2024-10-12 17:52:57 - test_case_log - INFO - 等待('xpath', '//*[text()="账号管理"]')元素可见
+2024-10-12 17:52:58 - test_case_log - INFO - ('xpath', '//*[text()="账号管理"]')元素可见成功
+2024-10-12 17:52:58 - test_case_log - INFO - ('xpath', '//*[text()="账号管理"]')元素可见成功
+2024-10-12 17:52:58 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:58 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:58 - test_case_log - INFO - 点击新增账号
+2024-10-12 17:52:58 - test_case_log - INFO - 点击新增账号
+2024-10-12 17:52:58 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:58 - test_case_log - INFO - 准备点击
+2024-10-12 17:52:58 - test_case_log - INFO - 等待('xpath', '//*[text()="新增账号"]')元素可见
+2024-10-12 17:52:58 - test_case_log - INFO - 等待('xpath', '//*[text()="新增账号"]')元素可见
+2024-10-12 17:52:59 - test_case_log - INFO - ('xpath', '//*[text()="新增账号"]')元素可见成功
+2024-10-12 17:52:59 - test_case_log - INFO - ('xpath', '//*[text()="新增账号"]')元素可见成功
+2024-10-12 17:52:59 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:59 - test_case_log - INFO - 点击成功
+2024-10-12 17:52:59 - test_case_log - INFO - 准备输入内容:test_account
+2024-10-12 17:52:59 - test_case_log - INFO - 准备输入内容:test_account
+2024-10-12 17:52:59 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入账号"]')元素可见
+2024-10-12 17:52:59 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入账号"]')元素可见
+2024-10-12 17:53:00 - test_case_log - INFO - ('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入账号"]')元素可见成功
+2024-10-12 17:53:00 - test_case_log - INFO - ('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入账号"]')元素可见成功
+2024-10-12 17:53:00 - test_case_log - INFO - 输入内容成功:test_account
+2024-10-12 17:53:00 - test_case_log - INFO - 输入内容成功:test_account
+2024-10-12 17:53:00 - test_case_log - INFO - 准备输入内容:test_name
+2024-10-12 17:53:00 - test_case_log - INFO - 准备输入内容:test_name
+2024-10-12 17:53:00 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入姓名"]')元素可见
+2024-10-12 17:53:00 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入姓名"]')元素可见
+2024-10-12 17:53:00 - test_case_log - INFO - ('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入姓名"]')元素可见成功
+2024-10-12 17:53:00 - test_case_log - INFO - ('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入姓名"]')元素可见成功
+2024-10-12 17:53:00 - test_case_log - INFO - 输入内容成功:test_name
+2024-10-12 17:53:00 - test_case_log - INFO - 输入内容成功:test_name
+2024-10-12 17:53:00 - test_case_log - INFO - 准备输入内容:test_password
+2024-10-12 17:53:00 - test_case_log - INFO - 准备输入内容:test_password
+2024-10-12 17:53:00 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入密码"]')元素可见
+2024-10-12 17:53:00 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入密码"]')元素可见
+2024-10-12 17:53:00 - test_case_log - INFO - ('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入密码"]')元素可见成功
+2024-10-12 17:53:00 - test_case_log - INFO - ('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入密码"]')元素可见成功
+2024-10-12 17:53:00 - test_case_log - INFO - 输入内容成功:test_password
+2024-10-12 17:53:00 - test_case_log - INFO - 输入内容成功:test_password
+2024-10-12 17:53:00 - test_case_log - INFO - 准备输入内容:test_phone
+2024-10-12 17:53:00 - test_case_log - INFO - 准备输入内容:test_phone
+2024-10-12 17:53:00 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入关联手机号"]')元素可见
+2024-10-12 17:53:00 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入关联手机号"]')元素可见
+2024-10-12 17:53:00 - test_case_log - INFO - ('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入关联手机号"]')元素可见成功
+2024-10-12 17:53:00 - test_case_log - INFO - ('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入关联手机号"]')元素可见成功
+2024-10-12 17:53:00 - test_case_log - INFO - 输入内容成功:test_phone
+2024-10-12 17:53:00 - test_case_log - INFO - 输入内容成功:test_phone
+2024-10-12 17:53:00 - test_case_log - INFO - 准备点击
+2024-10-12 17:53:00 - test_case_log - INFO - 准备点击
+2024-10-12 17:53:00 - test_case_log - INFO - 等待('xpath', '(//*[@class="ant-select-selection-overflow"])[1]')元素可见
+2024-10-12 17:53:00 - test_case_log - INFO - 等待('xpath', '(//*[@class="ant-select-selection-overflow"])[1]')元素可见
+2024-10-12 17:53:00 - test_case_log - INFO - ('xpath', '(//*[@class="ant-select-selection-overflow"])[1]')元素可见成功
+2024-10-12 17:53:00 - test_case_log - INFO - ('xpath', '(//*[@class="ant-select-selection-overflow"])[1]')元素可见成功
+2024-10-12 17:53:00 - test_case_log - INFO - 点击成功
+2024-10-12 17:53:00 - test_case_log - INFO - 点击成功
+2024-10-12 17:53:00 - test_case_log - INFO - 准备点击
+2024-10-12 17:53:00 - test_case_log - INFO - 准备点击
+2024-10-12 17:53:00 - test_case_log - INFO - 等待('xpath', '//*[@title="大储运维（宁夏）"]')元素可见
+2024-10-12 17:53:00 - test_case_log - INFO - 等待('xpath', '//*[@title="大储运维（宁夏）"]')元素可见
+2024-10-12 17:53:02 - test_case_log - INFO - ('xpath', '//*[@title="大储运维（宁夏）"]')元素可见成功
+2024-10-12 17:53:02 - test_case_log - INFO - ('xpath', '//*[@title="大储运维（宁夏）"]')元素可见成功
+2024-10-12 17:53:02 - test_case_log - INFO - 点击成功
+2024-10-12 17:53:02 - test_case_log - INFO - 点击成功
+2024-10-12 17:53:02 - test_case_log - INFO - 准备点击
+2024-10-12 17:53:02 - test_case_log - INFO - 准备点击
+2024-10-12 17:53:02 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-modal-content"]')元素可见
+2024-10-12 17:53:02 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-modal-content"]')元素可见
+2024-10-12 17:53:02 - test_case_log - INFO - ('xpath', '//*[@class="ant-modal-content"]')元素可见成功
+2024-10-12 17:53:02 - test_case_log - INFO - ('xpath', '//*[@class="ant-modal-content"]')元素可见成功
+2024-10-12 17:53:02 - test_case_log - INFO - 点击成功
+2024-10-12 17:53:02 - test_case_log - INFO - 点击成功
+2024-10-12 17:53:02 - test_case_log - INFO - 准备点击
+2024-10-12 17:53:02 - test_case_log - INFO - 准备点击
+2024-10-12 17:53:02 - test_case_log - INFO - 等待('xpath', '(//*[@class="ant-select-selection-overflow"])[2]')元素可见
+2024-10-12 17:53:02 - test_case_log - INFO - 等待('xpath', '(//*[@class="ant-select-selection-overflow"])[2]')元素可见
+2024-10-12 17:53:02 - test_case_log - INFO - ('xpath', '(//*[@class="ant-select-selection-overflow"])[2]')元素可见成功
+2024-10-12 17:53:02 - test_case_log - INFO - ('xpath', '(//*[@class="ant-select-selection-overflow"])[2]')元素可见成功
+2024-10-12 17:53:02 - test_case_log - INFO - 点击成功
+2024-10-12 17:53:02 - test_case_log - INFO - 点击成功
+2024-10-12 17:53:02 - test_case_log - INFO - 准备点击
+2024-10-12 17:53:02 - test_case_log - INFO - 准备点击
+2024-10-12 17:53:02 - test_case_log - INFO - 等待('xpath', '//*[@title="系统管理员"]')元素可见
+2024-10-12 17:53:02 - test_case_log - INFO - 等待('xpath', '//*[@title="系统管理员"]')元素可见
+2024-10-12 17:53:03 - test_case_log - INFO - ('xpath', '//*[@title="系统管理员"]')元素可见成功
+2024-10-12 17:53:03 - test_case_log - INFO - ('xpath', '//*[@title="系统管理员"]')元素可见成功
+2024-10-12 17:53:03 - test_case_log - INFO - 点击成功
+2024-10-12 17:53:03 - test_case_log - INFO - 点击成功
+2024-10-12 17:53:03 - test_case_log - INFO - 准备点击
+2024-10-12 17:53:03 - test_case_log - INFO - 准备点击
+2024-10-12 17:53:03 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-modal-content"]')元素可见
+2024-10-12 17:53:03 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-modal-content"]')元素可见
+2024-10-12 17:53:03 - test_case_log - INFO - ('xpath', '//*[@class="ant-modal-content"]')元素可见成功
+2024-10-12 17:53:03 - test_case_log - INFO - ('xpath', '//*[@class="ant-modal-content"]')元素可见成功
+2024-10-12 17:53:03 - test_case_log - INFO - 点击成功
+2024-10-12 17:53:03 - test_case_log - INFO - 点击成功
+2024-10-12 17:53:03 - test_case_log - INFO - 准备输入内容:test_remark
+2024-10-12 17:53:03 - test_case_log - INFO - 准备输入内容:test_remark
+2024-10-12 17:53:03 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入备注"]')元素可见
+2024-10-12 17:53:03 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入备注"]')元素可见
+2024-10-12 17:53:03 - test_case_log - INFO - ('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入备注"]')元素可见成功
+2024-10-12 17:53:03 - test_case_log - INFO - ('xpath', '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入备注"]')元素可见成功
+2024-10-12 17:53:03 - test_case_log - INFO - 输入内容成功:test_remark
+2024-10-12 17:53:03 - test_case_log - INFO - 输入内容成功:test_remark
+2024-10-12 17:53:03 - test_case_log - INFO - 点击新增账号确认按钮
+2024-10-12 17:53:03 - test_case_log - INFO - 点击新增账号确认按钮
+2024-10-12 17:53:03 - test_case_log - INFO - 准备点击
+2024-10-12 17:53:03 - test_case_log - INFO - 准备点击
+2024-10-12 17:53:03 - test_case_log - INFO - 等待('xpath', '//*[text()="确 定"]')元素可见
+2024-10-12 17:53:03 - test_case_log - INFO - 等待('xpath', '//*[text()="确 定"]')元素可见
+2024-10-12 17:53:03 - test_case_log - INFO - ('xpath', '//*[text()="确 定"]')元素可见成功
+2024-10-12 17:53:03 - test_case_log - INFO - ('xpath', '//*[text()="确 定"]')元素可见成功
+2024-10-12 17:53:03 - test_case_log - INFO - 点击成功
+2024-10-12 17:53:03 - test_case_log - INFO - 点击成功
+2024-10-12 17:53:03 - test_case_log - INFO - 获取页面提示信息
+2024-10-12 17:53:03 - test_case_log - INFO - 获取页面提示信息
+2024-10-12 17:53:03 - test_case_log - INFO - 准备获取元素文本信息
+2024-10-12 17:53:03 - test_case_log - INFO - 准备获取元素文本信息
+2024-10-12 17:53:03 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-message-notice-content"]//span[2]')元素可见
+2024-10-12 17:53:03 - test_case_log - INFO - 等待('xpath', '//*[@class="ant-message-notice-content"]//span[2]')元素可见
+2024-10-12 17:53:04 - test_case_log - INFO - ('xpath', '//*[@class="ant-message-notice-content"]//span[2]')元素可见成功
+2024-10-12 17:53:04 - test_case_log - INFO - ('xpath', '//*[@class="ant-message-notice-content"]//span[2]')元素可见成功
+2024-10-12 17:53:04 - test_case_log - INFO - 获取元素文本信息成功:操作成功
+2024-10-12 17:53:04 - test_case_log - INFO - 获取元素文本信息成功:操作成功
+2024-10-12 17:53:04 - test_case_log - INFO - TestAccountManagement02执行用例成功
+2024-10-12 17:53:04 - test_case_log - INFO - TestAccountManagement02执行用例成功
+2024-10-12 17:53:04 - test_case_log - INFO - 开始登录后置
+2024-10-12 17:53:04 - test_case_log - INFO - 开始登录后置
+2024-10-12 17:53:04 - test_case_log - INFO - 登录后置完成
+2024-10-12 17:53:04 - test_case_log - INFO - 登录后置完成
+2024-10-12 17:53:04 - test_case_log - INFO - 开始登录后置
+2024-10-12 17:53:04 - test_case_log - INFO - 开始登录后置
+2024-10-12 17:53:04 - test_case_log - INFO - 登录后置完成
+2024-10-12 17:53:04 - test_case_log - INFO - 登录后置完成

@@ -1,0 +1,12 @@
+selenium==3.141.0
+urllib3 == 1.26.2
+allure-pytes == 2.13.5
+pytest
+pandas
+openpyxl
+pyyaml
+PyMySql
+openpyxl
+requests
+shutil
+pyautogui

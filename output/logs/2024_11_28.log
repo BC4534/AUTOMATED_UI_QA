@@ -1,0 +1,86 @@
+2024-11-28 11:25:21 - test_case_log - INFO - 开始登录前置
+2024-11-28 11:25:21 - test_case_log - INFO - 开始登录前置
+2024-11-28 11:25:23 - test_case_log - INFO - 准备打开url:https://mms.sermatec-cloud.com/login
+2024-11-28 11:25:23 - test_case_log - INFO - 准备打开url:https://mms.sermatec-cloud.com/login
+2024-11-28 11:25:24 - test_case_log - INFO - 打开url成功:https://mms.sermatec-cloud.com/login
+2024-11-28 11:25:24 - test_case_log - INFO - 打开url成功:https://mms.sermatec-cloud.com/login
+2024-11-28 11:25:24 - test_case_log - INFO - 准备最大化当前页面
+2024-11-28 11:25:24 - test_case_log - INFO - 准备最大化当前页面
+2024-11-28 11:25:24 - test_case_log - INFO - 最大化当前页面成功
+2024-11-28 11:25:24 - test_case_log - INFO - 最大化当前页面成功
+2024-11-28 11:25:24 - test_case_log - INFO - 准备输入内容:admin
+2024-11-28 11:25:24 - test_case_log - INFO - 准备输入内容:admin
+2024-11-28 11:25:24 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-11-28 11:25:24 - test_case_log - INFO - 等待('id', 'username')元素可见
+2024-11-28 11:25:25 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-11-28 11:25:25 - test_case_log - INFO - ('id', 'username')元素可见成功
+2024-11-28 11:25:26 - test_case_log - INFO - 输入内容成功:admin
+2024-11-28 11:25:26 - test_case_log - INFO - 输入内容成功:admin
+2024-11-28 11:25:26 - test_case_log - INFO - 准备输入内容:sermatec2023
+2024-11-28 11:25:26 - test_case_log - INFO - 准备输入内容:sermatec2023
+2024-11-28 11:25:26 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-11-28 11:25:26 - test_case_log - INFO - 等待('id', 'password')元素可见
+2024-11-28 11:25:26 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-11-28 11:25:26 - test_case_log - INFO - ('id', 'password')元素可见成功
+2024-11-28 11:25:26 - test_case_log - INFO - 输入内容成功:sermatec2023
+2024-11-28 11:25:26 - test_case_log - INFO - 输入内容成功:sermatec2023
+2024-11-28 11:25:26 - test_case_log - INFO - 准备点击
+2024-11-28 11:25:26 - test_case_log - INFO - 准备点击
+2024-11-28 11:25:26 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-11-28 11:25:26 - test_case_log - INFO - 等待('xpath', "//*[@type='submit']")元素可见
+2024-11-28 11:25:26 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-11-28 11:25:26 - test_case_log - INFO - ('xpath', "//*[@type='submit']")元素可见成功
+2024-11-28 11:25:26 - test_case_log - INFO - 点击成功
+2024-11-28 11:25:26 - test_case_log - INFO - 点击成功
+2024-11-28 11:25:26 - test_case_log - INFO - 前置登录成功
+2024-11-28 11:25:26 - test_case_log - INFO - 前置登录成功
+2024-11-28 11:25:26 - test_case_log - INFO - TestAccountManagement01开始执行用例
+2024-11-28 11:25:26 - test_case_log - INFO - TestAccountManagement01开始执行用例
+2024-11-28 11:25:26 - test_case_log - INFO - 点击系统配置
+2024-11-28 11:25:26 - test_case_log - INFO - 点击系统配置
+2024-11-28 11:25:26 - test_case_log - INFO - 准备点击
+2024-11-28 11:25:26 - test_case_log - INFO - 准备点击
+2024-11-28 11:25:26 - test_case_log - INFO - 等待('xpath', '//*[text()="系统配置"]')元素可见
+2024-11-28 11:25:26 - test_case_log - INFO - 等待('xpath', '//*[text()="系统配置"]')元素可见
+2024-11-28 11:25:27 - test_case_log - INFO - ('xpath', '//*[text()="系统配置"]')元素可见成功
+2024-11-28 11:25:27 - test_case_log - INFO - ('xpath', '//*[text()="系统配置"]')元素可见成功
+2024-11-28 11:25:27 - test_case_log - INFO - 点击成功
+2024-11-28 11:25:27 - test_case_log - INFO - 点击成功
+2024-11-28 11:25:27 - test_case_log - INFO - 点击账号管理
+2024-11-28 11:25:27 - test_case_log - INFO - 点击账号管理
+2024-11-28 11:25:27 - test_case_log - INFO - 准备点击
+2024-11-28 11:25:27 - test_case_log - INFO - 准备点击
+2024-11-28 11:25:27 - test_case_log - INFO - 等待('xpath', '//*[text()="账号管理"]')元素可见
+2024-11-28 11:25:27 - test_case_log - INFO - 等待('xpath', '//*[text()="账号管理"]')元素可见
+2024-11-28 11:25:28 - test_case_log - ERROR - 等待元素可见失败:Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.86)
+
+2024-11-28 11:25:28 - test_case_log - ERROR - 等待元素可见失败:Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.86)
+
+2024-11-28 11:25:28 - test_case_log - ERROR - 点击失败:Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.86)
+
+2024-11-28 11:25:28 - test_case_log - ERROR - 点击失败:Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.86)
+
+2024-11-28 11:25:28 - test_case_log - ERROR - 点击账号管理失败
+2024-11-28 11:25:28 - test_case_log - ERROR - 点击账号管理失败
+2024-11-28 11:25:28 - test_case_log - INFO - TestAccountManagement01执行用例失败
+2024-11-28 11:25:28 - test_case_log - INFO - TestAccountManagement01执行用例失败
+2024-11-28 11:25:28 - test_case_log - INFO - 准备截图
+2024-11-28 11:25:28 - test_case_log - INFO - 准备截图
+2024-11-28 11:25:28 - test_case_log - ERROR - 截图失败:Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.86)
+
+2024-11-28 11:25:28 - test_case_log - ERROR - 截图失败:Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.86)
+
+2024-11-28 11:25:28 - test_case_log - INFO - 开始登录后置
+2024-11-28 11:25:28 - test_case_log - INFO - 开始登录后置
