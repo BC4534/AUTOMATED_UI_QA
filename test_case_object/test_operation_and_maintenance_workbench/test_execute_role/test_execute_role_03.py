@@ -1,6 +1,6 @@
 import allure
 
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 from test_case_page.operation_and_maintenance_workbench.execute_role_page import ExecuteRolePage
 from test_case_page.work_order_management.my_work_order.my_already_done_page import MyAlreadyDonePage
 from test_case_page.work_order_management.my_work_order.my_need_to_do_page import MyNeedToDoPage

@@ -4,7 +4,7 @@ from selenium import webdriver
 from common.driverhandler import get_driver
 from test_case_object.conftest import login_data, login_driver
 from test_case_page.loginpage import LoginPage
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 logger = Logger()
 
 

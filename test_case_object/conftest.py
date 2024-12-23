@@ -1,7 +1,7 @@
 import time
 from test_case_page.loginpage import LoginPage
 import pytest
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 from common.yamlhandler import YamlHandler
 from common import all_file_path
 from common.driverhandler import get_driver

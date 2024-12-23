@@ -1,7 +1,7 @@
 import allure
 import pytest
 
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 from test_case_locator.system_configuration.account_management_locator.account_management_locator import \
     AccountManagementLocator
 from test_case_object.conftest import login_driver

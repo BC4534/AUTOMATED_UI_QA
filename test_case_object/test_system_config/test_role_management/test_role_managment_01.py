@@ -1,7 +1,7 @@
 import allure
 
 from test_case_page.system_configuration.role_management_page import RoleManagementPage
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 
 
 logger = Logger()

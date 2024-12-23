@@ -3,7 +3,7 @@ import allure
 import pytest
 from selenium import webdriver
 from test_case_page.loginpage import LoginPage
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 from common.driverhandler import get_driver
 logger = Logger()
 '''

@@ -1,7 +1,7 @@
 import allure
 import pytest
 
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 from test_case_page.operation_and_maintenance_workbench.management_role_page import ManagementRolePage
 from test_case_page.work_order_management.my_work_order.my_need_to_do_page import MyNeedToDoPage
 from test_case_page.work_order_management.work_order_list_page import WorkOrderListPage

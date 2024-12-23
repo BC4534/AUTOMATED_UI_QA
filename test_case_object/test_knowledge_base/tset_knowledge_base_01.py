@@ -1,4 +1,4 @@
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 from test_case_object.conftest import login_driver
 from test_case_page.knowledge_base.knowledge_base_page import KnowledgeBasePage
 

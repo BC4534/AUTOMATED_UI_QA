@@ -3,11 +3,10 @@ import os
 import pyautogui
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
-from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 from selenium import webdriver
 from test_case_locator.login_locator import LoginLocator
 from common import all_file_path

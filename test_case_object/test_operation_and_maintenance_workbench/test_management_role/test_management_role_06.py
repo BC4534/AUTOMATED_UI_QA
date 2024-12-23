@@ -1,7 +1,7 @@
 import allure
 import pytest
 
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 from test_case_page.operation_and_maintenance_workbench.management_role_page import ManagementRolePage
 
 logger = Logger()

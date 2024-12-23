@@ -6,7 +6,7 @@ from selenium import webdriver
 
 from test_case_locator.login_locator import LoginLocator
 from test_case_page.loginpage import LoginPage
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 from common.driverhandler import get_driver
 logger = Logger()
 '''

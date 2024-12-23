@@ -2,7 +2,7 @@ import time
 
 from common.base_method import BasePage
 from test_case_locator.system_configuration.role_management_locator.role_management_locator import RoleManagementLocator
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 
 
 logger = Logger()

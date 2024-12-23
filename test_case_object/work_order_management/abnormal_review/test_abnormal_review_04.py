@@ -1,7 +1,7 @@
 import allure
 import pytest
 
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 from test_case_page.work_order_management.abnormal_review.abnormal_statistic_page import AbnormalStatisticPage
 
 logger = Logger()

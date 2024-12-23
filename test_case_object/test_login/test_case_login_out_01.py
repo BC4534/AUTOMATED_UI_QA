@@ -2,7 +2,7 @@ import allure
 import pytest
 from test_case_object.conftest import  login_driver
 from test_case_page.loginpage import LoginPage
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 
 logger = Logger()
 

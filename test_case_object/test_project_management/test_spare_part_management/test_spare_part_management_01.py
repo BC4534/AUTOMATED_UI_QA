@@ -1,7 +1,7 @@
 import allure
 import pytest
 
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 from test_case_page.project_management.spare_part_management_page import SparePartManagementPage
 
 logger = Logger()

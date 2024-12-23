@@ -4,7 +4,7 @@ import allure
 from selenium.webdriver.common.by import By
 
 from common.base_method import BasePage
-from common.mylogger import Logger
+from common.loggerhandler import Logger
 from test_case_locator.system_configuration.account_management_locator.account_management_locator import \
     AccountManagementLocator
 
