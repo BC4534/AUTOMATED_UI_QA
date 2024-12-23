@@ -7,26 +7,15 @@ from common.all_file_path import log_path
 
 # 自定义日志过滤器类
 class LogFilter(logging.Filter):
-    """自定义日志过滤器"""
-
+    """自定义日志过滤器，过滤掉INFO级别的日志"""
     def filter(self, record):
         # 过滤掉info级别的日志
-        # if record.levelno == logging.INFO:
-        #     return False
+        # return record.levelno != logging.INFO
         return True
 
+# Logger类用于封装日志功能
 class Logger:
-    """
-    Logger类用于封装日志功能，提供信息、调试、警告、错误和严重错误等不同级别的日志记录方法。
-    """
-    def __init__(self, name="运维系统UI测试日志", level=logging.INFO, log_dir= log_path):
-        """
-        初始化Logger类实例。
-        Parameters:
-            name: 日志记录器的名称
-            level: 日志级别，默认为logging.INFO。
-            log_dir: 日志文件存放路径
-        """
+    def __init__(self, name="运维系统UI测试日志", level=logging.INFO, log_dir=log_path):
         self.logger = logging.getLogger(name)
         self.logger.setLevel(level)  # 设置日志级别
         self.logger.addFilter(LogFilter())  # 添加自定义日志过滤器
@@ -44,41 +33,29 @@ class Logger:
 
         # 创建控制台日志处理器
         self.console_handler = logging.StreamHandler(sys.stdout)
-        self.console_handler.setLevel(level)  # 设置控制台处理器的日志级别
+        self.console_handler.setLevel(logging.INFO)
+        # self.console_handler.setLevel(logging.WARNING)  # 设置控制台处理器的日志级别
 
         # 设置日志格式
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(threadName)s - %(message)s')
         self.file_handler.setFormatter(formatter)  # 为文件处理器设置格式
         self.console_handler.setFormatter(formatter)  # 为控制台处理器设置格式
 
-        # 将处理器添加到日志记录器
-        self.logger.addHandler(self.file_handler)
-        self.logger.addHandler(self.console_handler)
+        # 只添加处理器一次
+        if not self.logger.handlers:
+            self.logger.addHandler(self.file_handler)
+            self.logger.addHandler(self.console_handler)
 
     def get_logger(self):
         return self.logger
-
-    def critical(self, msg):
-        self.logger.critical(msg)
-
-    def debug(self, msg):
-        self.logger.debug(msg)
-
-    def error(self, msg):
-        self.logger.error(msg)
-
-    def info(self, msg):
-        self.logger.info(msg)
-
-    def warning(self, msg):
-        self.logger.warning(msg)
 
 # 配置日志
 logger = Logger().get_logger()
 
 if __name__ == '__main__':
-    logger.info("Hello, world!")
-    logger.warning("This is a warning message.")
-    logger.error("An error has occurred.")
-    logger.debug("This is a debug message.")
-    logger.critical("A critical error has occurred.")
+    # 测试不同级别的日志记录
+    logger.debug("debug")      # 将被记录，因为级别低于DEBUG的不会被记录
+    logger.info("info")        # 将不会被记录，因为INFO级别的日志被过滤器过滤掉了
+    logger.warning("warning")  # 将被记录
+    logger.error("error")      # 将被记录
+    logger.critical("critical")  # 将被记录

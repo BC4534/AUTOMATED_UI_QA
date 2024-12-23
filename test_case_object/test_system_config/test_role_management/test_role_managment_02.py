@@ -1,10 +1,7 @@
 import allure
-
 from test_case_page.system_configuration.role_management_page import RoleManagementPage
-from common.loggerhandler import Logger
+from common.loggerhandler import logger
 
-
-logger = Logger()
 
 data = {
     "name": "测试角色",
@@ -19,9 +16,10 @@ class TestRoleManagment02():
     """
     
     def test_role_management_02(self, login_driver):
+        role_management_page = RoleManagementPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            role_management_page = RoleManagementPage(login_driver)
+            role_management_page.role_management_01()
             role_management_page.role_management_02(data["name"], data["remark"])
             assert role_management_page.get_page_tip() == "操作成功"
             logger.info(f"{self.__class__.__name__}执行用例成功")

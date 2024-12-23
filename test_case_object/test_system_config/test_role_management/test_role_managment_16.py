@@ -1,9 +1,8 @@
 import allure
-
 from test_case_page.system_configuration.role_management_page import RoleManagementPage
-from common.loggerhandler import Logger
+from common.loggerhandler import logger
 
-logger = Logger()
+
 
 data = {
     "name": "系统管理员",
@@ -18,9 +17,10 @@ class TestRoleManagment16():
     """
 
     def test_role_management_16_1(self, login_driver):
+        role_management_page = RoleManagementPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            role_management_page = RoleManagementPage(login_driver)
+            role_management_page.role_management_01()
             role_management_page.role_management_16(data["name"])
             role_management_page.click_search_button()
             assert data["name"] in role_management_page.get_first_role_name()
@@ -30,9 +30,9 @@ class TestRoleManagment16():
             role_management_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
     def test_role_management_16_2(self, login_driver):
+        role_management_page = RoleManagementPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            role_management_page = RoleManagementPage(login_driver)
             role_management_page.role_management_16(data["name"])
             role_management_page.click_reset_button()
             assert  role_management_page.get_select_role_name_input() == ""

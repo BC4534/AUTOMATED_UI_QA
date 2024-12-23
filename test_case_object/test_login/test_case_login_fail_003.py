@@ -1,11 +1,8 @@
-
 import allure
-import pytest
-from selenium import webdriver
 from test_case_page.loginpage import LoginPage
-from common.loggerhandler import Logger
+from common.loggerhandler import logger
 from common.driverhandler import get_driver
-logger = Logger()
+
 '''
     用例：用户名错误
 '''
@@ -18,9 +15,9 @@ login_data = {"url": "http://192.168.1.82:3322/", "username": "admin1", "passwor
 class Test_Case_Login_Fail_003():
 
     def test_login_fail_003(self):
+        loginpage = LoginPage(get_driver())
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            loginpage = LoginPage(get_driver())
             loginpage.login(url=login_data["url"], username=login_data["username"], password=login_data["password"])
             assert loginpage.login_fail_assert() == "用户名或密码错误!"
             logger.info(f"{self.__class__.__name__}执行用例成功")

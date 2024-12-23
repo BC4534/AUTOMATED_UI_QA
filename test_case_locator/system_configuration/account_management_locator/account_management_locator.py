@@ -2,8 +2,6 @@ from selenium.webdriver.common.by import By
 
 class AccountManagementLocator:
     # 系统配置
-
-
     cancel_batch_delete_button_loc = (By.XPATH, '//*[text()="取 消"]')
     confirm_batch_delete_button_loc = (By.XPATH, '//*[text()="确 定"]')
     system_config_loc = (By.XPATH,'//*[text()="系统配置"]')
@@ -24,14 +22,20 @@ class AccountManagementLocator:
     # 编辑按钮
     edit_button_loc = (By.XPATH, '//*[text()="编辑"]')
 
+    # 新增账号界面
+    add_account_element_loc = (By.XPATH, '//*[@role="dialog"]')
+
     # 新增账号 账号字段输入框
     add_account_account_input_loc = (By.XPATH, '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入账号"]')
     # 新增账号 姓名输入框
     add_account_name_input_loc = (By.XPATH, '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入姓名"]')
     # 新增账号 密码输入框
     add_account_password_input_loc = (By.XPATH, '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入密码"]')
-    # 新增账号 关联手机号输入框
-    add_account_phone_input_loc = (By.XPATH, '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入关联手机号"]')
+    # 邮箱输入框
+    add_account_email_input_loc = (By.XPATH, '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入邮箱"]')
+    # 新增账号 手机号输入框
+    add_account_phone_input_loc = (By.XPATH, '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入手机号"]')
+    # 绑定角
 
     # 新增账号 管辖区域选择框
     add_account_area_select_loc = (By.XPATH, '(//*[@class="ant-select-selection-overflow"])[1]')
@@ -61,6 +65,13 @@ class AccountManagementLocator:
     # 角色选项
     account_role_option_loc = (By.XPATH, '//*[@title="系统管理员"]')
 
+    # 云平台账号关联
+    account_cloud_platform_select_loc = (By.XPATH, '//*[@title="绑定云平台账号"]/following::div')
+    # 云平台账号关联选项 系统管理员
+    account_cloud_platform_option_system_administrator_loc = (By.XPATH, '//*[@class="ant-select-item-option-content" and text()="系统管理员"]')
+
+
+
 
     # 新增账号页面
     add_account_page_loc = (By.XPATH, '//*[@class="ant-modal-content"]')
@@ -87,10 +98,11 @@ class AccountManagementLocator:
     password_required_tip_loc = (By.XPATH, '//*[text()="请输入密码"]')
 
     # 请输入关联手机号 必填项提示语
-    phone_required_tip_loc = (By.XPATH, '//*[text()="请输入关联手机号"]')
+    phone_required_tip_loc = (By.XPATH, '//*[text()="请输入手机号"]')
     # 请选择管辖区域 必填项提示语
     area_required_tip_loc = (By.XPATH, '//*[text()="请选择管辖区域"]')
-
+    # 绑定角色 必填项提示语
+    role_required_tip_loc = (By.XPATH, '//*[text()="请选择绑定角色"]')
     # # 新增账号页面 关闭定位元素
     add_account_close_loc = (By.XPATH, '//*[@class="ant-modal-wrap"]')
 

@@ -1,9 +1,8 @@
 import allure
-
 from test_case_page.system_configuration.role_management_page import RoleManagementPage
-from common.loggerhandler import Logger
+from common.loggerhandler import logger
 
-logger = Logger()
+
 
 data = {
     "name": "测试角色",
@@ -17,7 +16,7 @@ data2 = {
 
 @allure.title("角色管理-删除角色,批量删除")
 @allure.feature("角色管理")
-class TestRoleManagment11():
+class TestRoleManagment12():
     """
     角色管理-删除角色批量删除
     实现思路 ： 先自己新增2条 再删掉
@@ -25,10 +24,11 @@ class TestRoleManagment11():
 
     """
 
-    def test_role_management_11(self, login_driver):
+    def test_role_management_12(self, login_driver):
+        role_management_page = RoleManagementPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            role_management_page = RoleManagementPage(login_driver)
+            role_management_page.role_management_01()
             old_first_role_name = role_management_page.get_first_role_name()
             role_management_page.role_management_11(data["name"], data["remark"])
             role_management_page.role_management_11(data2["name"], data2["remark"])

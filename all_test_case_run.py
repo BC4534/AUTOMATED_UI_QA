@@ -3,20 +3,19 @@ import subprocess
 import sys
 import os
 import webbrowser
-
 from common import all_file_path
 from common.robothandler import sync_to_feishu
 
 os.environ['PYTHONIOENCODING'] = 'utf-8'
 
 
-def run_pytest(allure_dir):
+def run_pytest(allure_dir, test_module=all_file_path.project_path):
     # 判断 allure 报告目录是否存在，不存在则创建
     if not os.path.exists(allure_dir):
         os.makedirs(allure_dir)
 
     # 构建 pytest 命令，包括 allure 报告目录和 --clean-alluredir 选项
-    command = [sys.executable, '-m', 'pytest', '--alluredir', allure_dir, '--clean-alluredir']
+    command = [sys.executable, '-m', 'pytest',test_module, '--alluredir', allure_dir, '--clean-alluredir' ]
 
     # 运行 pytest 命令
     try:
@@ -50,9 +49,11 @@ def generate_allure_report(allure_dir):
 def main():
     # 指定 allure 报告目录
     allure_dir = all_file_path.allure_report_path
+    # 指定测试模块
+    test_module = r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_system_config\test_role_management"
 
     # 运行 pytest 测试用例并生成 allure 报告
-    run_pytest(allure_dir)
+    run_pytest(allure_dir=allure_dir,test_module=test_module)
 
     # 生成 allure 报告
     generate_allure_report(allure_dir)

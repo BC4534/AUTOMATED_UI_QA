@@ -1,14 +1,15 @@
 import time
 from test_case_page.loginpage import LoginPage
 import pytest
-from common.loggerhandler import Logger
+from common.loggerhandler import logger
 from common.yamlhandler import YamlHandler
 from common import all_file_path
 from common.driverhandler import get_driver
-logger = Logger()
+
+
 yamlhandler = YamlHandler(all_file_path.config_yaml_path)
 login_data = yamlhandler.read("login_info")
-print(login_data)
+
 @pytest.fixture(scope="module")
 def login_driver():
     # 实现登录前置

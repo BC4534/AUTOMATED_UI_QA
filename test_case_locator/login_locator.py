@@ -27,7 +27,7 @@ class LoginLocator:
     mask_button_loc = (By.XPATH, "//*[@class='ant-input-suffix']/span")
 
     # 账号显示框//*[@class="ant-avatar ant-avatar-lg ant-avatar-circle css-1hzb5nd"]
-    username_display_loc = (By.XPATH, '//*[@class="ant-avatar ant-avatar-lg ant-avatar-circle css-1hzb5nd"]')
+    username_display_loc = (By.XPATH, '//*[contains(@class,"ant-dropdown-trigger")]')
     # 退出登录按钮
     logout_button_loc = (By.XPATH, "//*[text()='登出']")
 

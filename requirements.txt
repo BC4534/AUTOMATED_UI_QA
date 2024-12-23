@@ -1,12 +1,10 @@
-selenium==3.141.0
-urllib3 == 1.26.2
-allure-pytes == 2.13.5
-pytest
-pandas
-openpyxl
-pyyaml
-PyMySql
-openpyxl
-requests
-shutil
-pyautogui
+PyMySQL~=1.1.1
+psycopg2~=2.9.9
+pyodbc~=5.1.0
+PyAutoGUI~=0.9.54
+selenium~=3.141.0
+PyYAML~=6.0.2
+pandas~=2.2.3
+requests~=2.32.3
+allure-python-commons~=2.13.5
+pytest~=8.3.2

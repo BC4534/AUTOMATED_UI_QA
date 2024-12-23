@@ -1,12 +1,12 @@
 import time
 import os
 import pyautogui
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from common.loggerhandler import Logger
+from common.loggerhandler import logger
 from selenium import webdriver
 from test_case_locator.login_locator import LoginLocator
 from common import all_file_path
@@ -15,7 +15,7 @@ from common import all_file_path
 class BasePage():
     def __init__(self, driver):
         self.driver = driver
-        self.logger = Logger()
+        self.logger = logger
 
     # 打开url
     def get(self, url):
@@ -73,6 +73,24 @@ class BasePage():
         except Exception as e:
             self.logger.error(f"等待元素可见失败:{e}")
             raise
+
+    # 判断元素不可见
+    def invisibility_of_element_located(self, loc, timeout=5, frequency=1):
+        """等待元素不可见"""
+        self.logger.info(f"等待{loc}元素不可见")
+        try:
+            timeout = int(timeout)
+            frequency = int(frequency)
+            WebDriverWait(self.driver, timeout, frequency).until(EC.invisibility_of_element_located(loc))
+            self.logger.info(f"{loc}元素不可见成功")
+            return True
+        except TimeoutException:
+            self.logger.error(f"等待元素不可见超时")
+            return False
+        except Exception as e:
+            self.logger.error(f"等待元素不可见失败:{e}")
+            raise
+
 
     # 截图
     def get_screenshot_png(self, filename=None):
@@ -254,7 +272,7 @@ class BasePage():
         try:
             ele = self.visibility_of_element_located(loc)
             ele.clear()
-            time.sleep(0.5)
+            time.sleep(0.1)
             ele.click()
             time.sleep(0.5)
             ele.send_keys(value)
@@ -284,6 +302,18 @@ class BasePage():
         except Exception as e:
             self.logger.error(f"点击失败:{e}")
             raise
+
+    # js点击
+    def click_element_by_js(self, loc):
+        self.logger.info("准备点击")
+        try:
+            ele = self.visibility_of_element_located(loc)
+            self.execute_script("arguments[0].click();", ele)
+            self.logger.info("点击成功")
+        except Exception as e:
+            self.logger.error(f"点击失败:{e}")
+            raise
+
 
     # 双击
     def double_click(self, loc):

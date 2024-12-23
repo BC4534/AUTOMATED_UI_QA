@@ -1,15 +1,12 @@
 import allure
 import pytest
-from common.driverhandler import get_driver
-from common.loggerhandler import Logger
 from test_case_object.conftest import login_driver
 from test_case_page.system_configuration.account_management_page import AccountManagementPage
-
-logger = Logger()
+from common.loggerhandler import logger
 
 @allure.title("账号管理-账号管理界面跳转，页面展示")
 @allure.feature("账号管理")
-# @pytest.mark.skip(reason="跳过用例")
+
 
 class TestAccountManagement01():
     """
@@ -23,9 +20,9 @@ class TestAccountManagement01():
 
 
     def test_account_management_01(self,login_driver):
+        account_management_page = AccountManagementPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            account_management_page = AccountManagementPage(login_driver)
             account_management_page.account_management_01()
             assert account_management_page.assert_account_management_01() == "新增账号"
             logger.info(f"{self.__class__.__name__}执行用例成功")

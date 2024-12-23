@@ -1,14 +1,7 @@
-import time
-
 import allure
-import pytest
-from selenium import webdriver
-
-from test_case_locator.login_locator import LoginLocator
 from test_case_page.loginpage import LoginPage
-from common.loggerhandler import Logger
+from common.loggerhandler import logger
 from common.driverhandler import get_driver
-logger = Logger()
 '''
     用例：掩码按钮
 '''
@@ -21,17 +14,12 @@ login_data = {"url": "http://192.168.1.82:3322/", "username": "admin", "password
 class Test_Case_Login_Fail_005():
 
     def test_login_fail_005(self):
+        loginpage = LoginPage(get_driver())
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            loginpage = LoginPage(get_driver())
             loginpage.mask_login(url=login_data["url"], username=login_data["username"], password=login_data["password"])
             password_value = loginpage.read_password_value()
-            # print("password_value:" + password_value)
             assert password_value == login_data["password"]
-            # time.sleep(2)
-            # loginpage.click_element(LoginLocator.mask_button_loc)
-            # time.sleep(2)
-            # assert loginpage.read_password_value() == ""
             logger.info(f"{self.__class__.__name__}执行用例成功")
         except Exception as e:
             logger.info(f"{self.__class__.__name__}执行用例失败")

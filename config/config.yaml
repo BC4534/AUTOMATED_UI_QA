@@ -23,14 +23,14 @@ database:
   username: "root"
   password: "123456"
 
-#login_info:
-#  url: "http://192.168.1.82:3322/login"
-#  username: "admin"
-#  password: "*sermatecroot24"
 login_info:
-  url: "https://mms.sermatec-cloud.com/login"
+  url: "http://192.168.1.82:3322/login"
   username: "admin"
-  password: "sermatec2023"
+  password: "*sermatecroot24"
+#login_info:
+#  url: "https://mms.sermatec-cloud.com/login"
+#  username: "admin"
+#  password: "sermatec2023"
 
 # 列表包含映射
 servers:

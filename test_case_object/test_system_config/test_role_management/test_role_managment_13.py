@@ -1,9 +1,8 @@
 import allure
-
 from test_case_page.system_configuration.role_management_page import RoleManagementPage
-from common.loggerhandler import Logger
+from common.loggerhandler import logger
 
-logger = Logger()
+
 
 data = {
     "name": "测试角色",
@@ -24,11 +23,11 @@ class TestRoleManagment13():
     断言 ：
 
     """
-
+    # 编辑后确认
     def test_role_management_13_1(self, login_driver):
+        role_management_page = RoleManagementPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            role_management_page = RoleManagementPage(login_driver)
             role_management_page.role_management_01()
             role_management_page.role_management_11(data["name"], data["remark"])
             old_first_role_name = role_management_page.get_first_role_name()
@@ -43,12 +42,11 @@ class TestRoleManagment13():
             logger.info(f"{self.__class__.__name__}执行用例失败")
             role_management_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
-
+    # 编辑后取消
     def test_role_management_13_2(self, login_driver):
+        role_management_page = RoleManagementPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            role_management_page = RoleManagementPage(login_driver)
-            role_management_page.role_management_01()
             role_management_page.role_management_11(data["name"], data["remark"])
             old_first_role_name = role_management_page.get_first_role_name()
             role_management_page.role_management_13(data2["name"], data2["remark"])
@@ -61,11 +59,12 @@ class TestRoleManagment13():
             logger.info(f"{self.__class__.__name__}执行用例失败")
             role_management_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
+
+    # 编辑后关闭
     def test_role_management_13_3(self, login_driver):
+        role_management_page = RoleManagementPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            role_management_page = RoleManagementPage(login_driver)
-            role_management_page.role_management_01()
             role_management_page.role_management_11(data["name"], data["remark"])
             old_first_role_name = role_management_page.get_first_role_name()
             role_management_page.role_management_13(data2["name"], data2["remark"])

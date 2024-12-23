@@ -1,11 +1,7 @@
 import time
-
 from common.base_method import BasePage
 from test_case_locator.system_configuration.role_management_locator.role_management_locator import RoleManagementLocator
-from common.loggerhandler import Logger
-
-
-logger = Logger()
+from common.loggerhandler import logger
 
 
 class RoleManagementPage(BasePage):
@@ -13,11 +9,11 @@ class RoleManagementPage(BasePage):
     # 角色管理，页面跳转
     def role_management_01(self):
         self.click_element(RoleManagementLocator.system_config_loc)
-        self.click_element(RoleManagementLocator.role_management_loc)
+        time.sleep(0.5)
+        self.click_element_by_js(RoleManagementLocator.role_management_loc)
 
     # 角色管理-新增-正常新增
     def role_management_02(self, name, remark):
-        self.role_management_01()
         self.click_add_role_button()
         self.fill_add_role_data(name, remark)
         self.click_confirm_button()
@@ -29,7 +25,6 @@ class RoleManagementPage(BasePage):
         self.click_confirm_button()
     # 正常新增，填写数据后点关闭
     def role_management_04(self, name, remark):
-        self.role_management_01()
         self.click_add_role_button()
         self.fill_add_role_data(name, remark)
         self.click_close_button()
@@ -37,7 +32,6 @@ class RoleManagementPage(BasePage):
 
     # 正常新增，填写数据后点取消按钮
     def role_management_05(self, name, remark):
-        self.role_management_01()
         self.click_add_role_button()
         self.fill_add_role_data(name, remark)
         self.click_cancel_button()
@@ -57,6 +51,7 @@ class RoleManagementPage(BasePage):
         self.click_add_role_button()
         self.fill_add_role_data(name, remark)
         self.click_confirm_button()
+
     # 删除角色，直接点击删除按钮
     def role_management_08(self):
         self.role_management_01()
@@ -107,19 +102,22 @@ class RoleManagementPage(BasePage):
     def role_management_13(self, name, remark):
         self.click_first_data_edit_button()
         self.fill_add_role_data(name, remark)
+
     # 验证编辑页面打开是否正确
     def role_management_14(self):
         self.role_management_01()
         self.click_first_data_edit_button()
         return self.text(RoleManagementLocator.page_name_loc)
+
+
     # 验证新增页面打开是否正确
     def role_management_15(self):
         self.role_management_01()
         self.click_add_role_button()
         return self.text(RoleManagementLocator.page_name_loc)
+
     # 验证查询功能
     def role_management_16(self,name):
-        self.role_management_01()
         self.search_role_name(name)
 
     # 想橘色名称查询框输入查询条件
@@ -164,20 +162,19 @@ class RoleManagementPage(BasePage):
         self.select_all(RoleManagementLocator.add_role_name_input_loc)
         self.delete(RoleManagementLocator.add_role_name_input_loc)
         self.send_keys(RoleManagementLocator.add_role_name_input_loc, role_name)
-
         self.click_element(RoleManagementLocator.permission_config_operation_loc)
         self.click_element(RoleManagementLocator.permission_config_work_order_loc)
         self.click_element(RoleManagementLocator.permission_config_project_loc)
         self.click_element(RoleManagementLocator.permission_config_tool_loc)
         self.click_element(RoleManagementLocator.permission_config_knowledge_loc)
         self.click_element(RoleManagementLocator.permission_config_system_loc)
-
         self.select_all(RoleManagementLocator.add_role_remark_input_loc)
         self.delete(RoleManagementLocator.add_role_remark_input_loc)
         self.send_keys_by_clear(RoleManagementLocator.add_role_remark_input_loc, remark)
 
     # 点击确认按钮
     def click_confirm_button(self):
+        time.sleep(0.5)
         self.click_element(RoleManagementLocator.confirm_button_loc)
 
 
@@ -193,18 +190,16 @@ class RoleManagementPage(BasePage):
     # 获取角色管理界面，新增角色按钮文本值
     def get_add_role_button_text(self):
         try:
-            logger.info("读取新增角色按钮文本")
             return self.text(RoleManagementLocator.add_role_button_loc)
         except Exception as e:
-            logger.error("读取新增角色按钮文本失败")
             raise e
     # 获取第一个角色名称
     def get_first_role_name(self):
-        self.role_management_01()
+        time.sleep(2)
         return self.text(RoleManagementLocator.first_role_name_loc)
     # 获取第二个角色名称
     def get_second_role_name(self):
-        self.role_management_01()
+        time.sleep(2)
         return self.text(RoleManagementLocator.second_role_name_loc)
     #------------界面按基础钮操作----------------
     # 点击新增角色按钮
@@ -237,8 +232,6 @@ class RoleManagementPage(BasePage):
     # 获取界面弹窗提示信息
     def get_page_tip(self):
         try:
-            logger.info("读取页面弹窗提示信息")
             return self.text(RoleManagementLocator.page_tip_loc)
         except Exception as e:
-            logger.error("读取页面弹窗提示信息失败")
             raise e
