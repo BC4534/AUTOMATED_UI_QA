@@ -9,8 +9,15 @@ class ManagementRolePage(BasePage):
 
     # 跳转至管理角色页面
     def switch_to_management_role_page(self):
-        self.click_element(ManagementRoleLocator.operation_and_maintenance_workbench)
+        # class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected" 展开时class属性值
+        # class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-selected" 未展开时class属性值
+
+        if self.get_operation_and_maintenance_workbench_basic_class() == 'ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-selected':
+            self.click_element(ManagementRoleLocator.operation_and_maintenance_workbench)
         self.click_element(ManagementRoleLocator.management_role_loc)
+
+    def get_operation_and_maintenance_workbench_basic_class(self):
+        return self.get_attribute(ManagementRoleLocator.operation_and_maintenance_workbench_basic_loc, "class")
     # 切换数据维度
     def management_role_02(self):
         self.switch_to_management_role_page()

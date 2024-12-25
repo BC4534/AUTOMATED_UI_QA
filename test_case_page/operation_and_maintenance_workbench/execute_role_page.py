@@ -8,9 +8,19 @@ class ExecuteRolePage(BasePage):
 
     # 切换至执行角色界面
     def switch_to_execute_role_page(self):
-        self.click_element(ExecuteRoleLocator.operation_and_maintenance_workbench)
+
+        # class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected" 展开时class属性值
+        # class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-selected" 未展开时class属性值
+
+        if self.get_operation_and_maintenance_workbench_basic_class() == 'ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-selected':
+            self.click_element(ExecuteRoleLocator.operation_and_maintenance_workbench)
         self.click_element(ExecuteRoleLocator.execute_role_loc)
         time.sleep(0.5)
+
+    # 获取运维工作台元素的class属性值
+    def get_operation_and_maintenance_workbench_basic_class(self):
+        return self.get_attribute(ExecuteRoleLocator.operation_and_maintenance_workbench_basic_loc, "class")
+
 
     # 数据维度切换用例
     def test_execute_role_02_1(self):

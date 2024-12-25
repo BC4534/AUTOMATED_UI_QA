@@ -6,11 +6,19 @@ from common.loggerhandler import logger
 
 class RoleManagementPage(BasePage):
 
+    # 读取系统配置模块是否展开， 通过class属性值的变化判断
+    # 未展开：class="ant-menu-submenu ant-menu-submenu-inline"
+    # 展开 ：class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+    def get_system_config_module_class_attributes(self):
+        return self.get_attribute(RoleManagementLocator.system_config_module_class_attributes_loc, "class")
+
     # 角色管理，页面跳转
     def role_management_01(self):
-        self.click_element(RoleManagementLocator.system_config_loc)
-        time.sleep(0.5)
+        if self.get_system_config_module_class_attributes() == "ant-menu-submenu ant-menu-submenu-inline":
+            self.click_element(RoleManagementLocator.system_config_loc)
+        time.sleep(0.2)
         self.click_element_by_js(RoleManagementLocator.role_management_loc)
+        time.sleep(1)
 
     # 角色管理-新增-正常新增
     def role_management_02(self, name, remark):
@@ -55,6 +63,7 @@ class RoleManagementPage(BasePage):
     # 删除角色，直接点击删除按钮
     def role_management_08(self):
         self.role_management_01()
+        time.sleep(3)
         self.click_batch_delete_button()
     # 删除角色 ，单条
     def role_management_09(self, name, remark):
@@ -69,6 +78,7 @@ class RoleManagementPage(BasePage):
         self.role_management_01()
         self.role_management_02(name, remark)
         self.role_management_02(name, remark)
+        time.sleep(1)
 
     # 批量删除，多条
     def role_management_11(self, name, remark):
@@ -79,6 +89,7 @@ class RoleManagementPage(BasePage):
         time.sleep(0.5)
     # 针对 role_management_11的删除
     def role_management_11_delete(self):
+        self.refresh()
         time.sleep(0.5)
         self.click_first_data_checkbox()
         time.sleep(0.5)
@@ -96,7 +107,7 @@ class RoleManagementPage(BasePage):
         self.click_batch_delete_button()
         time.sleep(0.5)
         self.click_confirm_batch_delete_button()
-        time.sleep(0.5)
+        time.sleep(3)
 
     # 编辑
     def role_management_13(self, name, remark):
@@ -113,6 +124,7 @@ class RoleManagementPage(BasePage):
     # 验证新增页面打开是否正确
     def role_management_15(self):
         self.role_management_01()
+        self.refresh()
         self.click_add_role_button()
         return self.text(RoleManagementLocator.page_name_loc)
 

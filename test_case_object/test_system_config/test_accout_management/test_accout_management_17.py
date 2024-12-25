@@ -1,21 +1,31 @@
 import time
-
 import allure
-import pytest
-
-from common.loggerhandler import Logger
+from common.loggerhandler import logger
 from test_case_locator.system_configuration.account_management_locator.account_management_locator import \
     AccountManagementLocator
-from test_case_object.conftest import login_driver
 from test_case_page.system_configuration.account_management_page import AccountManagementPage
 
-logger = Logger()
 # account,name,password,phone,area,role,remark 临时数据 字典
 data = {
     "account": "admin",
     "name": "系统管理员",
-    "area": "大储运维（宁夏）",
+    "password": "123456",
+    "phone": "18988889999",
+    "email": "123456@qq.com",
+    "area": "东部",
     "role": "系统管理员",
+    "cloud_platform_account": "",
+    "remark": "UI自动化账号管理备注"
+}
+data2 = {
+    "name": "UI自动化测试名称_编辑",
+    "password": "123456",
+    "phone": "18988889999",
+    "email": "123456@qq.com",
+    "area": "东部",
+    "role": "系统管理员",
+    "cloud_platform_account": "",
+    "remark": "UI自动化账号管理备注_编辑"
 }
 
 
@@ -31,9 +41,9 @@ class TestAccountManagement17():
 
     # 通过账号搜索
     def test_account_management_17_1(self, login_driver):
+        account_management_page = AccountManagementPage(login_driver)
         try:
             logger.info(f"{self.test_account_management_17_1.__name__}开始执行用例")
-            account_management_page = AccountManagementPage(login_driver)
             account_management_page.account_management_01()
             first_account = account_management_page.account_management_17_1(data["account"])
             assert data["account"] in first_account
@@ -45,9 +55,9 @@ class TestAccountManagement17():
 
     # 通过姓名搜索
     def test_account_management_17_2(self, login_driver):
+        account_management_page = AccountManagementPage(login_driver)
         try:
             logger.info(f"{self.test_account_management_17_2.__name__}开始执行用例")
-            account_management_page = AccountManagementPage(login_driver)
             account_management_page.account_management_01()
             first_name = account_management_page.account_management_17_2(data["name"])
             assert data["name"] in first_name
@@ -58,9 +68,9 @@ class TestAccountManagement17():
             raise e
     # 通过绑定角色搜索
     def test_account_management_17_3(self, login_driver):
+        account_management_page = AccountManagementPage(login_driver)
         try:
             logger.info(f"{self.test_account_management_17_3.__name__}开始执行用例")
-            account_management_page = AccountManagementPage(login_driver)
             account_management_page.account_management_01()
             first_role = account_management_page.account_management_17_3(data["role"])
             assert data["role"] in first_role
@@ -72,9 +82,9 @@ class TestAccountManagement17():
 
     # 通过管辖区域搜索
     def test_account_management_17_4(self, login_driver):
+        account_management_page = AccountManagementPage(login_driver)
         try:
             logger.info(f"{self.test_account_management_17_4.__name__}开始执行用例")
-            account_management_page = AccountManagementPage(login_driver)
             account_management_page.account_management_01()
             first_area = account_management_page.account_management_17_4(data["area"])
             assert data["area"] in first_area
@@ -86,9 +96,9 @@ class TestAccountManagement17():
 
     # 验证重置按钮
     def test_account_management_17_reset(self, login_driver):
+        account_management_page = AccountManagementPage(login_driver)
         try:
             logger.info(f"{self.test_account_management_17_reset.__name__}开始执行用例")
-            account_management_page = AccountManagementPage(login_driver)
             account_management_page.account_management_01()
             first_account = account_management_page.test_account_management_17_reset(data["account"],
                                                                                   data["name"],

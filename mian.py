@@ -9,17 +9,29 @@ from common.robothandler import sync_to_feishu
 os.environ['PYTHONIOENCODING'] = 'utf-8'
 
 
-def run_pytest(allure_dir, test_module=all_file_path.project_path):
+def run_pytest(allure_dir, test_paths):
     # 判断 allure 报告目录是否存在，不存在则创建
     if not os.path.exists(allure_dir):
         os.makedirs(allure_dir)
 
     # 构建 pytest 命令，包括 allure 报告目录和 --clean-alluredir 选项
-    command = [sys.executable, '-m', 'pytest',test_module, '--alluredir', allure_dir, '--clean-alluredir' ]
+    command = [sys.executable, '-m', 'pytest']
+    command.extend(['--alluredir', allure_dir, '--clean-alluredir'])
+
+    # 遍历测试路径列表，添加到命令中
+    for path in test_paths:
+        if os.path.isdir(path):
+            # 如果是目录，则添加目录路径
+            command.append(path)
+        elif os.path.isfile(path):
+            # 如果是文件，则添加文件路径
+            command.append(path)
+        else:
+            print(f"Warning: {path} is neither a file nor a directory and will be skipped.")
 
     # 运行 pytest 命令
     try:
-        subprocess.run(command, check=False)  # 不报错，生成报告,check=True报错
+        subprocess.run(command, check=False)  # 不报错，生成报告
     except subprocess.CalledProcessError as e:
         print(f"Error running pytest: {e}")
         sys.exit(1)
@@ -49,12 +61,14 @@ def generate_allure_report(allure_dir):
 def main():
     # 指定 allure 报告目录
     allure_dir = all_file_path.allure_report_path
-    # 指定测试模块
-    test_module = (r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_system_config\test_role_management\test_role_managment_07.py"
-                   r"")
+    # 指定测试路径列表，可以包含文件或目录
+    test_paths = [
+        r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_system_config",
+        r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_operation_and_maintenance_workbench",
+    ]
 
     # 运行 pytest 测试用例并生成 allure 报告
-    run_pytest(allure_dir=allure_dir,test_module=test_module)
+    run_pytest(allure_dir=allure_dir, test_paths=test_paths)
 
     # 生成 allure 报告
     generate_allure_report(allure_dir)

@@ -13,16 +13,15 @@ login_data = yamlhandler.read("login_info")
 @pytest.fixture(scope="module")
 def login_driver():
     # 实现登录前置
-    logger.info("开始登录前置")
+    logger.debug("开始登录前置")
     driver = get_driver()
     driver.maximize_window()
     LoginPage(driver).login(url=login_data["url"], username=login_data["username"], password=login_data["password"])
-    logger.info("前置登录成功")
-
+    logger.debug("前置登录成功")
     yield driver
-    logger.info("开始登录后置")
+    logger.debug("开始登录后置")
     driver.close()
-    logger.info("登录后置完成")
+    logger.debug("登录后置完成")
 
 
 @pytest.fixture(scope="module")

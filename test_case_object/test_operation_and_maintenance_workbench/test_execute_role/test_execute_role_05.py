@@ -1,11 +1,9 @@
 import allure
-
-from common.loggerhandler import Logger
+from common.loggerhandler import logger
 from test_case_page.operation_and_maintenance_workbench.execute_role_page import ExecuteRolePage
 from test_case_page.work_order_management.my_work_order.my_already_done_page import MyAlreadyDonePage
 from test_case_page.work_order_management.my_work_order.my_need_to_do_page import MyNeedToDoPage
 
-logger = Logger()
 
 
 @allure.title("执行角色，负责项目统计部分用例 ")
@@ -14,9 +12,9 @@ class TestExecuteRole05():
 
     # 负责项目统计部分用例”
     def test_execute_role_05(self, login_driver):
+        execute_role_page = ExecuteRolePage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            execute_role_page = ExecuteRolePage(login_driver)
             execute_role_page.execute_role_05_1()
             assert execute_role_page.get_area_select_text() == "东部\n西北\n海外\n南方\n大储运维（宁夏）"
             execute_role_page.execute_role_05_2()

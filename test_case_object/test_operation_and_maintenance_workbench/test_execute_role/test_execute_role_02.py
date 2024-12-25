@@ -1,9 +1,6 @@
 import allure
-
-from common.loggerhandler import Logger
+from common.loggerhandler import logger
 from test_case_page.operation_and_maintenance_workbench.execute_role_page import ExecuteRolePage
-
-logger = Logger()
 
 
 
@@ -12,9 +9,9 @@ logger = Logger()
 class TestExecuteRole02():
 
     def test_execute_role_02(self, login_driver):
+        execute_role_page = ExecuteRolePage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            execute_role_page  = ExecuteRolePage(login_driver)
             execute_role_page.test_execute_role_02_1()
             assert execute_role_page.get_data_dimension_text() == "项目类型图"
             execute_role_page.test_execute_role_02_2()

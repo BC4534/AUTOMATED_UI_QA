@@ -21,6 +21,7 @@ class TestRoleManagment12():
             logger.info(f"{self.__class__.__name__}开始执行用例")
             role_management_page.role_management_12()
             assert role_management_page.get_page_tip() in ["系统管理员为受保护角色, 不允许删除!","在使用中无法删除"]
+            role_management_page.refresh() # 刷新页面
             logger.info(f"{self.__class__.__name__}执行用例成功")
         except Exception as e:
             logger.info(f"{self.__class__.__name__}执行用例失败")

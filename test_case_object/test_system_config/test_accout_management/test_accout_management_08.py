@@ -2,7 +2,6 @@ import allure
 from common.loggerhandler import logger
 from test_case_locator.system_configuration.account_management_locator.account_management_locator import \
     AccountManagementLocator
-from test_case_object.conftest import login_driver
 from test_case_page.system_configuration.account_management_page import AccountManagementPage
 
 
@@ -29,9 +28,9 @@ class TestAccountManagement08():
     """
 
     def test_account_management_08(self, login_driver):
+        account_management_page = AccountManagementPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            account_management_page = AccountManagementPage(login_driver)
             old_first_account = account_management_page.account_management_08(data["account"],
                                                           data["name"],
                                                           data["password"],
@@ -42,9 +41,13 @@ class TestAccountManagement08():
                                                           data["cloud_platform_account"],
                                                           data["remark"])
             new_first_account = account_management_page.get_first_account_text()
+            print("new_first_account:", new_first_account)
+            print("old_first_account:", old_first_account)
+            second_account = account_management_page.get_second_account_text()
+            print("second_account:", second_account)
 
             assert old_first_account != new_first_account
-            assert old_first_account == account_management_page.get_second_account_text()
+            assert old_first_account == second_account
             logger.info(f"{self.__class__.__name__}执行用例成功")
             account_management_page.test_case_data_recover()
         except Exception as e:

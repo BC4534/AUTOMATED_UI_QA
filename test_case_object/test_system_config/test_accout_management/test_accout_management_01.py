@@ -1,6 +1,5 @@
 import allure
 import pytest
-from test_case_object.conftest import login_driver
 from test_case_page.system_configuration.account_management_page import AccountManagementPage
 from common.loggerhandler import logger
 

@@ -4,7 +4,7 @@ import pytest
 from common.loggerhandler import Logger
 from test_case_page.project_management.spare_part_management_page import SparePartManagementPage
 
-logger = Logger()
+
 
 
 @allure.title("备件管理-备件入库页面跳转")

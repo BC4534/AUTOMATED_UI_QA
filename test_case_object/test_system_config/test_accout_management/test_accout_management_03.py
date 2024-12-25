@@ -1,6 +1,5 @@
 import allure
 from common.loggerhandler import logger
-from test_case_object.conftest import login_driver
 from test_case_page.system_configuration.account_management_page import AccountManagementPage
 
 
@@ -24,6 +23,7 @@ class TestAccountManagement03():
             assert account_management_page.get_phone_required_tip() == "请输入手机号"
             # assert account_management_page.get_area_required_tip() == "请选择管辖区域"
             assert account_management_page.get_role_required_tip() == "请选择绑定角色"
+            account_management_page.click_cancel_button() # 取消 关闭页面
             logger.info(f"{self.__class__.__name__}执行用例成功")
         except Exception as e:
             logger.info(f"{self.__class__.__name__}执行用例失败")

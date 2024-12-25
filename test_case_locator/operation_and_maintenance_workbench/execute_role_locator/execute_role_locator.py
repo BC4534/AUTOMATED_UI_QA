@@ -1,12 +1,15 @@
 from selenium.webdriver.common.by import By
 
 class ExecuteRoleLocator:
+    # 运维工作台基本元素
+    operation_and_maintenance_workbench_basic_loc = (By.XPATH, '//*[text()="运维工作台"]/../..')
     # 运维工作台
     operation_and_maintenance_workbench = (By.XPATH, '//*[text()="运维工作台"]')
     # 在途项目看板
     in_transit_project_lookboard_loc = (By.XPATH, '//*[text()="在途项目看板"]')
     # 执行角色
-    execute_role_loc = (By.XPATH, '//*[text()="执行角色"]')
+    execute_role_loc = (By.XPATH, '//*[text()="执行角色"]/../../..')
+
     # --------在途项目看板部分元素
     # 数据维度 选择框
     data_dimension_select_loc = (By.XPATH, '//*[@class="ant-select-selection-item"]')

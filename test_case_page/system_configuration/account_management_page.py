@@ -8,9 +8,14 @@ from test_case_locator.system_configuration.account_management_locator.account_m
 
 
 class AccountManagementPage(BasePage):
+    def get_system_config_module_class_attributes(self):
+        # system_config_module_class_attributes_loc = (By.XPATH, '//*[text()="系统配置"]/../..')
+        return self.get_attribute(AccountManagementLocator.system_config_module_class_attributes_loc, "class") #
+
     # 账号管理-账号管理页面跳转
     def account_management_01(self):
-        self.click_system_config()
+        if self.get_system_config_module_class_attributes() == "ant-menu-submenu ant-menu-submenu-inline":
+            self.click_system_config()
         self.click_account_management()
 
     # 页面跳转断言  使用新增账号按钮的文本
@@ -22,6 +27,8 @@ class AccountManagementPage(BasePage):
         self.click_add_account_button()
         self.fill_add_account_data(account, name, password, phone, email, area, role, cloud_platform, remark)
         self.click_confirm_button()
+        time.sleep(1.5)
+
 
     # 删除用例新增的数据
     def test_case_data_recover(self):
@@ -80,10 +87,7 @@ class AccountManagementPage(BasePage):
         first_account = self.get_first_account_text()
         # 勾选第一个复选框
         self.check_the_first_account_checkbox()
-        self.click_add_account_button()
         self.account_management_02(account, name, password, phone, email, area, role, cloud_platform, remark)
-        time.sleep(1)
-        self.click_confirm_button()
         time.sleep(1)
         self.refresh()
         return first_account
@@ -91,17 +95,20 @@ class AccountManagementPage(BasePage):
     def account_management_09(self):
         self.account_management_01()
         self.click_batch_delete_button()
+        time.sleep(1)
 
     def account_management_10(self):
         self.account_management_01()
         self.click_add_account_button()
-        self.fill_add_account_data("test_account",
-                                   "test_name",
-                                   "test_password",
-                                   "test_phone",
-                                   "test_area",
-                                   "test_role",
-                                   "test_remark"
+        self.fill_add_account_data("UI自动化测试账号",
+                                   "UI自动化测试名称",
+                                   "123456",
+                                   "18988889999",
+                                   "123456@qq.com",
+                                   "东部",
+                                   "系统管理员",
+                                   "",
+                                   "UI自动化账号管理备注"
                                    )
         self.click_confirm_button()
         time.sleep(1)
@@ -121,7 +128,7 @@ class AccountManagementPage(BasePage):
 
     def account_management_12(self):
         self.refresh()
-        time.sleep(1)
+        time.sleep(3)
         self.check_the_first_account_checkbox()
         time.sleep(0.5)
         self.check_the_first_account_checkbox()
@@ -133,10 +140,11 @@ class AccountManagementPage(BasePage):
     def account_management_13(self):
         self.check_all_account_checkbox()
 
-    def account_management_14(self, name, password, phone, area, role, remark):
+    def account_management_14(self, name, password, phone, email,area, role,cloud_platform, remark):
         time.sleep(1)
         self.click_first_edit_button()
-        self.fill_edit_account_data(name, password, phone, area, role, remark)
+        self.fill_edit_account_data(name=name, password=password, phone=phone,email=email, area=area, role=role,
+                                    cloud_platform=cloud_platform,remark=remark)
         # self.click_add_account_confirm_button()
 
     def account_management_17_1(self, account):
@@ -223,7 +231,8 @@ class AccountManagementPage(BasePage):
     # 勾选第一个复选框。
     @allure.step("勾选第一个复选框")
     def check_the_first_account_checkbox(self):
-        self.click_element(AccountManagementLocator.first_account_checkbox_loc)
+
+        self.click_element_by_js(AccountManagementLocator.first_account_checkbox_loc)
 
     # 勾选第二个复选框
     def check_the_second_account_checkbox(self):
@@ -237,36 +246,51 @@ class AccountManagementPage(BasePage):
     def fill_add_account_data(self, account, name, password, phone, email, area, role, cloud_platform, remark):
         # 账号 姓名 密码 关联手机号 管辖区域 绑定角色 备注
         self.send_keys(AccountManagementLocator.add_account_account_input_loc, account)
+        time.sleep(0.5)
         self.send_keys(AccountManagementLocator.add_account_name_input_loc, name)
+        time.sleep(0.5)
         self.send_keys(AccountManagementLocator.add_account_password_input_loc, password)
+        time.sleep(0.5)
         self.send_keys(AccountManagementLocator.add_account_phone_input_loc, phone)
+        time.sleep(0.5)
         if email != "":
             self.send_keys(AccountManagementLocator.add_account_email_input_loc, email)
+            time.sleep(0.5)
         if area != "":
             self.click_element(AccountManagementLocator.add_account_area_select_loc)
+            time.sleep(0.5)
             if area == "大储运维（宁夏）":
                 self.click_element(AccountManagementLocator.add_account_north_area_option_loc)
+                time.sleep(0.5)
             elif area == "东部":
                 self.click_element(AccountManagementLocator.add_account_east_area_option_loc)
+                time.sleep(0.5)
             elif area == "西北":
                 self.click_element(AccountManagementLocator.add_account_northwest_area_option_loc)
+                time.sleep(0.5)
             elif area == "海外":
                 self.click_element(AccountManagementLocator.add_account_overseas_area_option_loc)
+                time.sleep(0.5)
             else:
                 logger.error("账号区域填写错误")
-        self.click_element(AccountManagementLocator.add_account_page_loc)  # 点击页面 关闭选项框
+        self.click_element(AccountManagementLocator.add_account_element_text_loc)  # 点击页面 关闭选项框
+        time.sleep(0.5)
+        time.sleep(1)
         self.click_element(AccountManagementLocator.add_account_role_select_loc)
+        time.sleep(0.5)
         # 点击系统管理员
         if role != "":
             if role == "系统管理员":
                 self.click_element(AccountManagementLocator.account_role_option_loc)
+                time.sleep(0.5)
             else:  # //*[@class="ant-modal-content"] 根据输入的角色信息进行选择
                 self.click_element((By.XPATH, f'//*[@title={role}]'))
+                time.sleep(0.5)
         else:
             self.click_element(AccountManagementLocator.account_role_option_loc)
             logger.warning("未选择角色,选择了系统管理员")
 
-        self.click_element(AccountManagementLocator.add_account_page_loc)  # 点击页面 关闭选项框
+        self.click_element(AccountManagementLocator.add_account_element_text_loc)  # 点击页面 关闭选项框
         if cloud_platform != "":
             self.click_element(AccountManagementLocator.account_cloud_platform_select_loc)
             # 根据输入的云平台信息进行选择
@@ -275,23 +299,34 @@ class AccountManagementPage(BasePage):
         self.send_keys(AccountManagementLocator.add_account_remark_input_loc, remark)
 
     # 编辑账号信息步骤
-    def fill_edit_account_data(self, name, password, phone, area, role, remark):
-        # 账号 姓名 密码 关联手机号 管辖区域 绑定角色 备注
-        self.send_keys_by_clear(AccountManagementLocator.add_account_name_input_loc, name)
-        self.send_keys_by_clear(AccountManagementLocator.add_account_password_input_loc, password)
-        self.send_keys_by_clear(AccountManagementLocator.add_account_phone_input_loc, phone)
-        # 选择管辖区域
-        self.click_element(AccountManagementLocator.add_account_area_select_loc)
-        # 点击
-        self.click_element(AccountManagementLocator.add_account_north_area_option_loc)
-        self.click_element(AccountManagementLocator.add_account_page_loc)
-        # 变换角色
-        self.click_element(AccountManagementLocator.add_account_role_select_loc)
-        # 点击系统管理员
-        self.click_element(AccountManagementLocator.account_role_option_loc)
-        self.click_element(AccountManagementLocator.add_account_page_loc)
+    def fill_edit_account_data(self, name, password, phone, email,area, role,cloud_platform, remark):
+        if name != "":
+            self.send_keys_by_clear(AccountManagementLocator.add_account_name_input_loc, name)
+        if password != "":
+            self.send_keys_by_clear(AccountManagementLocator.add_account_password_input_loc, password)
+        if phone != "":
+            self.send_keys_by_clear(AccountManagementLocator.add_account_phone_input_loc, phone)
+        if email != "":
+            self.send_keys_by_clear(AccountManagementLocator.add_account_email_input_loc, email)
+        if area != "":
+            # 选择管辖区域
+            self.click_element(AccountManagementLocator.add_account_area_select_loc)
+            # 点击
+            # self.click_element((By.XPATH, f'//*[@title="{area}"]))
+            self.click_element((By.XPATH, f'//*[@title="{area}"]'))
+            self.click_element(AccountManagementLocator.add_account_page_loc)
+        if cloud_platform != "":
+            self.click_element(AccountManagementLocator.account_cloud_platform_select_loc)
+            # 根据输入的云平台信息进行选择
+            self.click_element((By.XPATH, f'//*[@title="{cloud_platform}" and @id]'))
+        if role != "":
+            self.click_element(AccountManagementLocator.add_account_role_select_loc)
+            # 点击系统管理员
+            self.click_element(AccountManagementLocator.account_role_option_loc)
+            self.click_element(AccountManagementLocator.add_account_page_loc)
+        if remark != "":
+            self.send_keys_by_clear(AccountManagementLocator.add_account_remark_input_loc, remark)
 
-        self.send_keys(AccountManagementLocator.add_account_remark_input_loc, remark)
 
     # 点击确认按钮
     def click_confirm_button(self):

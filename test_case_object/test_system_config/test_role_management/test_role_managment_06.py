@@ -23,6 +23,7 @@ class TestRoleManagment06():
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
             assert role_management_page.role_management_06() == ""
+            role_management_page.click_cancel_button() # 点击取消按钮 关闭新增界面
             logger.info(f"{self.__class__.__name__}执行用例成功")
         except Exception as e:
             logger.info(f"{self.__class__.__name__}执行用例失败")

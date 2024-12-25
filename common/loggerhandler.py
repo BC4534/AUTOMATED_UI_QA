@@ -15,7 +15,7 @@ class LogFilter(logging.Filter):
 
 # Logger类用于封装日志功能
 class Logger:
-    def __init__(self, name="运维系统UI测试日志", level=logging.INFO, log_dir=log_path):
+    def __init__(self, name="运维系统UI测试日志", level=logging.DEBUG, log_dir=log_path):
         self.logger = logging.getLogger(name)
         self.logger.setLevel(level)  # 设置日志级别
         self.logger.addFilter(LogFilter())  # 添加自定义日志过滤器

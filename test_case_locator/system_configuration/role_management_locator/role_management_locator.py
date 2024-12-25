@@ -1,9 +1,8 @@
 from selenium.webdriver.common.by import By
 
 class RoleManagementLocator:
-    # 系统配置
-
-
+    # 获取系统配置class值元素
+    system_config_module_class_attributes_loc = (By.XPATH, '//*[text()="系统配置"]/../..')
     system_config_loc = (By.XPATH,'//*[text()="系统配置"]')
     # 账号管理
     role_management_loc = (By.XPATH, '//*[text()="角色管理"]')

@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 
 class AccountManagementLocator:
+    system_config_module_class_attributes_loc = (By.XPATH, '//*[text()="系统配置"]/../..')
     # 系统配置
     cancel_batch_delete_button_loc = (By.XPATH, '//*[text()="取 消"]')
     confirm_batch_delete_button_loc = (By.XPATH, '//*[text()="确 定"]')
@@ -9,7 +10,8 @@ class AccountManagementLocator:
     account_management_loc = (By.XPATH, '//*[text()="账号管理"]')
 
     # 新增账号
-    add_account_button_loc = (By.XPATH, '//*[text()="新增账号"]')
+    # add_account_button_loc = (By.XPATH, '//*[text()="新增账号"]')
+    add_account_button_loc = (By.XPATH, '//*[text()="新增账号"]/../..')
     # 批量删除
     batch_delete_button_loc = (By.XPATH, '//*[text()="批量删除"]')
     # 批量删除 后 数量元素
@@ -24,6 +26,8 @@ class AccountManagementLocator:
 
     # 新增账号界面
     add_account_element_loc = (By.XPATH, '//*[@role="dialog"]')
+    # 新增账号界面 新增账号文本
+    add_account_element_text_loc = (By.XPATH, '//div[text()= "新增账号"]')
 
     # 新增账号 账号字段输入框
     add_account_account_input_loc = (By.XPATH, '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入账号"]')
@@ -79,13 +83,13 @@ class AccountManagementLocator:
     # 第一个账号
     first_account_loc = (By.XPATH, '//*[@class="ant-table-tbody"]//td[@class="ant-table-cell"]')
     # 第二个账号
-    second_account_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[2]')
+    second_account_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[3]/td[2]')
     # 第一个账号的姓名
     first_account_name_loc = (By.XPATH, '//*[@class="ant-table-tbody"]//td[@class="ant-table-cell"][2]')
     # 第一个账号的绑定角色
-    first_account_role_loc = (By.XPATH, '//*[@class="ant-table-tbody"]//td[@class="ant-table-cell"][5]')
+    first_account_role_loc = (By.XPATH, '//*[@class="ant-table-tbody"]//td[@class="ant-table-cell"][6]')
     # 第一个账号管辖区域""
-    first_account_area_loc = (By.XPATH, '//*[@class="ant-table-tbody"]//td[@class="ant-table-cell"][4]')
+    first_account_area_loc = (By.XPATH, '//*[@class="ant-table-tbody"]//td[@class="ant-table-cell"][5]')
     # 页面提示弹窗
     page_tip_loc = (By.XPATH, '//*[@class="ant-message-notice-content"]//span[2]')
 

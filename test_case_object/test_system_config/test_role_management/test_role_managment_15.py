@@ -18,6 +18,7 @@ class TestRoleManagment15():
             logger.info(f"{self.__class__.__name__}开始执行用例")
             role_management_page = RoleManagementPage(login_driver)
             assert role_management_page.role_management_15()  == "新增角色"
+            role_management_page.click_cancel_button()
             logger.info(f"{self.__class__.__name__}执行用例成功")
         except Exception as e:
             logger.info(f"{self.__class__.__name__}执行用例失败")
