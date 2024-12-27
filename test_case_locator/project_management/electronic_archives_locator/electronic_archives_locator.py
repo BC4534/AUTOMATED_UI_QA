@@ -22,7 +22,7 @@ class ElectronicArchivesLocator:
     # 项目名称输入框
     project_name_input_loc = (By.XPATH, '//*[@placeholder="请输入项目名称"]')
     # 立项时间选择框
-    project_time_select_loc = (By.XPATH, '//*[@class="ant-select-selection-search"]')
+    project_time_select_loc = (By.XPATH, '//*[@title="立项时间"]/following::input[@placeholder="请选择日期"]')
     # 立项时间 - 前一年
     project_time_last_year_loc = (By.XPATH, '//*[@title="前一年"]')
     # 立项时间 - 后一年
@@ -32,7 +32,12 @@ class ElectronicArchivesLocator:
     # 立项时间 -后一月
     project_time_next_month_loc = (By.XPATH, '//*[@title="后一月"]')
     # 立项时间 - 今天
-    project_time_today_loc = (By.XPATH, '//*[@title="今天"]')
+    project_time_today_loc = (By.XPATH, '//*[text()="今天"]')
+    # 当前所选年份
+    current_year_loc = (By.XPATH, '//*[@class="ant-picker-year-btn"]')
+    # 当前所选月份
+    current_month_loc = (By.XPATH, '//*[@class="ant-picker-month-btn"]')
+
 
     # 工单所属区域选择框
     work_order_area_select_loc = (By.XPATH, '//*[@class="ant-select-selection-search"]')
@@ -100,6 +105,18 @@ class ElectronicArchivesLocator:
 
     # 供应商维护按钮
     supplier_maintenance_button_loc = (By.XPATH, '//*[text()="供应商维护"]')
+
+    # 保存
+    save_button_loc = (By.XPATH, '//*[text()="保 存"]')
+    # 下一步
+    next_button_loc = (By.XPATH, '//*[text()="下一步"]')
+    # 上一步
+    previous_button_loc = (By.XPATH, '//*[text()="上一步"]')
+    # 提交
+    submit_button_loc = (By.XPATH, '//*[text()="提 交"]')
+
+    # 第一个项目编辑按钮
+    first_project_edit_next_button_loc = (By.XPATH, '//*[text()="编辑"]')
 
 
 
