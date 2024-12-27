@@ -118,6 +118,12 @@ class ElectronicArchivesLocator:
     # 第一个项目编辑按钮
     first_project_edit_next_button_loc = (By.XPATH, '//*[text()="编辑"]')
 
+    # 页面提示信息
+    page_tip_loc = (By.XPATH, '//*[@aria-label="check-circle"]/following::span')
+
+    # 第一个项目名称
+    first_project_name_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td')
+
 
 
 

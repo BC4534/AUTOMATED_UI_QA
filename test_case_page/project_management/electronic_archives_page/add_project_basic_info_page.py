@@ -4,22 +4,29 @@ from test_case_page.project_management.electronic_archives_page.electronic_archi
 
 
 class AddProjectBaseInfoPage(ElectronicArchivesPage):
-# 新增项目 填写项目基础资料信息
-    def fill_electronic_archives_02_basic_information(self, init_time :str, project_name ,project_install_power
-                                                      ,project_install_capacity,
-                                                      project_stage ,project_progress ,project_type ,product_type
-                                                      ,outdoor_cabinet_type ,project_area ,is_support_inspection):
-        self.input_init_time(init_time) # 选择立项时间
-        self.input_project_name(project_name) # 输入项目名称
-        self.input_project_install_power(project_install_power) # 输入项目装机功率
-        self.input_project_install_capacity(project_install_capacity) # 输入项目装机容量
-        self.select_project_stage(project_stage) # 选择项目阶段
-        self.select_project_progress(project_progress) # 选择项目进度
-        self.select_project_type(project_type) # 选择项目类型
-        self.select_product_type(product_type) # 选择产品类型
-        self.select_outdoor_cabinet_type(outdoor_cabinet_type) # 选择户外柜规格
-        self.select_project_area(project_area) # 选择所属区域
-        self.is_support_inspection_standard(is_support_inspection) # 选择是否支持巡检标准
+
+    # 切换至基础资料维护界面
+    def switch_to_project_base_info(self):
+        self.click_element(ProjectBaseInfoLocator.project_base_info_page_loc)
+        self.random_sleep(0.5)
+
+    # 新增项目 填写项目基础资料信息
+    def fill_electronic_archives_02_basic_information(self, init_time: str, project_name, project_install_power
+                                                      , project_install_capacity,
+                                                      project_stage, project_progress, project_type, product_type
+                                                      , outdoor_cabinet_type, project_area, is_support_inspection):
+        self.input_init_time(init_time)  # 选择立项时间
+        self.input_project_name(project_name)  # 输入项目名称
+        self.input_project_install_power(project_install_power)  # 输入项目装机功率
+        self.input_project_install_capacity(project_install_capacity)  # 输入项目装机容量
+        self.select_project_stage(project_stage)  # 选择项目阶段
+        self.select_project_progress(project_progress)  # 选择项目进度
+        self.select_project_type(project_type)  # 选择项目类型
+        self.select_product_type(product_type)  # 选择产品类型
+        self.select_outdoor_cabinet_type(outdoor_cabinet_type)  # 选择户外柜规格
+        self.select_project_area(project_area)  # 选择所属区域
+        self.is_support_inspection_standard(is_support_inspection)  # 选择是否支持巡检标准
+
     # 选择立项时间
     def input_init_time(self, init_time):
         # 点击立项时间
@@ -38,21 +45,25 @@ class AddProjectBaseInfoPage(ElectronicArchivesPage):
             self.click_element(ProjectBaseInfoLocator.project_time_today_loc)
             logger.info("立项时间未填，默认选择今天")
         self.random_sleep(0.5)
+
     # 输入项目名称
     def input_project_name(self, project_name):
         # 输入项目名称
         self.send_keys_by_clear(ProjectBaseInfoLocator.project_name_input_loc, project_name)
         self.random_sleep(0.5)
+
     # 输入项目装机功率
     def input_project_install_power(self, project_install_power):
         # 输入项目装机功率
         self.send_keys_by_clear(ProjectBaseInfoLocator.project_install_power_input_loc, project_install_power)
         self.random_sleep(0.5)
+
     # 输入项目装机容量
     def input_project_install_capacity(self, project_install_capacity):
         # 输入项目装机容量
         self.send_keys_by_clear(ProjectBaseInfoLocator.project_install_capacity_input_loc, project_install_capacity)
         self.random_sleep(0.5)
+
     # 选择项目阶段
     def select_project_stage(self, project_stage):
         # 选择项目阶段
@@ -75,6 +86,7 @@ class AddProjectBaseInfoPage(ElectronicArchivesPage):
         else:
             logger.info("项目阶段未填，默认选择待实施阶段")
             self.click_element(ProjectBaseInfoLocator.project_stage_wait_for_implementation_loc)
+
     # 选择项目进度
     def select_project_progress(self, project_progress):
         self.click_element(ProjectBaseInfoLocator.project_progress_select_loc)
@@ -100,6 +112,7 @@ class AddProjectBaseInfoPage(ElectronicArchivesPage):
             logger.info("项目进度未填，默认选择计划期")
             self.click_element(ProjectBaseInfoLocator.project_progress_plan_loc)
         self.random_sleep(0.5)
+
     # 选择项目类型
     def select_project_type(self, project_type):
         # 项目类型
@@ -130,11 +143,12 @@ class AddProjectBaseInfoPage(ElectronicArchivesPage):
             else:
                 logger.error("输入的产品类型不正确，默认选择户外柜")
                 self.click_element(ProjectBaseInfoLocator.product_type_outdoor_cabinet_loc)
+
     # 选择户外柜类型
     def select_outdoor_cabinet_type(self, outdoor_cabinet_type):
         if self.get_product_type_text() == "户外柜":
             self.click_element(ProjectBaseInfoLocator.outdoor_cabinet_type_select_loc)
-            if outdoor_cabinet_type != " ": # 215户外柜国标1.0 215户外柜国标2.0 232户外柜
+            if outdoor_cabinet_type != " ":  # 215户外柜国标1.0 215户外柜国标2.0 232户外柜
                 if outdoor_cabinet_type == "215户外柜国标1.0":
                     self.click_element(ProjectBaseInfoLocator.outdoor_cabinet_type_215_gb1_0_loc)
                 elif outdoor_cabinet_type == "215户外柜国标2.0":
@@ -171,6 +185,7 @@ class AddProjectBaseInfoPage(ElectronicArchivesPage):
             logger.info("所属区域未填，默认选择东部")
             self.click_element(ProjectBaseInfoLocator.project_area_east_loc)
         self.random_sleep(0.5)
+
     # 选择是否执行巡检标准
     def is_support_inspection_standard(self, is_support_inspection):
         # 选择是否支持巡检标准

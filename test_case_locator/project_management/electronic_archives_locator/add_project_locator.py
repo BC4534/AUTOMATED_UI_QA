@@ -16,12 +16,20 @@ class AddProjectLocator():
     submit_button_loc = (By.XPATH, '//*[text()="提 交"]')
     # 关闭按钮
     close_button_loc = (By.XPATH, '//*[text()="关闭"]')
+    # 开始时间
+    start_time_loc = (By.XPATH, '//*[@placeholder="开始时间"]')
+    # 当前月1号 //div[text()=1 and @class="ant-picker-cell-inner"]
+    current_month_1_loc = (By.XPATH, '//div[text()="1" and @class="ant-picker-cell-inner"]')
+    # 下个月1号
+    next_month_1_loc = (By.XPATH, '(//div[text()="1" and @class="ant-picker-cell-inner"])[2]')
     """
     新增项目界面的元素
     由于元素太多了，每个页面再写一个类
     """
     # =====================项目基础资料维护=====================
     class ProjectBaseInfoLocator():
+        # 项目基础资料维护界面
+        project_base_info_page_loc = (By.XPATH, '//*[text()="项目基础资料维护"]')
         # ===============项目基础资料维护======================
         # 立项时间选择框
         project_time_select_loc = (By.XPATH, '//*[@title="立项时间"]/following::input[@placeholder="请选择日期"]')
@@ -92,7 +100,7 @@ class AddProjectLocator():
         # 215户外柜国标1.0
         outdoor_cabinet_type_215_gb1_0_loc = (By.XPATH, '//*[@title="215户外柜国标1.0"]')
         # 215户外柜国标2.0
-        outdoor_cabinet_type_215_gb2_0_loc = (By.XPATH, '//*[@title="215户外柜国标2.0""]')
+        outdoor_cabinet_type_215_gb2_0_loc = (By.XPATH, '//*[@title="215户外柜国标2.0"]')
         # 232户外柜
         outdoor_cabinet_type_232_loc = (By.XPATH, '//*[@title="232户外柜"]')
 
@@ -124,6 +132,9 @@ class AddProjectLocator():
 
     # =====================项目详细资料维护=====================
     class ProjectDetailInfoLocator():
+
+        # 项目详细资料维护界面
+        project_detail_info_page_loc = (By.XPATH, '//*[text()="项目详细资料维护"]')
         # 电站详细信息
         # 业主名称输入框
         owner_name_input_loc = (By.XPATH, '//*[@placeholder="请输入业主名称"]')
@@ -256,45 +267,90 @@ class AddProjectLocator():
 
     # =====================实施维护管理信息=====================
     class ImplementationMaintenanceInfoLocator():
-        # 实施计划时间选择框
-        implementation_plan_time_select_loc = (By.XPATH, '//*[@class="ant-select-selection-search"]')
+        # // *[text() = "维护实施管理信息"]维护实施管理信息
+        maintain_implement_info_management_page_loc =  (By.XPATH, '//*[text() = "维护实施管理信息"]')
+        # 实施计划时间选择框 id="basic_implementationPlanTime"
+        implementation_plan_time_loc = (By.XPATH, '//*[@id="basic_implementationPlanTime"]/..')
 
-        # 实施负责人选择框
-        implementation_responsible_select_loc = (By.XPATH, '//*[@class="ant-select-selection-search"]')
+
+        # 实施负责人选择框 id="basic_implementManagerAccount"
+        implementation_responsible_select_loc = (By.XPATH, '//*[@id="basic_implementManagerAccount"]/..')
+        # 实施负责人 - 系统管理员
+        implementation_responsible_system_administrator_loc = (By.XPATH, '//*[@class="rc-virtual-list-holder-inner"]/div[@title="系统管理员"]')
+
+
+        # 实施负责人后面的（！）
+        implementation_responsible_tip_loc = (By.XPATH, '//*[text()="实施负责人"]')
+        # 实施负责人！的提示文本
+        implementation_responsible_tip_text_loc = (By.XPATH, '//*[text()="创建项目后，会在计划开始时间时自动创建一条实施工单至实施负责人，实施阶段该项目 产生的所有工单会由实施负责人负责。"]')
 
 
     # =====================运维管理信息=====================
     class OperationManagementInfoLocator():
-        # 运维负责人选择框
-        operation_responsible_select_loc = (By.XPATH, '//*[@class="ant-select-selection-search"]')
-        # 首次巡检时间选择框
-        first_inspection_time_select_loc = (By.XPATH, '//*[@class="ant-select-selection-search"]')
-        # 巡检周期选择框
-        inspection_cycle_select_loc = (By.XPATH, '//*[@class="ant-select-selection-search"]')
+        # 运维管理界面
+        operation_management_info_page_loc =  (By.XPATH, '//*[text() = "运维管理信息"]')
+        # 运维负责人选择框 id="basic_operationsManagerAccount"
+        operation_responsible_select_loc = (By.XPATH, '//*[@id="basic_operationsManagerAccount"]/..')
+        # 运维负责人 - 系统管理员
+        operation_responsible_system_administrator_loc = (By.XPATH, '//*[@class="rc-virtual-list-holder-inner"]/div[@title="系统管理员"]')
+        # 运维负责人后面的（！）
+        operation_responsible_tip_loc = (By.XPATH, '//*[text()="运维负责人"]')
+        # 运维负责人！的提示文本
+        operation_responsible_tip_text_loc = (By.XPATH, '//*[text()="创建项目后，实施阶段该项目产生的所有工单将由实施负责人处理。"]')
+        # 首次巡检时间选择框 id="basic_firstInspectionDate
+        first_inspection_time_select_loc = (By.XPATH, '//*[@id="basic_firstInspectionDate"]/..')
+        # 今天
+        first_inspection_time_today_loc = (By.XPATH, '//*[text()="今天"]')
+        # 下一个月按钮 //*[@class="ant-picker-next-icon"]/..
+        next_month_button_loc = (By.XPATH, '//*[@class="ant-picker-header-next-btn"]')
+        # 1号
+        first_day_loc = (By.XPATH, '//tbody/following::div[text()="1"]')
+        # 巡检周期选择框 id="basic_inspectionCycle"
+        inspection_cycle_select_loc = (By.XPATH, '//*[@id="basic_inspectionCycle"]/..')
         # 巡检周期 一个月一次
-        inspection_cycle_one_month_loc = (By.XPATH, '//*[@title=" monthly"]')
+        inspection_cycle_one_month_loc = (By.XPATH, '//*[@title="一月一次"]')
         # 巡检周期 两个月一次
-        inspection_cycle_two_month_loc = (By.XPATH, '//*[@title=" every two months"]')
+        inspection_cycle_two_month_loc = (By.XPATH, '//*[@title="二月一次"]')
         # 巡检周期 三个月一次
-        inspection_cycle_three_month_loc = (By.XPATH, '//*[@title=" every three months"]')
+        inspection_cycle_three_month_loc = (By.XPATH, '//*[@title="三月一次"]')
         # 巡检周期 四个月一次
-        inspection_cycle_four_month_loc = (By.XPATH, '//*[@title=" every four months"]')
+        inspection_cycle_four_month_loc = (By.XPATH, '//*[@title="四月一次"]')
         # 巡检周期 五个月一次
-        inspection_cycle_five_month_loc = (By.XPATH, '//*[@title=" every five months"]')
+        inspection_cycle_five_month_loc = (By.XPATH, '//*[@title="五月一次"]')
         # 巡检周期 六个月一次
-        inspection_cycle_six_month_loc = (By.XPATH, '//*[@title=" every six months"]')
+        inspection_cycle_six_month_loc = (By.XPATH, '//*[@title="六月一次"]')
         # 巡检周期 七个月一次
-        inspection_cycle_seven_month_loc = (By.XPATH, '//*[@title=" every seven months"]')
+        inspection_cycle_seven_month_loc = (By.XPATH, '//*[@title="七月一次"]')
         # 巡检周期 八个月一次
-        inspection_cycle_eight_month_loc = (By.XPATH, '//*[@title=" every eight months"]')
+        inspection_cycle_eight_month_loc = (By.XPATH, '//*[@title="八月一次"]')
         # 巡检周期 九个月一次
-        inspection_cycle_nine_month_loc = (By.XPATH, '//*[@title=" every nine months"]')
+        inspection_cycle_nine_month_loc = (By.XPATH, '//*[@title="九月一次"]')
         # 巡检周期 十个月一次
-        inspection_cycle_ten_month_loc = (By.XPATH, '//*[@title=" every ten months"]')
+        inspection_cycle_ten_month_loc = (By.XPATH, '//*[@title="十月一次"]')
         # 巡检周期 十一个月一次
-        inspection_cycle_eleven_month_loc = (By.XPATH, '//*[@title=" every eleven months"]')
+        inspection_cycle_eleven_month_loc = (By.XPATH, '//*[@title="十一月一次"]')
         # 巡检周期 十二个月一次
-        inspection_cycle_twelve_month_loc = (By.XPATH, '//*[@title=" every twelve months"]')
+        inspection_cycle_twelve_month_loc = (By.XPATH, '//*[@title="十二月一次"]')
+
+        # 添加巡检组
+        add_inspection_group_button_loc = (By.XPATH, '//*[text()="添加巡检组"]/..')
+
+        # 输入巡检组名
+        inspection_group_name_input_loc = (By.XPATH, '//*[@id="basic_inspectionGroups_0_nameLabel"]')
+
+        # 点击添加巡检项按钮
+        add_inspection_item_button_loc = (By.XPATH, '//*[text()="添加巡检事项"]/..')
+        # 巡检项1选择框 id="basic_inspectionGroups_0_inspectionTeamGroup_0_inspectionItemIds"
+        inspection_item_select_loc = (By.XPATH, '//*[@id="basic_inspectionGroups_0_inspectionTeamGroup_0_inspectionItemIds"]/..')
+
+        # 第一个巡检项
+        inspection_item_one_loc = (By.XPATH, '(//*[@class="rc-virtual-list-holder-inner"])[3]/div/div')
+
+        # 批量下载巡检编码按钮
+        batch_download_inspection_code_button_loc = (By.XPATH, '//*[text()="批量下载巡检编码"]/..')
+
+
+
 
 
 

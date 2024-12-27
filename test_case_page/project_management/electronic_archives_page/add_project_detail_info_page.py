@@ -8,6 +8,10 @@ from common.loggerhandler import logger
 
 class AddProjectDetailInfoPage(AddProjectBaseInfoPage):
 
+    # 切换至详细资料维护界面
+    def switch_to_project_detail_info(self):
+        self.click_element(ProjectDetailInfoLocator.project_detail_info_page_loc)
+
 
     # 电站详细信息部分填写
     def fill_station_detail_info(self, owner_name, project_address, station_name, station_contact, station_contact_phone,
@@ -43,9 +47,9 @@ class AddProjectDetailInfoPage(AddProjectBaseInfoPage):
         # 电站所属区/镇
         self.send_keys_by_clear(ProjectDetailInfoLocator.station_belong_area_input_loc,station_belong_area)
         # 经度
-        self.send_keys_by_clear(ProjectDetailInfoLocator.longitude_input_loc,longitude)
+        self.send_keys(ProjectDetailInfoLocator.longitude_input_loc,longitude)
         # 纬度
-        self.send_keys_by_clear(ProjectDetailInfoLocator.latitude_input_loc,latitude)
+        self.send_keys(ProjectDetailInfoLocator.latitude_input_loc,latitude)
 
     # 设备配置信息填写
     def fill_device_configuration_info(self,battery_cabinet_number, single_battery_cabinet_capacity, pcs_type, pcs_unit_number,
@@ -111,7 +115,10 @@ class AddProjectDetailInfoPage(AddProjectBaseInfoPage):
         if associated_station_information != "":
             self.click_element(ProjectDetailInfoLocator.associated_station_information_select_loc)
             # //*[@title="XZ"]
-            self.click_element((By.XPATH, f'//*[@title="{associated_station_information}"]'))
+            try:
+                self.click_element((By.XPATH, f'//*[@title="{associated_station_information}"]'))
+            except:
+                logger.info("输入的关联电站信息不正确，默认不选择关联电站信息")
             self.click_element(ProjectDetailInfoLocator.associated_station_information_text_loc)
             self.random_sleep(0.5)
 
