@@ -127,6 +127,49 @@ class ElectronicArchivesPage(BasePage):
     def get_second_project_stage(self):
         return self.text(ElectronicArchivesLocator.second_project_stage_loc)
 
+    # 项目阶段查询操作过程
+    def input_project_stage_query(self, stage):
+        self.click_element(ElectronicArchivesLocator.project_stage_select_loc)
+        self.random_sleep(0.5)
+        self.click_element((By.XPATH, f'//*[@title="{stage}"]'))
+        self.random_sleep(0.5)
+
+    # 获取第一个项目进度
+    def get_first_project_progress(self):
+        return self.text(ElectronicArchivesLocator.first_project_progress_loc)
+
+    # 获取第二个项目进度
+    def get_second_project_progress(self):
+        return self.text(ElectronicArchivesLocator.second_project_progress_loc)
+
+    # 项目进度查询操作过程
+    def input_project_progress_query(self, progress):
+        self.click_element(ElectronicArchivesLocator.project_stage_select_loc)
+        if progress == "计划期":
+            self.click_element(ElectronicArchivesLocator.project_stage_wait_for_implementation_loc)
+            self.random_sleep(0.5)
+            self.click_element(ElectronicArchivesLocator.project_progress_select_loc)
+            self.random_sleep(0.5)
+            self.click_element((By.XPATH, f'//*[@title="{progress}"]'))
+        elif progress in ["准备期","发货期","调试期","试运行"]:
+            self.click_element(ElectronicArchivesLocator.project_stage_implementation_loc)
+            self.random_sleep(0.5)
+            self.click_element(ElectronicArchivesLocator.project_progress_select_loc)
+            self.random_sleep(0.5)
+            self.click_element((By.XPATH, f'//*[@title="{progress}"]'))
+        elif progress in ["质保期","已过保"]:
+            self.click_element(ElectronicArchivesLocator.project_stage_after_sale_loc)
+            self.random_sleep(0.5)
+            self.click_element(ElectronicArchivesLocator.project_progress_select_loc)
+            self.random_sleep(0.5)
+            self.click_element((By.XPATH, f'//*[@title="{progress}"]'))
+        else:
+            logger.error("输入的进度类型不存在！")
+
+
+
+
+
     # 获取第一个项目类型
     def get_first_project_type(self):
         return self.text(ElectronicArchivesLocator.first_project_type_loc)
@@ -134,33 +177,74 @@ class ElectronicArchivesPage(BasePage):
     def get_second_project_type(self):
         return self.text(ElectronicArchivesLocator.second_project_type_loc)
 
+    # 项目类型查询操作过程
+    def input_project_type_query(self, type):
+        self.click_element(ElectronicArchivesLocator.project_type_select_loc)
+        self.random_sleep(0.5)
+        self.click_element((By.XPATH, f'//*[@title="{type}"]'))
+        self.random_sleep(0.5)
+
+
     # 获取第一个产品类型
     def get_first_project_product_type(self):
         return self.text(ElectronicArchivesLocator.first_project_product_type_loc)
     # 获取第二个产品类型
     def get_second_project_product_type(self):
         return self.text(ElectronicArchivesLocator.second_project_product_type_loc)
+    # 项目产品类型查询操作过程
+    def input_project_product_type_query(self, type):
+        self.click_element(ElectronicArchivesLocator.product_type_select_loc)
+        self.random_sleep(0.5)
+        self.click_element((By.XPATH, f'//*[@title="{type}"]'))
+        self.random_sleep(0.5)
+
+
     # 获取第一个实施负责人
     def get_first_project_implement_leader(self):
         return self.text(ElectronicArchivesLocator.first_project_implement_leader_loc)
     # 获取第二个实施负责人
     def get_second_project_implement_leader(self):
         return self.text(ElectronicArchivesLocator.second_project_implement_leader_loc)
-
+    # 项目实施负责人查询操作过程
+    def input_project_implement_leader_query(self, leader):
+        self.click_element(ElectronicArchivesLocator.implement_leader_select_loc)
+        self.random_sleep(0.5)
+        self.click_element((By.XPATH, f'//*[@title="{leader}"]'))
     # 获取第一个项目运维负责人
     def get_first_project_operation_leader(self):
         return self.text(ElectronicArchivesLocator.first_project_operation_leader_loc)
     # 获取第二个项目运维负责人
     def get_second_project_operation_leader(self):
-        return self.text(ElectronicArchivesLocator.second_project_operation_leader_loc)
+        n = 3
+        while True:
+            a = self.text((By.XPATH, f'//*[@class="ant-table-tbody"]/tr[{n}]/td[13]'))
+            if  a == "":
+                n += 1
+            else:
+                return self.text((By.XPATH, f'//*[@class="ant-table-tbody"]/tr[{n}]/td[13]'))
 
+
+    # 项目运维负责人查询操作过程
+    def input_project_operation_leader_query(self, leader):
+        self.click_element(ElectronicArchivesLocator.operation_leader_select_loc)
+        self.random_sleep(0.5)
+        self.click_element((By.XPATH, f'//*[@title="{leader}"]'))
     # 获取第一个项目状态
     def get_first_project_status(self):
         return self.text(ElectronicArchivesLocator.first_project_status_loc)
 
+    # 选择草稿状态搜索
+    def input_project_status_query(self, status):
+        self.click_element(ElectronicArchivesLocator.project_status_select_loc)
+        self.random_sleep(0.5)
+        self.click_element((By.XPATH, f'//*[@title="{status}"]'))
     # 获取第一个项目是否支持标准巡检
     def get_first_project_is_support_standard_inspection(self):
         return self.text(ElectronicArchivesLocator.first_project_is_support_standard_inspection_loc)
+
+    # 巡检状态查询操作过程
+    def input_project_is_support_standard_inspection_query(self, status):
+        self.click_element((By.XPATH, f'//*[text()="{status}"]/preceding-sibling::span'))
 
 
 

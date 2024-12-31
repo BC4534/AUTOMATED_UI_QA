@@ -171,5 +171,135 @@ class TestElectronicArchives09:
             add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
 
+    @allure.description("项目阶段查询")
+    def test_electronic_archives_09_4(self, login_driver):
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        try:
+            logger.info(f"{self.__class__.__name__} 开始执行用例")
+            add_election_archives_page.switch_to_electronic_archives()
+            add_election_archives_page.click_reset_button()
+            second_project_stage = add_election_archives_page.get_second_project_stage()
+            add_election_archives_page.input_project_stage_query(second_project_stage)
+            add_election_archives_page.click_search_button()
+            assert second_project_stage == add_election_archives_page.get_first_project_stage()
+        except Exception as e:
+            logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
+            add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
+            raise e
 
+    @allure.description("项目进度查询")
+    def test_electronic_archives_09_5(self, login_driver):
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        try:
+            logger.info(f"{self.__class__.__name__} 开始执行用例")
+            add_election_archives_page.switch_to_electronic_archives()
+            add_election_archives_page.click_reset_button()
+            second_project_progress = add_election_archives_page.get_second_project_progress()
+            add_election_archives_page.input_project_progress_query(second_project_progress)
+            add_election_archives_page.click_search_button()
+            assert second_project_progress == add_election_archives_page.get_first_project_progress()
+        except Exception as e:
+            logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
+            add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
+            raise e
+
+    @allure.description("项目类型查询")
+    def test_electronic_archives_09_6(self, login_driver):
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        try:
+            logger.info(f"{self.__class__.__name__} 开始执行用例")
+            add_election_archives_page.switch_to_electronic_archives()
+            add_election_archives_page.click_reset_button()
+            second_project_type = add_election_archives_page.get_second_project_type()
+            add_election_archives_page.input_project_type_query(second_project_type)
+            add_election_archives_page.click_search_button()
+            assert second_project_type == add_election_archives_page.get_first_project_type()
+        except Exception as e:
+            logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
+            add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
+            raise e
+
+    @allure.description("产品类型查询")
+    def test_electronic_archives_09_7(self, login_driver):
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        try:
+            logger.info(f"{self.__class__.__name__} 开始执行用例")
+            add_election_archives_page.switch_to_electronic_archives()
+            add_election_archives_page.click_reset_button()
+            second_project_product_type = add_election_archives_page.get_second_project_product_type()
+            add_election_archives_page.input_project_product_type_query(second_project_product_type)
+            add_election_archives_page.click_search_button()
+            assert second_project_product_type == add_election_archives_page.get_first_project_product_type()
+        except Exception as e:
+            logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
+            add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
+            raise e
+
+    @allure.description("实施负责人查询")
+    def test_electronic_archives_09_8(self, login_driver):
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        try:
+            logger.info(f"{self.__class__.__name__} 开始执行用例")
+            add_election_archives_page.switch_to_electronic_archives()
+            add_election_archives_page.click_reset_button()
+            second_project_implement_leader = add_election_archives_page.get_second_project_implement_leader()
+            add_election_archives_page.input_project_implement_leader_query(second_project_implement_leader)
+            add_election_archives_page.click_search_button()
+            assert second_project_implement_leader == add_election_archives_page.get_first_project_implement_leader()
+        except Exception as e:
+            logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
+            add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
+            raise e
+
+    @allure.description("运维负责人查询")
+    def test_electronic_archives_09_9(self, login_driver):
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        try:
+            logger.info(f"{self.__class__.__name__} 开始执行用例")
+            add_election_archives_page.switch_to_electronic_archives()
+            add_election_archives_page.click_reset_button()
+            second_project_operation_leader = add_election_archives_page.get_second_project_operation_leader()
+            add_election_archives_page.input_project_operation_leader_query(second_project_operation_leader)
+            add_election_archives_page.click_search_button()
+            assert second_project_operation_leader == add_election_archives_page.get_first_project_operation_leader()
+        except Exception as e:
+            logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
+            add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
+            raise e
+
+    @allure.description("状态查询")
+    def test_electronic_archives_09_10(self, login_driver):
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        try:
+            logger.info(f"{self.__class__.__name__} 开始执行用例")
+            add_election_archives_page.switch_to_electronic_archives()
+            add_election_archives_page.click_reset_button()
+            add_election_archives_page.input_project_status_query("草稿")
+            add_election_archives_page.click_search_button()
+            assert add_election_archives_page.get_first_project_status() == "草稿"
+            add_election_archives_page.input_project_status_query("已生效")
+            add_election_archives_page.click_search_button()
+            assert add_election_archives_page.get_first_project_status() == "已生效"
+        except Exception as e:
+            logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
+            add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
+            raise e
+
+    @allure.description("是否支持标准巡检查询")
+    def test_electronic_archives_09_11(self, login_driver):
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        try:
+            logger.info(f"{self.__class__.__name__} 开始执行用例")
+            add_election_archives_page.switch_to_electronic_archives()
+            add_election_archives_page.click_reset_button()
+            add_election_archives_page.input_project_is_support_standard_inspection_query("是")
+            add_election_archives_page.click_search_button()
+            assert add_election_archives_page.get_first_project_is_support_standard_inspection() == "是"
+            add_election_archives_page.input_project_is_support_standard_inspection_query("否")
+            add_election_archives_page.click_search_button()
+            assert add_election_archives_page.get_first_project_is_support_standard_inspection() == "否"
+        except Exception as e:
+            logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
+            add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
+            raise e
 

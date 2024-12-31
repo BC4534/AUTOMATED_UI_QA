@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 from common.loggerhandler import logger
 from test_case_locator.project_management.electronic_archives_locator.add_project_locator import \
@@ -122,6 +124,7 @@ class AddOperationMaintenanceManagementInfoPage(AddMaintainImplementInfoManageme
     def click_search_button(self):
         logger.debug("点击查询按钮")
         self.click_element(ElectronicArchivesLocator.search_button_loc)
+        time.sleep(1)
     # 点击重置
     def click_reset_button(self):
         logger.debug("点击重置按钮")

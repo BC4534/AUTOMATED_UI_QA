@@ -1,7 +1,7 @@
 import allure
-from test_case_page.project_management.electronic_archives_page import ElectronicArchivesPage
-from common.loggerhandler import logger
 
+from common.loggerhandler import logger
+from test_case_page.project_management.electronic_archives_page.electronic_archives_page import ElectronicArchivesPage
 
 
 @allure.title("电子档案管理模块")
