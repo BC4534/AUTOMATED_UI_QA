@@ -3,7 +3,6 @@ from test_case_locator.project_management.electronic_archives_locator.add_projec
     ProjectDetailInfoLocator
 from test_case_page.project_management.electronic_archives_page.add_project_basic_info_page import \
     AddProjectBaseInfoPage
-from test_case_page.project_management.electronic_archives_page.electronic_archives_page import ElectronicArchivesPage
 from common.loggerhandler import logger
 
 class AddProjectDetailInfoPage(AddProjectBaseInfoPage):
@@ -240,6 +239,23 @@ class AddProjectDetailInfoPage(AddProjectBaseInfoPage):
         self.send_keys_by_clear(ProjectDetailInfoLocator.busbar_cabinet_vendor_contact_phone_input_loc,
                                 busbar_cabinet_vendor_phone)
         self.random_sleep(0.5)
+
+    # ===必填项断言===
+    # 业主名称必填项
+    def get_owner_required_text(self):
+        return self.text(ProjectDetailInfoLocator.owner_required_loc)
+
+    # 电池仓个数必填项
+    def get_battery_box_number_required_text(self):
+        return self.text(ProjectDetailInfoLocator.battery_box_number_required_loc)
+    # bms厂商必填项
+    def get_bms_vendor_required_text(self):
+        return self.text(ProjectDetailInfoLocator.bms_vendor_required_loc)
+
+
+
+
+
 
 
 

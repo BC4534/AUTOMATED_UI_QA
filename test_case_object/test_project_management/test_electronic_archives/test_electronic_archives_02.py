@@ -115,17 +115,19 @@ operation_maintenance_management_info_data = {
 }
 
 
-@allure.title("电子档案管理模块")
-@allure.description("新增项目")
+@allure.title("电子档案管理模块-新增项目")
+@allure.feature("项目管理模块")
+@allure.story("电子档案功能")
 class TestElectronicArchives02:
 
-    def test_electronic_archives_02(self, login_driver):
+    @allure.description("新增项目")
+    def test_electronic_archives_02_1(self, login_driver):
         add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()
             add_election_archives_page.click_add_project_button()
-            add_election_archives_page.fill_electronic_archives_02_basic_information(
+            add_election_archives_page.fill_basic_information(
                 init_time=base_info_data["init_time"],
                 project_name=base_info_data["project_name"],
                 project_install_power=base_info_data["project_install_power"],
@@ -218,7 +220,25 @@ class TestElectronicArchives02:
             logger.debug("填写运维管理信息成功")
             add_election_archives_page.click_submit_button()
             assert add_election_archives_page.get_first_project_name() == base_info_data["project_name"]
+            add_election_archives_page.delete_first_project()
 
+
+        except Exception as e:
+            logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
+            add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
+            if add_election_archives_page.get_first_project_name() == base_info_data["project_name"]:
+                add_election_archives_page.delete_first_project()
+            raise e
+
+    @allure.description("验证新增项目弹框文本")
+    def test_electronic_archives_02_2(self, login_driver):
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        try:
+            logger.info(f"{self.__class__.__name__} 开始执行用例")
+            add_election_archives_page.switch_to_electronic_archives()
+            add_election_archives_page.click_add_project_button()
+            assert add_election_archives_page.get_add_edit_project_title() == "新增项目"
+            add_election_archives_page.click_close_button()
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
             add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")

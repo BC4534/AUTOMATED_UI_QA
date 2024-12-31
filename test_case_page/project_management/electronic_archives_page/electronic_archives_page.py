@@ -1,22 +1,178 @@
 import time
 
+from selenium.webdriver.common.by import By
+
 from common.base_method import BasePage
 from test_case_locator.project_management.electronic_archives_locator.electronic_archives_locator import \
     ElectronicArchivesLocator
 from test_case_locator.project_management.electronic_archives_locator.add_project_locator import \
-AddProjectLocator,ProjectBaseInfoLocator,ImplementationMaintenanceInfoLocator,OperationManagementInfoLocator
+    AddProjectLocator, ProjectBaseInfoLocator, ImplementationMaintenanceInfoLocator, OperationManagementInfoLocator
 from common.loggerhandler import logger
-
 
 
 class ElectronicArchivesPage(BasePage):
 
     # 获取第一个项目名称
     def get_first_project_name(self):
-        self.refresh()
         b = self.text(ElectronicArchivesLocator.first_project_name_loc)
         logger.debug("第一个项目名称为：" + b)
         return b
+    # 获取第二个项目名称
+    def get_second_project_name(self):
+        b = self.text(ElectronicArchivesLocator.second_project_name_loc)
+        logger.debug("第二个项目名称为：" + b)
+        return b
+
+    # 获取第二个项目的立项时间
+    def get_second_project_init_time(self):
+        b = self.text(ElectronicArchivesLocator.second_project_init_time_loc)
+        logger.debug("第二个项目的立项时间为：" + b)
+        return b
+
+    # 获取第一个项目的立项时间
+    def get_first_project_init_time(self):
+        b = self.text(ElectronicArchivesLocator.first_project_init_time_loc)
+        logger.debug("第一个项目的立项时间为：" + b)
+        return b
+    # 立项时间查询框输入 立项时间查询条件
+    # def input_init_time_query_condition(self, init_time):
+    #     year = self.text(ElectronicArchivesLocator.current_year_value_loc)[2:4]
+    #     month = self.text(ElectronicArchivesLocator.current_month_value_loc)[0:2]
+    #     y = init_time[0:4]
+    #     m = init_time[5:7]
+    #     d = init_time[8:10]
+    #     if int(y) == int(year):
+    #         if int(m) == int(month):
+    #             # //*[@class="ant-picker-cell ant-picker-cell-in-view"]/div[text()="25"]
+    #             self.click_element(
+    #                 (By.XPATH, f'//*[@class="ant-picker-cell ant-picker-cell-in-view"]/div[text()="{d}"]'))
+    #         elif int(m) < int(month):
+    #             for i in range(int(month) - int(m)):
+    #                 self.click_element(ElectronicArchivesLocator.previous_month_button_loc)
+    #             self.click_element(
+    #                 (By.XPATH, f'//*[@class="ant-picker-cell ant-picker-cell-in-view"]/div[text()="{d}"]'))
+    #     elif int(y) < int(year):
+    #         for i in range(int(year) - int(y)):
+    #             self.click_element(ElectronicArchivesLocator.previous_year_button_loc)
+    #
+    #         if int(m) == int(month):
+    #             # //*[@class="ant-picker-cell ant-picker-cell-in-view"]/div[text()="25"]
+    #             self.click_element((By.XPATH,f'//*[@class="ant-picker-cell ant-picker-cell-in-view"]/div[text()="{d}"]'))
+    #         elif int(m) < int(month):
+    #             for i in range(int(month) - int(m)):
+    #                 self.click_element(ElectronicArchivesLocator.previous_month_button_loc)
+    #             self.click_element((By.XPATH,f'//*[@class="ant-picker-cell ant-picker-cell-in-view"]/div[text()="{d}"]'))
+
+    def input_init_time_query_condition(self, init_time):
+        """
+        输入指定的日期。
+        """
+        self.move_to_element(ElectronicArchivesLocator.project_time_select_loc)
+        self.click_element(ElectronicArchivesLocator.project_time_select_loc)
+        year = self.text(ElectronicArchivesLocator.current_year_value_loc)[0:4]
+        month = self.text(ElectronicArchivesLocator.current_month_value_loc)[0:2]
+        y = init_time[0:4]
+        m = init_time[5:7]
+        d = init_time[8:10]
+        # 如果年份相同
+        if int(y) == int(year):
+            # 如果月份相同，直接点击日期
+            if int(m) == int(month):
+                self.click_date(d)
+            else:
+                for _ in range(int(month) - int(m)):
+                    self.click_element(ElectronicArchivesLocator.previous_month_button_loc)
+                self.click_date(d)
+        # 如果年份小于当前年份，先点击上一年按钮，然后导航到日期
+        else:
+            for _ in range(int(year) - int(y)):
+                self.click_element(ElectronicArchivesLocator.previous_year_button_loc)
+            if int(m) == int(month):
+                self.click_date(d)
+            else:
+                for _ in range(int(month) - int(m)):
+                    self.click_element(ElectronicArchivesLocator.previous_month_button_loc)
+                self.click_date(d)
+
+    def click_date(self, day):
+        """
+        点击指定的日期。
+        """
+        self.click_element(
+            (By.XPATH, f'//*[@class="ant-picker-cell ant-picker-cell-in-view"]/div[text()="{day}"]'))
+
+
+
+    # 选择工单所属区域 -默认东部
+    def select_work_order_area(self, area):
+        self.click_element(ElectronicArchivesLocator.work_order_area_select_loc)
+        self.click_element((By.XPATH, f'//*[@title="{area}"]'))
+
+    # 获取第二个项目的所属区域
+    def get_second_project_area(self):
+        b = self.text(ElectronicArchivesLocator.second_project_area_loc)
+        logger.debug("第二个项目的所属区域为：" + b)
+        return b
+    # 获取第一个项目的所属区域
+    def get_first_project_area(self):
+        b = self.text(ElectronicArchivesLocator.first_project_area_loc)
+        logger.debug("第一个项目的所属区域为：" + b)
+        return b
+
+    # 获取第一个项目所属阶段
+    def get_first_project_stage(self):
+        return self.text(ElectronicArchivesLocator.first_project_stage_loc)
+
+    # 获取第二个项目所属阶段
+    def get_second_project_stage(self):
+        return self.text(ElectronicArchivesLocator.second_project_stage_loc)
+
+    # 获取第一个项目类型
+    def get_first_project_type(self):
+        return self.text(ElectronicArchivesLocator.first_project_type_loc)
+    # 获取第二个项目类型
+    def get_second_project_type(self):
+        return self.text(ElectronicArchivesLocator.second_project_type_loc)
+
+    # 获取第一个产品类型
+    def get_first_project_product_type(self):
+        return self.text(ElectronicArchivesLocator.first_project_product_type_loc)
+    # 获取第二个产品类型
+    def get_second_project_product_type(self):
+        return self.text(ElectronicArchivesLocator.second_project_product_type_loc)
+    # 获取第一个实施负责人
+    def get_first_project_implement_leader(self):
+        return self.text(ElectronicArchivesLocator.first_project_implement_leader_loc)
+    # 获取第二个实施负责人
+    def get_second_project_implement_leader(self):
+        return self.text(ElectronicArchivesLocator.second_project_implement_leader_loc)
+
+    # 获取第一个项目运维负责人
+    def get_first_project_operation_leader(self):
+        return self.text(ElectronicArchivesLocator.first_project_operation_leader_loc)
+    # 获取第二个项目运维负责人
+    def get_second_project_operation_leader(self):
+        return self.text(ElectronicArchivesLocator.second_project_operation_leader_loc)
+
+    # 获取第一个项目状态
+    def get_first_project_status(self):
+        return self.text(ElectronicArchivesLocator.first_project_status_loc)
+
+    # 获取第一个项目是否支持标准巡检
+    def get_first_project_is_support_standard_inspection(self):
+        return self.text(ElectronicArchivesLocator.first_project_is_support_standard_inspection_loc)
+
+
+
+
+
+
+
+
+
+
+
+
 
     # 页面保存成功提示信息
     def get_page_tip_text(self):
@@ -26,7 +182,6 @@ class ElectronicArchivesPage(BasePage):
 
     # 获取项目管理模块class属性
     def _get_project_management_module_class(self):
-
         # ant-menu-submenu ant-menu-submenu-inline
         # ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-active
 
@@ -42,21 +197,25 @@ class ElectronicArchivesPage(BasePage):
             print(self._get_project_management_module_class())
         self.click_element_by_js(ElectronicArchivesLocator.electronic_archives_loc)
         self.logger.info("切换至电子档案界面")
+
     # 点击保存按钮
     def click_save_button(self):
         self.click_element(ElectronicArchivesLocator.save_button_loc)
         self.random_sleep(0.5)
         self.logger.info("点击保存按钮")
+
     # 点击下一步按钮
     def click_next_button(self):
         self.click_element(ElectronicArchivesLocator.next_button_loc)
         self.random_sleep(0.5)
         self.logger.info("点击下一步按钮")
+
     # 点击上一步按钮
     def click_previous_button(self):
         self.click_element(ElectronicArchivesLocator.previous_button_loc)
         self.random_sleep(0.5)
         self.logger.info("点击上一步按钮")
+
     # 点击提交
     def click_submit_button(self):
         time.sleep(2)
@@ -64,6 +223,12 @@ class ElectronicArchivesPage(BasePage):
         self.random_sleep(0.5)
         self.logger.info("点击提交按钮")
         time.sleep(4)
+
+    # 点击关闭按钮
+    def click_close_button(self):
+        self.click_element(AddProjectLocator.close_button_loc)
+        self.random_sleep(0.5)
+        self.logger.info("点击关闭按钮")
 
     # 获取新增项目按钮文本值
     def get_add_project_button_text(self):
@@ -76,12 +241,12 @@ class ElectronicArchivesPage(BasePage):
         b = self.text(ElectronicArchivesLocator.supplier_maintenance_button_loc)
         logger.debug("供应商维护按钮文本值为：" + b)
         return b
+
     # 获取产品类型的值
     def get_product_type_text(self):
         b = self.text(ProjectBaseInfoLocator.product_type_text_loc)
         logger.debug("产品类型为：" + b)
         return b
-
 
     # 获取当前年份 月份
     def get_current_year_month(self):
@@ -89,58 +254,94 @@ class ElectronicArchivesPage(BasePage):
         month = self.text(ElectronicArchivesLocator.current_month_loc)[0:2]
         logger.debug("当前年份为：" + year + "，当前月份为：" + month)
         return int(year), int(month)
+
     # 点击新增项目按钮
     def click_add_project_button(self):
         self.click_element(ElectronicArchivesLocator.add_project_button_loc)
         self.logger.info("点击新增项目按钮")
 
-    # 新增项目
-    def test_electronic_archives_02(self):
-        pass
+    # 勾选第一条数据，删除
+    def delete_first_project(self):
+        self.refresh()
+        time.sleep(1)
+        self.click_element(ElectronicArchivesLocator.first_project_delete_button_loc)
+        time.sleep(1)
+        self.click_element(ElectronicArchivesLocator.confirm_delete_button_loc)
+        time.sleep(1)
+        self.logger.info("删除第一条数据")
 
-    # 填写项目基本信息
-    def fill_electronic_archives_02_basic_information(self, init_time: str, project_name, project_install_power
-                                                      , project_install_capacity,
-                                                      project_stage, project_progress, project_type, product_type
-                                                      , outdoor_cabinet_type, project_area, is_support_inspection):
-        pass
+    # 点击第一条数据的编辑按钮
+    def _click_first_project_edit_button(self):
+        time.sleep(1)
+        self.click_element(ElectronicArchivesLocator.first_project_edit_button_loc)
+        time.sleep(1)
+        self.logger.info("点击第一条数据的编辑按钮")
 
-    # 填写项目详情资料-站点详情信息
-    def fill_station_detail_info(self, owner_name, project_address, station_name, station_contact,
-                                 station_contact_phone,
-                                 total_package_unit_name, our_supply_range, warranty_period,
-                                 station_internal_storage_unit_grouping,
-                                 station_belong_province, station_belong_city, station_belong_area, longitude,
-                                 latitude):
-        pass
-    # 设备配置信息填写
-    def fill_device_configuration_info(self,battery_cabinet_number, single_battery_cabinet_capacity, pcs_type, pcs_unit_number,
-                                       battery_material, battery_grouping_method, pcs_max_power, battery_cluster_grouping_method,
-                                       battery_module_grouping_method,single_cell_capacity,charge_discharge_efficiency,fire_medium,
-                                       rated_charge_discharge_rate,associated_station_information):
-        pass
-    # 厂商信息填写
-    def fill_manufacturer_info(self, bms_vendor, bms_vendor_phone,
-                               pcs_vendor, pcs_vendor_phone,
-                               transformer_vendor, transformer_vendor_phone,
-                               liquid_cooling_system_vendor, liquid_cooling_system_vendor_phone,
-                               air_conditioner_vendor, air_conditioner_vendor_phone,
-                               pack_assembly_vendor, pack_assembly_vendor_phone,
-                               cell_vendor, cell_vendor_phone,
-                               battery_box_vendor, battery_box_vendor_phone,
-                               fire_protection_vendor, fire_protection_vendor_phone,
-                               ems_vendor, ems_vendor_phone,
-                               busbar_cabinet_vendor, busbar_cabinet_vendor_phone):
-        pass
+    # 通过标签点击项目详细资料维护
+    def _click_project_detail_info(self):
+        self.click_element(ElectronicArchivesLocator.first_project_detail_button_loc)
+        self.logger.info("点击项目详细资料维护")
 
-    # 勾选第一个项目，点击编辑。点击下一步
-    def click_first_project_edit_next(self):
-        self.click_element(ElectronicArchivesLocator.first_project_edit_next_button_loc)
-        self.click_element(ElectronicArchivesLocator.next_button_loc)
+    # 获取详情界面title
+    def _get_project_detail_info_title(self):
+        return self.text(ElectronicArchivesLocator.project_detail_info_title_loc)
+
+    # 通过标签点击维护实施管理信息
+    def _click_implementation_maintenance_info(self):
+        self.click_element(ElectronicArchivesLocator.implementation_maintenance_info_loc)
+        self.logger.info("点击维护实施管理信息")
+
+    # 通过标签点击运维管理信息
+    def _click_operation_management_info(self):
+        self.click_element(ElectronicArchivesLocator.operation_management_info_loc)
+        self.logger.info("点击运维管理信息")
+
+    # 通过标签点击项目基础资料维护
+    def _click_project_basic_info(self):
+        self.click_element(ElectronicArchivesLocator.project_basic_info_loc)
+        self.logger.info("点击项目基础资料维护")
+
+    # 验证新增项目界面的页面切换
+    def test_electronic_archives_05(self):
+        self._click_implementation_maintenance_info()  # 维护实施管理信息
         self.random_sleep(0.5)
-        self.click_element(ElectronicArchivesLocator.next_button_loc)
+        self._click_project_basic_info()  # 项目基础资料维护
         self.random_sleep(0.5)
+        self._click_project_detail_info()  # 项目详细资料维护
+        self.random_sleep(0.5)
+        self._click_operation_management_info()  # 运维管理信息
+        self.random_sleep(0.5)
+        self.click_previous_button()  # 3
+        self.random_sleep(0.5)
+        self.click_previous_button()  # 2
+        self.random_sleep(0.5)
+        self.click_previous_button()  # 1
 
+    # 获取项目基础资料维护的页面标题状态
+    def get_project_basic_info_title_status(self):
+        b = self.get_attribute(ElectronicArchivesLocator.project_basic_info_status_loc, "class")
+        logger.debug("项目基础资料维护的页面标题class状态为：" + b)
+        return b
+
+    # 获取编辑项目的页面名称
+    def get_add_edit_project_title(self):
+        return self.text(ElectronicArchivesLocator.edit_project_title_loc)
+
+    # 点击第一个批量下载巡检码按钮
+    def click_first_project_download_inspection_item_button(self):
+        self.click_element(ElectronicArchivesLocator.first_project_download_inspection_item_button_loc)
+        self.logger.info("点击第一个批量下载巡检码按钮")
+
+
+
+    # 通过编辑，进入项目资料中点击批量下载巡检码按钮
+    def test_electronic_archives_08_2(self):
+        self.click_element(ElectronicArchivesLocator.first_project_execute_inspection_edit_button_loc)
+        self.random_sleep(0.5)
+        self._click_operation_management_info()
+        self.random_sleep(0.5)
+        self.click_element(ElectronicArchivesLocator.project_info_download_inspection_item_loc)
+        self.random_sleep(0.5)
 
 
 

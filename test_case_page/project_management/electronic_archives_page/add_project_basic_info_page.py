@@ -5,16 +5,13 @@ from test_case_page.project_management.electronic_archives_page.electronic_archi
 
 class AddProjectBaseInfoPage(ElectronicArchivesPage):
 
-    # 切换至基础资料维护界面
-    def switch_to_project_base_info(self):
-        self.click_element(ProjectBaseInfoLocator.project_base_info_page_loc)
-        self.random_sleep(0.5)
+
 
     # 新增项目 填写项目基础资料信息
-    def fill_electronic_archives_02_basic_information(self, init_time: str, project_name, project_install_power
-                                                      , project_install_capacity,
-                                                      project_stage, project_progress, project_type, product_type
-                                                      , outdoor_cabinet_type, project_area, is_support_inspection):
+    def fill_basic_information(self, init_time: str, project_name, project_install_power
+                               , project_install_capacity,
+                               project_stage, project_progress, project_type, product_type
+                               , outdoor_cabinet_type, project_area, is_support_inspection):
         self.input_init_time(init_time)  # 选择立项时间
         self.input_project_name(project_name)  # 输入项目名称
         self.input_project_install_power(project_install_power)  # 输入项目装机功率
@@ -201,3 +198,50 @@ class AddProjectBaseInfoPage(ElectronicArchivesPage):
         else:
             logger.info("是否支持巡检标准未填，默认选择是")
             self.click_element(ProjectBaseInfoLocator.is_support_inspection_standard_yes_loc)
+
+    # 必填项提示信息
+    # 获取立项时间必填项
+    def get_init_time_required_text(self):
+        return self.text(ProjectBaseInfoLocator.init_time_required_text_loc)
+
+    # 获取项目名称必填项提示信息
+    def get_project_name_required_text(self):
+        return self.text(ProjectBaseInfoLocator.project_name_required_text_loc)
+
+    # 获取项目装机功率必填项提示信息
+    def get_project_install_power_required_text(self):
+        return self.text(ProjectBaseInfoLocator.project_install_power_required_text_loc)
+
+    # 获取项目装机容量必填项提示信息
+    def get_project_install_capacity_required_text(self):
+        return self.text(ProjectBaseInfoLocator.project_install_capacity_required_text_loc)
+
+    # 获取项目阶段必填项提示信息
+    def get_project_stage_required_text(self):
+        return self.text(ProjectBaseInfoLocator.project_stage_required_text_loc)
+
+    # 获取项目进度必填项提示信息
+    def get_project_progress_required_text(self):
+        return self.text(ProjectBaseInfoLocator.project_progress_required_text_loc)
+
+    # 获取项目类型必填项提示信息
+    def get_project_type_required_text(self):
+        return self.text(ProjectBaseInfoLocator.project_type_required_text_loc)
+
+    # 获取产品类型必填项提示信息
+    def get_product_type_required_text(self):
+        return self.text(ProjectBaseInfoLocator.product_type_required_text_loc)
+
+    # 获取户外柜类型必填项提示信息
+    def get_outdoor_cabinet_type_required_text(self):
+        return self.text(ProjectBaseInfoLocator.outdoor_cabinet_type_required_text_loc)
+
+    # 获取所属区域必填项提示信息
+    def get_project_area_required_text(self):
+        return self.text(ProjectBaseInfoLocator.project_area_required_text_loc)
+
+    # 获取是否支持巡检标准必填项提示信息
+    def get_is_support_inspection_standard_required_text(self):
+        return self.text(ProjectBaseInfoLocator.is_support_inspection_standard_required_text_loc)
+
+    #

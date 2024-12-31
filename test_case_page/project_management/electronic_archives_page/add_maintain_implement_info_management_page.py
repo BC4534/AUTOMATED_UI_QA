@@ -7,6 +7,8 @@ from test_case_page.project_management.electronic_archives_page.add_project_deta
 
 
 class AddMaintainImplementInfoManagementPage(AddProjectDetailInfoPage):
+
+
     """
     维护实施管理信息
     """
@@ -57,4 +59,12 @@ class AddMaintainImplementInfoManagementPage(AddProjectDetailInfoPage):
         self._fill_maintain_implement_time(maintain_implement_info)
         self._select_maintain_implement_person(maintain_implement_person)
 
+
+    #  获取实施计划时间必填项
+    def get_maintain_implement_time_required_text(self):
+        return self.text(ImplementationMaintenanceInfoLocator.implementation_plan_time_required_loc)
+
+    # 获取实施负责人必填项
+    def get_maintain_implement_person_required_text(self):
+        return self.text(ImplementationMaintenanceInfoLocator.implementation_responsible_required_loc)
 

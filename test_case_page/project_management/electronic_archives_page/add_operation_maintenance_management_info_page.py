@@ -2,6 +2,8 @@ from selenium.webdriver.common.by import By
 from common.loggerhandler import logger
 from test_case_locator.project_management.electronic_archives_locator.add_project_locator import \
     OperationManagementInfoLocator
+from test_case_locator.project_management.electronic_archives_locator.electronic_archives_locator import \
+    ElectronicArchivesLocator
 from test_case_page.project_management.electronic_archives_page.add_maintain_implement_info_management_page import \
     AddMaintainImplementInfoManagementPage
 
@@ -101,3 +103,30 @@ class AddOperationMaintenanceManagementInfoPage(AddMaintainImplementInfoManageme
         self._select_inspection_cycle(inspection_cycle)  # 选择巡检周期
         if inspection_group != "":
             self._add_inspection_group(inspection_group)  # 添加巡检组
+
+
+    # 必填项 =========================================
+    # 请选择运维负责人
+    def get_operation_maintenance_person_required_text(self):
+        return self.text(OperationManagementInfoLocator.operation_responsible_required_text_loc)
+
+    # 请选择首次巡检时间
+    def get_first_inspection_time_required_text(self):
+        return self.text(OperationManagementInfoLocator.first_inspection_time_required_text_loc)
+
+    # 请选择巡检周期
+    def get_inspection_cycle_required_text(self):
+        return self.text(OperationManagementInfoLocator.inspection_cycle_required_text_loc)
+
+    # 点击查询
+    def click_search_button(self):
+        logger.debug("点击查询按钮")
+        self.click_element(ElectronicArchivesLocator.search_button_loc)
+    # 点击重置
+    def click_reset_button(self):
+        logger.debug("点击重置按钮")
+        self.click_element(ElectronicArchivesLocator.reset_button_loc)
+    # 项目名称查询
+    def search_by_project_name(self, project_name):
+        logger.info(f"输入项目名称为{project_name}")
+        self.send_keys_by_clear(ElectronicArchivesLocator.project_name_input_loc, project_name)

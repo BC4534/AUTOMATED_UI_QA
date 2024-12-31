@@ -15,7 +15,7 @@ class AddProjectLocator():
     # 提交
     submit_button_loc = (By.XPATH, '//*[text()="提 交"]')
     # 关闭按钮
-    close_button_loc = (By.XPATH, '//*[text()="关闭"]')
+    close_button_loc = (By.XPATH, '(//*[@aria-label="close"])[last()]')
     # 开始时间
     start_time_loc = (By.XPATH, '//*[@placeholder="开始时间"]')
     # 当前月1号 //div[text()=1 and @class="ant-picker-cell-inner"]
@@ -128,6 +128,30 @@ class AddProjectLocator():
         # 下一步
         next_button_loc = (By.XPATH, '//*[text()="下一步"]')
 
+        #==============必填项填写=====================
+        # 立项时间必填项
+        init_time_required_text_loc = (By.XPATH, '//*[@id="basic_approvalTime_help"]/div')
+        # 项目名称必填项
+        project_name_required_text_loc = (By.XPATH, '//*[@id="basic_name_help"]/div')
+        # 项目装机功率必填项
+        project_install_power_required_text_loc = (By.XPATH, '//*[@id="basic_maxPowerMw_help"]/div')
+        # 项目装机容量必填项
+        project_install_capacity_required_text_loc = (By.XPATH, '//*[@id="basic_capacityMwh_help"]/div')
+        # 项目阶段必填项
+        project_stage_required_text_loc = (By.XPATH, '//*[@id="basic_phase_help"]/div')
+        # 项目进度必填项
+        project_progress_required_text_loc = (By.XPATH, '//*[@id="basic_subPhase_help"]/div')
+        # 项目类型必填项
+        project_type_required_text_loc = (By.XPATH, '//*[@id="basic_type_help"]/div')
+        # 产品类型必填项
+        product_type_required_text_loc = (By.XPATH, '//*[@id="basic_productType_help"]/div')
+        # 项目区域必填项
+        project_area_required_text_loc = (By.XPATH, '//*[@id="basic_region_help"]/div')
+        # 是否支持巡检标准必填项
+        is_support_inspection_standard_required_text_loc = (By.XPATH, '//*[@id="basic_supportStandardInspection_help"]/div')
+
+
+
 
 
     # =====================项目详细资料维护=====================
@@ -154,7 +178,7 @@ class AddProjectLocator():
         # 质保期开始时间
         warranty_period_start_time_loc = (By.XPATH, '//*[@placeholder="开始时间"]')
         # 当前月1号 //div[text()=1 and @class="ant-picker-cell-inner"]
-        current_month_1_loc = (By.XPATH, '//div[text()="1" and @class="ant-picker-cell-inner"]')
+        current_month_1_loc = (By.XPATH, '(//div[text()="1" and @class="ant-picker-cell-inner"])[1]')
         # 下个月1号
         next_month_1_loc = (By.XPATH, '(//div[text()="1" and @class="ant-picker-cell-inner"])[2]')
 
@@ -216,6 +240,7 @@ class AddProjectLocator():
         associated_station_information_text_loc = (By.XPATH, '//*[text()="关联电站信息"]')
 
 
+
         #================厂商信息======================
         # BMS厂商选择框 id="basic_BMSManufacturer"
         bms_vendor_select_loc = (By.XPATH, '//*[@id="basic_BMSManufacturer"]/..')
@@ -262,6 +287,14 @@ class AddProjectLocator():
         # 汇流柜厂商联系方式输入框 id="basic_combinerCabinetManufacturerPhone"
         busbar_cabinet_vendor_contact_phone_input_loc = (By.XPATH, '//*[@id="basic_combinerCabinetManufacturerPhone"]')
 
+        # ===============必填项
+        # 业主名称 id="basic_ownerName_help"
+        owner_required_loc = (By.XPATH, '//*[@id="basic_ownerName_help"]/div')
+        # 电池仓个数必填项 id="basic_batterySlotCount_help"
+        battery_box_number_required_loc = (By.XPATH, '//*[@id="basic_batterySlotCount_help"]/div')
+        # bms厂商 id="basic_BMSManufacturer_help"
+        bms_vendor_required_loc = (By.XPATH, '//*[@id="basic_BMSManufacturer_help"]/div')
+
 
 
 
@@ -283,6 +316,12 @@ class AddProjectLocator():
         implementation_responsible_tip_loc = (By.XPATH, '//*[text()="实施负责人"]')
         # 实施负责人！的提示文本
         implementation_responsible_tip_text_loc = (By.XPATH, '//*[text()="创建项目后，会在计划开始时间时自动创建一条实施工单至实施负责人，实施阶段该项目 产生的所有工单会由实施负责人负责。"]')
+
+        # ===============必填项
+        # 请输入实施计划时间 id="basic_implementationPlanTime_help"
+        implementation_plan_time_required_loc = (By.XPATH, '//*[@id="basic_implementationPlanTime_help"]/div')
+        # 请选择实施负责人
+        implementation_responsible_required_loc = (By.XPATH, '//*[text()="请选择实施负责人"]')
 
 
     # =====================运维管理信息=====================
@@ -348,6 +387,14 @@ class AddProjectLocator():
 
         # 批量下载巡检编码按钮
         batch_download_inspection_code_button_loc = (By.XPATH, '//*[text()="批量下载巡检编码"]/..')
+
+        # ==================比填项
+        # 请选择运维负责人 id="basic_operationsManagerAccount_help"
+        operation_responsible_required_text_loc = (By.XPATH, '//*[@id="basic_operationsManagerAccount_help"]/div')
+        # 请选择首次巡检时间 id="basic_firstInspectionDate_help"
+        first_inspection_time_required_text_loc = (By.XPATH, '//*[@id="basic_firstInspectionDate_help"]/div')
+        # 请选择巡检周期 id="basic_inspectionCycle_help"
+        inspection_cycle_required_text_loc = (By.XPATH, '//*[@id="basic_inspectionCycle_help"]/div')
 
 
 
