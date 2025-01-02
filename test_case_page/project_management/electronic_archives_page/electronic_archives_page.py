@@ -428,6 +428,41 @@ class ElectronicArchivesPage(BasePage):
         self.random_sleep(0.5)
 
 
+    # 通过点击第二页进行翻页
+
+    def page_turning_by_click_page_2(self):
+        if self.visibility_of_element_located(ElectronicArchivesLocator.page_2_loc, 5, 1):
+            self.click_element(ElectronicArchivesLocator.page_2_loc)
+            time.sleep(1)
+        else:
+            self.logger.info("第二页不存在")
+
+    # 通过点击第一页进行翻页
+    def page_turning_by_click_page_1(self):
+        if self.visibility_of_element_located(ElectronicArchivesLocator.page_1_loc, 5, 1):
+            self.click_element(ElectronicArchivesLocator.page_1_loc)
+            time.sleep(1)
+        else:
+            self.logger.info("第一页不存在")
+    # 点击下一页
+    def page_turning_by_click_next_page(self):
+        if self.visibility_of_element_located(ElectronicArchivesLocator.next_page_loc, 5, 1):
+            self.click_element(ElectronicArchivesLocator.next_page_loc)
+            time.sleep(1)
+        else:
+            self.logger.info("下一页不存在")
+
+    # 点击上一页
+    def page_turning_by_click_previous_page(self):
+        if self.visibility_of_element_located(ElectronicArchivesLocator.previous_page_loc, 5, 1):
+            self.click_element(ElectronicArchivesLocator.previous_page_loc)
+            time.sleep(1)
+        else:
+            self.logger.info("上一页不存在")
+
+
+
+
 
 
 

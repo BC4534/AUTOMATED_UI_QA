@@ -282,6 +282,22 @@ class BasePage():
             self.logger.error(f"清除并输入内容失败:{e}")
             raise
 
+    def send_keys_by_clear_and_typing(self, loc, value):
+        self.logger.info(f"准备清除并逐字输入内容:{value}")
+        try:
+            ele = self.visibility_of_element_located(loc)
+            self.clean_by_js_manually(loc)
+            time.sleep(0.1)
+            ele.click()
+            time.sleep(0.5)
+            for char in value:
+                ele.send_keys(char)
+                time.sleep(0.1)
+            self.logger.info(f"准备清除并逐字输入内容:{value}")
+        except Exception as e:
+            self.logger.error(f"准备清除并逐字输入内容:{e}")
+            raise
+
     # 清除
     def clear(self, loc):
         self.logger.info("准备清除")

@@ -243,6 +243,15 @@ class ElectronicArchivesLocator:
     # X按钮 //*[@class="anticon anticon-close"]
     close_button_loc = (By.XPATH, '//*[@class="anticon anticon-close"]')
 
+    #第二页
+    page_2_loc = (By.XPATH, '//*[@rel="nofollow" and text()=2]')
+    # 第一页
+    page_1_loc = (By.XPATH, '//*[@rel="nofollow" and text()=1]')
+    # 下一页
+    next_page_loc = (By.XPATH, '//*[contains(@class,"ant-pagination-next")]')
+    # 上一页
+    previous_page_loc = (By.XPATH, '//*[contains(@class,"ant-pagination-prev")]')
+
 
 
 
