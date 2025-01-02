@@ -59,7 +59,7 @@ class BasePage():
             raise
 
     # 显示等待
-    def visibility_of_element_located(self, loc, timeout=10, frequency=1):
+    def visibility_of_element_located(self, loc, timeout=5, frequency=1):
         """等待元素可见"""
         self.logger.info(f"等待{loc}元素可见")
         try:
@@ -292,7 +292,7 @@ class BasePage():
             time.sleep(0.5)
             for char in value:
                 ele.send_keys(char)
-                time.sleep(0.1)
+                time.sleep(random.uniform(0.1, 0.3))
             self.logger.info(f"准备清除并逐字输入内容:{value}")
         except Exception as e:
             self.logger.error(f"准备清除并逐字输入内容:{e}")
@@ -345,12 +345,11 @@ class BasePage():
             ele = self.visibility_of_element_located(loc)
             # 获取输入框中的值
             input_value = ele.get_attribute('value')
-            # 逐个删除输入框中的字符
-            for i in input_value:
-                ele.send_keys(Keys.BACK_SPACE)
-                time.sleep(random.uniform(0.1, 0.3))  # 随机等待，模拟人的行为
-            # 输入新的内容，如果有的话
-            # ele.send_keys('新的内容')
+            if input_value is not None:
+                # 逐个删除输入框中的字符
+                for i in input_value:
+                    ele.send_keys(Keys.BACK_SPACE)
+                    time.sleep(random.uniform(0.1, 0.3))  # 随机等待，模拟人的行为
             self.logger.info("通过模拟人的行为清除成功")
         except Exception as e:
             self.logger.error(f"通过模拟人的行为清除失败:{e}")
@@ -479,48 +478,7 @@ class BasePage():
             self.logger.error(f"页面缩放调整失败: {e}")
             raise
     #
-    def scroll_element_by_pixel(self, element, direction, pixels):
-        """
-        滚动元素到指定方向的位置。
 
-        该方法通过接收方向和像素值，计算元素的新位置，并使用ActionChains执行鼠标移动操作以实现滚动。
-
-        参数:
-        - driver: Selenium WebDriver对象，用于执行浏览器操作。
-        - element: WebElement对象，需要滚动的元素。
-        - direction: 字符串，滚动方向，可以是'up'、'down'、'right'、'left'。
-        - pixels: 整数，滚动的像素值。
-
-        注意: 此方法不返回值，其主要作用是执行滚动操作。
-        """
-
-        # 获取元素的当前位置和大小
-        location = element.location
-        size = element.size
-
-        # 初始化ActionChains对象，用于执行复杂鼠标操作
-        action = ActionChains(self.driver)
-
-        # 根据滚动方向计算新的坐标，并执行相应的滚动操作
-        if direction == 'up':
-            # 计算新的y坐标
-            new_y = location['y'] - pixels
-            action.click(element).move_by_offset(xoffset=0, yoffset=-new_y + location['y'])
-        elif direction == 'down':
-            # 计算新的y坐标
-            new_y = location['y'] + pixels
-            action.click(element).move_by_offset(xoffset=0, yoffset=new_y - location['y'])
-        elif direction == 'right':
-            # 计算新的x坐标
-            new_x = location['x'] + pixels
-            action.click(element).move_by_offset(xoffset=new_x - location['x'], yoffset=0)
-        elif direction == 'left':
-            # 计算新的x坐标
-            new_x = location['x'] - pixels
-            action.click(element).move_by_offset(xoffset=-new_x + location['x'], yoffset=0)
-
-        # 执行滚动操作
-        action.perform()
     # 鼠标滚动
     def scroll(self, amount):
         self.logger.info(f"准备滚动鼠标滚轮 ({amount})")
@@ -529,6 +487,31 @@ class BasePage():
             self.logger.info("滚动鼠标滚轮成功")
         except Exception as e:
             self.logger.error(f"滚动鼠标滚轮失败: {e}")
+            raise
+
+    def scroll_with_mouse_wheel(self, loc, scroll_amount):
+        """
+        使用Selenium模拟鼠标滚轮操作。
+
+        :param loc: 目标元素的位置，可以使用By类来指定。
+        :param scroll_amount: 滚动的垂直距离（像素），正值向上滚动，负值向下滚动。
+        """
+        self.logger.info("准备执行鼠标滚轮操作")
+        try:
+            # 等待元素可见
+            ele = self.visibility_of_element_located(loc)
+            # 创建ActionChains实例
+            actions = ActionChains(self.driver)
+            # 移动到目标元素
+            # 移动到目标元素
+            actions.move_to_element(ele).perform()
+            self.logger.info("移动到目标元素成功")
+            # 执行JavaScript模拟滚轮操作，对整个页面进行滚动
+            self.driver.execute_script(f"window.scrollBy(0, {scroll_amount});")
+            self.logger.info("鼠标滚轮操作成功")
+
+        except Exception as e:
+            self.logger.error(f"鼠标滚轮操作失败: {e}")
             raise
 
     # 封装AcitonChains 点击操作
