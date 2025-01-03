@@ -8,7 +8,7 @@ from test_case_page.project_management.spare_part_management_page import SparePa
 spare_part_inbound_data = {
     "part_attribute": "采日自采备件",
     "part_name": "UI测试备件名称-采日自采备件",
-    "part_number": "0",
+    "part_number": "5",
     "part_remark": "UI测试备件备注",
     "part_type": "EMS类附件",
     "part_vendor": "bms供应商",
@@ -18,7 +18,7 @@ spare_part_inbound_data = {
 spare_part_inbound_data2 = {
     "part_attribute": "采日自研备件",
     "part_name": "UI测试备件名称",
-    "part_number": "0",
+    "part_number": "5",
     "part_remark": "UI测试备件备注-采日自研备件",
     "part_type": "EMS类附件",
     "part_vendor": "bms供应商",
@@ -28,7 +28,7 @@ spare_part_inbound_data2 = {
 spare_part_inbound_data3 = {
     "part_attribute": "供应商预存备件",
     "part_name": "UI测试备件名称-供应商预存备件",
-    "part_number": "0",
+    "part_number": "5",
     "part_remark": "UI测试备件备注",
     "part_type": "EMS类附件",
     "part_vendor": "bms供应商",
@@ -120,4 +120,42 @@ class TestSparePartManagement02:
     @allure.description("维护已有备件")
     def test_spare_part_management_02_4(self, login_driver):
         spare_part_management_page = SparePartManagementPage(login_driver)
+        try:
+            logger.info(f"{self.__class__.__name__} 开始执行用例")
+            spare_part_management_page.switch_to_spare_part_management_page()
+            spare_part_management_page.click_spare_part_inbound_button()
+            spare_part_management_page.maintain_spare_part(
+                part_name=spare_part_inbound_data["part_name"],
+                part_number="1",
+                part_inbound_remark=spare_part_inbound_data["part_inbound_remark"]
+            )
+            spare_part_management_page.click_spare_part_inbound_confirm_button()
+            logger.info(f"{self.__class__.__name__} 测试用例执行成功")
+        except Exception as e:
+            logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
+            spare_part_management_page.get_screenshot_png("备件管理-备件入库页面跳转")
+            raise e
+
+    @allure.description("维护已有备件,数量=0")
+    def test_spare_part_management_02_5(self, login_driver):
+        spare_part_management_page = SparePartManagementPage(login_driver)
+        try:
+            logger.info(f"{self.__class__.__name__} 开始执行用例")
+            spare_part_management_page.switch_to_spare_part_management_page()
+            spare_part_management_page.click_spare_part_inbound_button()
+            spare_part_management_page.maintain_spare_part(
+                part_name=spare_part_inbound_data["part_name"],
+                part_number="0",
+                part_inbound_remark=spare_part_inbound_data["part_inbound_remark"]
+            )
+            spare_part_management_page.click_spare_part_inbound_confirm_button()
+            assert spare_part_management_page.get_page_tip_text() == "参数校验失败: 入库数量必须大于0"
+            spare_part_management_page.click_spare_part_inbound_cancel_button()
+            logger.info(f"{self.__class__.__name__} 测试用例执行成功")
+        except Exception as e:
+            logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
+            spare_part_management_page.get_screenshot_png("备件管理-备件入库页面跳转")
+            raise e
+
+
 
