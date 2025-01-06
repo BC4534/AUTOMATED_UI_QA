@@ -292,7 +292,7 @@ class BasePage():
             time.sleep(0.5)
             for char in value:
                 ele.send_keys(char)
-                time.sleep(random.uniform(0.1, 0.3))
+                time.sleep(random.uniform(0.05, 0.1))
             self.logger.info(f"准备清除并逐字输入内容:{value}")
         except Exception as e:
             self.logger.error(f"准备清除并逐字输入内容:{e}")
@@ -349,7 +349,7 @@ class BasePage():
                 # 逐个删除输入框中的字符
                 for i in input_value:
                     ele.send_keys(Keys.BACK_SPACE)
-                    time.sleep(random.uniform(0.1, 0.3))  # 随机等待，模拟人的行为
+                    time.sleep(random.uniform(0.05, 0.1))  # 随机等待，模拟人的行为
             self.logger.info("通过模拟人的行为清除成功")
         except Exception as e:
             self.logger.error(f"通过模拟人的行为清除失败:{e}")
