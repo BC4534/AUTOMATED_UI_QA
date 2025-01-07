@@ -10,36 +10,33 @@ from test_case_locator.work_order_management.work_order_list_locator import Work
 
 
 class WorkOrderListPage(BasePage):
+    """异常统计页面"""
 
-    # 页面跳转
+    # 判断工单管理是否展开
+    def _get_work_order_management_is_expand(self):
+        return "ant-menu-submenu-open" not in self.get_attribute(
+            WorkOrderListLocator.work_order_management_expand_loc, "class")
+
+    # 切换至 工单列表界面
     def switch_to_work_order_list_page(self):
-        self.click_element(WorkOrderListLocator.work_order_management_loc)
+        if self._get_work_order_management_is_expand():
+            self.click_element(WorkOrderListLocator.work_order_management_loc)
         self.click_element(WorkOrderListLocator.work_order_list_loc)
 
     # 手工新增巡检工单
     def test_work_order_list_02(self, order_type, name, description):
-        self.switch_to_work_order_list_page()
+        self.click_manual_add_work_order_button()
+        self.fill_work_order_data(order_type,name, description)
+        self.click_element(WorkOrderListLocator.confirm_button_loc)
         time.sleep(0.5)
-        self.click_element(WorkOrderListLocator.manual_add_work_order_loc)
-        time.sleep(0.5)
-        self.select_work_order_type(order_type)
-        self.fill_work_order_data(name, description)
-        # 确认 单独点击不可以实现手动点击效果，两个点击都加上
-        # element = self.visibility_of_element_located(WorkOrderListLocator.confirm_button_loc)
-        # self.execute_script("arguments[0].click();", element)
-        # self.click_element(WorkOrderListLocator.confirm_button_loc)
-        # self.action_chains_click(WorkOrderListLocator.confirm_button_loc)
-        # 双击
-        self.double_click(WorkOrderListLocator.confirm_button_loc)
 
     # 新增 必填项效验
     def test_work_order_list_03(self):
-        self.switch_to_work_order_list_page()
-        time.sleep(0.5)
-        self.click_element(WorkOrderListLocator.manual_add_work_order_loc)
-        time.sleep(0.5)
-        self.click_element(WorkOrderListLocator.confirm_button_loc)
-        time.sleep(0.5)
+        self.click_manual_add_work_order_button()
+        self.random_sleep(0.5)
+        self.click_confirm_button()
+        self.random_sleep(0.5)
+
 
     # 新增 点击取消按钮
     def test_work_order_list_04_1(self, order_type, name, description):
@@ -406,8 +403,35 @@ class WorkOrderListPage(BasePage):
     def get_page_tip(self):
         return self.text(WorkOrderListLocator.page_tip_loc)
 
-    # 选择工单类型
-    def select_work_order_type(self, order_type: str):
+    # # 选择工单类型
+    # def select_work_order_type(self, order_type: str):
+    #     self.click_element(WorkOrderListLocator.work_order_type_select_loc)
+    #     if order_type == '巡检工单':
+    #         self.click_element(WorkOrderListLocator.work_order_type_inspection_loc)
+    #     elif order_type == '异常工单':
+    #         self.click_element(WorkOrderListLocator.work_order_type_abnormal_loc)
+    #     else:
+    #         self.click_element(WorkOrderListLocator.work_order_type_other_loc)
+    @allure.step('点击新增按钮')
+    def click_manual_add_work_order_button(self):
+        self.click_element(WorkOrderListLocator.manual_add_work_order_loc)
+        time.sleep(0.5)
+
+    @allure.step('点击手工新增工单弹窗的确定按钮')
+    def click_confirm_button(self):
+        self.click_element(WorkOrderListLocator.confirm_button_loc)
+        time.sleep(0.5)
+    @allure.step('点击手工新增工单弹窗的取消按钮')
+    def click_cancel_button(self):
+        self.click_element(WorkOrderListLocator.cancel_button_loc)
+        time.sleep(0.5)
+    @allure.step('点击手工新增工单弹窗的确定按钮')
+    def click_confirm_button_manual(self):
+        self.click_element(WorkOrderListLocator.confirm_button_loc)
+        time.sleep(0.5)
+    # 填写工单数据流程
+    @allure.step('填写工单数据')
+    def fill_work_order_data(self,order_type, name, description):
         self.click_element(WorkOrderListLocator.work_order_type_select_loc)
         if order_type == '巡检工单':
             self.click_element(WorkOrderListLocator.work_order_type_inspection_loc)
@@ -415,12 +439,9 @@ class WorkOrderListPage(BasePage):
             self.click_element(WorkOrderListLocator.work_order_type_abnormal_loc)
         else:
             self.click_element(WorkOrderListLocator.work_order_type_other_loc)
-
-    # 填写工单数据流程
-    def fill_work_order_data(self, name, description):
-        self.send_keys(WorkOrderListLocator.work_order_name_input_loc, name)
+        self.send_keys_by_clear_and_typing(WorkOrderListLocator.work_order_name_input_loc, name)
         time.sleep(0.5)
-        self.send_keys(WorkOrderListLocator.work_order_description_input_loc, description)
+        self.send_keys_by_clear_and_typing(WorkOrderListLocator.work_order_description_input_loc, description)
         time.sleep(0.5)  # 关联项目
         self.click_element(WorkOrderListLocator.association_project_select_loc)
         self.click_element(WorkOrderListLocator.association_project_first_loc)

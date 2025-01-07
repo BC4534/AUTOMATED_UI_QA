@@ -2,10 +2,12 @@ from selenium.webdriver.common.by import By
 
 
 class WorkOrderListLocator:
+    # 工单管理界面是否展开
+    work_order_management_expand_loc = (By.XPATH, '//*[text()="工单管理"]/../..')
     # 工单管理 模块按钮
     work_order_management_loc = (By.XPATH, '//*[text()="工单管理"]')
     # 工单列表 页面
-    work_order_list_loc = (By.XPATH, '//*[text()="工单列表"]')
+    work_order_list_loc = (By.XPATH, '//*[text()="工单列表"]/../..')
 
     # ----搜索框相关元素
     # 工单类型
