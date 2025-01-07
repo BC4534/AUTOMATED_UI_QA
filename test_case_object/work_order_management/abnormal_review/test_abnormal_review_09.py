@@ -10,6 +10,9 @@ from test_case_page.work_order_management.work_order_list_page import WorkOrderL
 @allure.story("异常复盘")
 @allure.title("异常明细-查询")
 class TestAbnormalReview09:
+    '''
+    异常开始时间 和异常完结时间未写
+    '''
 
 
 
