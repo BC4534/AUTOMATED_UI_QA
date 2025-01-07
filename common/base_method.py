@@ -555,6 +555,25 @@ class BasePage():
         except Exception as e:
             self.logger.error(f"随机暂定0到{T}秒失败:{e}")
             raise
+    # 获取当前浏览器的所有window handles
+    def get_window_handles(self):
+        self.logger.info("准备获取当前浏览器的所有window handles")
+        try:
+            window_handles = self.driver.window_handles
+            self.logger.info("获取当前浏览器的所有window handles成功")
+            return window_handles
+        except Exception as e:
+            self.logger.error(f"获取当前浏览器的所有window handles失败:{e}")
+            raise
+
+    # 切换至窗口
+    def switch_to_window(self, window_handle):
+        self.logger.info("准备切换至窗口")
+        try:
+            self.driver.switch_to.window(window_handle)
+            self.logger.info("切换至窗口成功")
+        except Exception as e:
+            self.logger.error()
 
 if __name__ == '__main__':
     driver = webdriver.Chrome()
