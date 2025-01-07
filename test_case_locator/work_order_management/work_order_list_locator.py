@@ -173,7 +173,7 @@ class WorkOrderListLocator:
     # 第一条数据的关联项目
     first_data_association_project_loc = (By.XPATH, '//*[@class="ant-table-row ant-table-row-level-0"]/td[6]')
     # 第一条数据的工单类型
-    first_data_work_order_type_loc = (By.XPATH, '//*[@class="ant-table-row ant-table-row-level-0"]/td[7]')
+    first_data_work_order_type_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[6]')
     # 第一条数据的所属区域
     first_data_area_loc = (By.XPATH, '//*[@class="ant-table-row ant-table-row-level-0"]/td[8]')
     # 第一条数据的计划开始时间

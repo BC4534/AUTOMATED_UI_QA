@@ -6,10 +6,15 @@ from test_case_locator.work_order_management.abnormal_review.abnormal_statistic_
 
 class AbnormalStatisticPage(BasePage):
     """异常统计页面"""
+    # 判断工单管理是否展开
+    def _get_work_order_management_is_expand(self):
+        return "ant-menu-submenu-open" not in self.get_attribute(
+            AbnormalStatisticLocator.work_order_management_expand_loc, "class")
 
     # 切换至 异常统计界面
     def switch_to_abnormal_statistic_page(self):
-        self.click_element(AbnormalStatisticLocator.work_order_management_loc)
+        if self._get_work_order_management_is_expand():
+            self.click_element(AbnormalStatisticLocator.work_order_management_loc)
         self.click_element(AbnormalStatisticLocator.abnormal_review_loc)
 
     # 产品类型切换

@@ -2,14 +2,20 @@ from selenium.webdriver.common.by import By
 
 
 class AbnormalStatisticLocator:
+    # 工单管理界面是否展开
+    work_order_management_expand_loc = (By.XPATH, '//*[text()="工单管理"]/../..')
     # 工单管理
     work_order_management_loc = (By.XPATH, '//*[text()="工单管理"]')
     # 异常复盘
-    abnormal_review_loc = (By.XPATH, '//*[text()="异常复盘"]')
+    abnormal_review_loc = (By.XPATH, '//*[text()="异常复盘"]/../..')
     # 异常统计
     abnormal_statistic_loc = (By.XPATH, '//*[text()="异常统计"]')
     # 异常明细
     abnormal_detail_loc = (By.XPATH, '//*[text()="异常明细"]')
+    # 判断是否在异常明细界面 //*[text()="异常明细"]/..
+    abnormal_detail_class_loc = (By.XPATH, '//*[text()="异常明细"]/..')
+
+
 
     # 产品类型选择框
     product_type_select_loc = (By.XPATH, '//*[@class="ant-select-selector"]')

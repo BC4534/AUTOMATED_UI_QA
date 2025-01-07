@@ -1,23 +1,22 @@
 import allure
 import pytest
-
-from common.loggerhandler import Logger
+from common.loggerhandler import logger
 from test_case_page.work_order_management.abnormal_review.abnormal_statistic_page import AbnormalStatisticPage
 
-logger = Logger()
 
-@allure.title("异常复盘-显示数据条件切换")
-@allure.feature("异常复盘")
-@pytest.mark.usefixtures("login_driver")
+@allure.feature("工单管理")
+@allure.story("异常复盘")
+@allure.title("异常统计")
 class TestAbnormalReview02(object):
     """
             显示数据条件切换
     """
     # 产品类型切换
+    @allure.description("产品类型切换")
     def test_abnormal_review_02(self, login_driver):
+        abnormal_statistic_page = AbnormalStatisticPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            abnormal_statistic_page  = AbnormalStatisticPage(login_driver)
             abnormal_statistic_page.switch_to_abnormal_statistic_page()
             abnormal_statistic_page.test_abnormal_statistic_02_1()
             assert abnormal_statistic_page.get_product_type_input_text() == "集装箱"
@@ -29,7 +28,6 @@ class TestAbnormalReview02(object):
             assert abnormal_statistic_page.get_product_type_no_input_text() == "请选择产品类型"
             logger.info(f"{self.__class__.__name__}执行用例通过")
         except Exception as e:
-            logger.error(e)
-            logger.error(f"{self.__class__.__name__}执行用例失败")
+            logger.error(f"{self.__class__.__name__}执行用例失败，错误信息为：{e}")
             abnormal_statistic_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e

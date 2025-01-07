@@ -1,5 +1,6 @@
 import time
 
+import allure
 from selenium.webdriver import ActionChains
 
 from common.base_method import BasePage
@@ -473,3 +474,7 @@ class WorkOrderListPage(BasePage):
     # 获取 处理状态，已完成元素文本
     def get_handle_status_completed_text(self):
         return self.text(WorkOrderListLocator.handle_status_completed_loc)
+
+    @allure.step('获取工单列表界面,工单编号输入框values值')
+    def get_work_order_number_input_values(self):
+        return self.get_attribute(WorkOrderListLocator.work_order_number_input_loc, 'value')
