@@ -34,6 +34,7 @@ class TestWorkOrderList02(object):
             work_order_list_page.switch_to_work_order_list_page()
             work_order_list_page.test_work_order_list_02(data["type"], data["name"], data["description"])
             assert work_order_list_page.get_page_tip() == "新增成功"
+            work_order_list_page.test_case_data_recovered()
             logger.info(f"{self.__class__.__name__}用例执行通过")
         except Exception as e:
             logger.error(f"{self.__class__.__name__}用例执行失败，错误信息为：{e}")

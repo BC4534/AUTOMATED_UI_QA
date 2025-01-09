@@ -1,14 +1,18 @@
+import re
 import time
 import os
 import random
 import pyautogui
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from common.loggerhandler import logger
 from selenium import webdriver
+
+from test_case_locator.basic_locator import BasicLocator
 from test_case_locator.login_locator import LoginLocator
 from common import all_file_path
 
@@ -548,10 +552,10 @@ class BasePage():
             raise
     # 随机暂定0到1秒
     def random_sleep(self,T):
-        self.logger.info(f"准备随机暂定0到{T}秒")
+        # self.logger.info(f"准备随机暂定0到{T}秒")
         try:
             time.sleep(random.uniform(0, T))
-            self.logger.info(f"随机暂定0到{T}秒成功")
+            # self.logger.info(f"随机暂定0到{T}秒成功")
         except Exception as e:
             self.logger.error(f"随机暂定0到{T}秒失败:{e}")
             raise
@@ -574,6 +578,59 @@ class BasePage():
             self.logger.info("切换至窗口成功")
         except Exception as e:
             self.logger.error()
+
+    # 输入特定时间
+    def input_time(self, time, time_input_ele):
+        """
+                输入指定的日期。
+                """
+        self.move_to_element(time_input_ele)
+        self.click_element(time_input_ele)
+
+        # 获取当前年份和月份
+        current_year = int(self.text(BasicLocator.current_year_value_loc)[0:4])
+        current_month = self.text(BasicLocator.current_month_value_loc)[0:2]
+
+        if not re.match(r'^\d+$', current_month):
+            current_month = int(current_month[0:1])
+        else:
+            current_month = int(current_month)
+        # 解析输入的日期
+        y = int(time[0:4])
+        m = int(time[5:7])
+        d = int(time[8:10])
+
+        # 检查输入的日期是否合法
+        if not (1 <= m <= 12) or not (1 <= d <= 31):
+            raise ValueError("Invalid date format or value.")
+
+        # 导航到目标年份
+        if y < current_year:
+            for _ in range(current_year - y):
+                self.click_element(BasicLocator.previous_year_button_loc)
+        elif y > current_year:
+            for _ in range(y - current_year):
+                self.click_element(BasicLocator.next_year_button_loc)
+
+        # 导航到目标月份
+        if m < current_month:
+            for _ in range(current_month - m):
+                self.click_element(BasicLocator.previous_month_button_loc)
+        elif m > current_month:
+            for _ in range(m - current_month):
+                self.click_element(BasicLocator.next_month_button_loc)
+
+        # 点击指定日期
+        self.click_date(d)
+
+    def click_date(self, day):
+        """
+        点击指定的日期。
+        """
+        self.click_element(
+            (By.XPATH, f'//*[@class="ant-picker-cell ant-picker-cell-in-view"]/div[text()="{day}"]'))
+
+
 
 if __name__ == '__main__':
     driver = webdriver.Chrome()

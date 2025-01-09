@@ -11,7 +11,7 @@ class WorkOrderListLocator:
 
     # ----搜索框相关元素
     # 工单类型
-    work_order_type_loc = (By.XPATH, '(//*[@class="ant-select-selector"])[3]')
+    work_order_type_search_loc = (By.XPATH, '(//*[@class="ant-select-selector"])[3]')
     # 工单类型 系统异常工单
     system_abnormal_work_order_loc = (By.XPATH, '//*[@title="系统异常工单"]')
     # 工单类型 手工异常工单
@@ -75,9 +75,6 @@ class WorkOrderListLocator:
 
     # 工单编号输入框
     work_order_number_input_loc = (By.XPATH, '//*[text()="工单编号"]/following-sibling::span/input')
-    # 第一条数据的处理状态文本
-    first_data_handle_status_loc = (
-    By.XPATH, '//*[@class="ant-table-cell-fix-right ant-table-cell-fix-right-first"]/div')
     # 搜索查询界面 工单名称输入框
     select_work_order_name_input_loc = (By.XPATH, '//*[text()="工单名称"]/following-sibling::span/input')
     # 搜索界面，关联项目选择框
@@ -86,12 +83,25 @@ class WorkOrderListLocator:
     select_association_project_text_loc = (By.XPATH, '//*[text()="关联项目"]/following-sibling::div/div/span[2]')
     # 关联项目 第一个选项
     association_project_first_option_loc = (By.XPATH, '(//*[@class="ant-select-item-option-content"])[3]')
-    # 搜搜计划开始时间按钮
+    # 搜计划开始时间按钮
     plan_start_time_button_loc = (By.XPATH, '//*[text()="计划开始时间："]/following-sibling::div/div/input')
+    # 工作所属区域选择框
+    work_area_select_loc = (By.XPATH, '//*[text()="工单所属区域"]/following-sibling::div/div/span')
+    # 工单发起人选择框
+    initiator_select_loc = (By.XPATH, '//*[text()="工单发起人"]/following-sibling::div/div/span')
+    # 工单发起人 第二个选项 //*[@id="rc_select_12_list"]/following::div[@aria-selected][2]
+    initiator_second_option_loc = (By.XPATH, '//*[@id="rc_select_12_list"]/following::div[@aria-selected][2]')
+    # 系统管理员 选项
+    system_administrator_loc = (By.XPATH, '(//*[text()= "系统管理员"])[last()]')
+
+    # 工单接收人选择框
+    receiver_select_loc = (By.XPATH, '//*[text()="工单接收人"]/following-sibling::div/div/span')
+    # 工单当前处理人选择框
+    current_processor_select_loc = (By.XPATH, '//*[text()="当前处理人"]/following-sibling::div/div/span')
     # 搜索按钮
-    search_button_loc = (By.XPATH, '//*[text()="搜 索"]')
+    search_button_loc = (By.XPATH, '//*[text()="搜 索"]/..')
     # 重置按钮
-    reset_button_loc = (By.XPATH, '//*[text()="重 置"]')
+    reset_button_loc = (By.XPATH, '//*[text()="重 置"]/..')
     # 搜索 计划结束时间
     plan_end_time_button_loc = (By.XPATH, '//*[text()="计划结束时间："]/following-sibling::div/div/input')
     # 手工新增工单按钮
@@ -147,7 +157,7 @@ class WorkOrderListLocator:
     # 确认按钮
     confirm_button_loc = (By.XPATH, '//*[text()="确 定"]')
     # 取消按钮
-    cancel_button_loc = (By.XPATH, '//*[text()="取 消"]')
+    cancel_button_loc = (By.XPATH, '//*[text()="取 消"]/..')
     # X按钮
     close_button_loc = (By.XPATH, '//*[@aria-label="close"]')
 
@@ -161,35 +171,54 @@ class WorkOrderListLocator:
     # 界面提示弹窗
     page_tip_loc = (By.XPATH, '//*[@class="ant-message-notice-content"]/div/span[2]')
     # 第一条工单编号
-    first_work_order_number_loc = (By.XPATH, '//*[@class="ant-table-row ant-table-row-level-0"]/td[2]')
+    first_work_order_number_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[1]')
+    # 第二个工单编号
+    second_work_order_number_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[3]/td[1]')
     # 第一条数据的详情按钮
     first_data_detail_button_loc = (By.XPATH, '//*[text()="详情"]')
     # 详情界面的X按钮
-    detail_close_button_loc = (By.XPATH, '(//*[@fill-rule="evenodd"])[last()]')
+    detail_close_button_loc = (By.XPATH, '(//*[@fill-rule="evenodd"])[last()]/../..')
     # 第一条数据的工单名称文本
-    first_data_work_order_name_loc = (By.XPATH, '//*[@class="ant-table-row ant-table-row-level-0"]/td[3]')
+    first_data_work_order_name_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[2]')
+    # 第二条数据的工单名称文本
+    second_data_work_order_name_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[3]/td[2]')
     # 第一条数据的处理状态文本
-    first_data_handle_status_loc = (By.XPATH, '//*[@class="ant-table-row ant-table-row-level-0"]/td[4]')
+    first_data_handle_status_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[3]/span')
     # 第一条数据的发布时间
     first_data_publish_time_loc = (By.XPATH, '//*[@class="ant-table-row ant-table-row-level-0"]/td[5]')
     # 第一条数据的关联项目
-    first_data_association_project_loc = (By.XPATH, '//*[@class="ant-table-row ant-table-row-level-0"]/td[6]')
+    first_data_association_project_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[5]')
+    # 第二条数据的关联项目
+    second_data_association_project_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[3]/td[5]')
     # 第一条数据的工单类型
     first_data_work_order_type_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[6]')
     # 第一条数据的所属区域
-    first_data_area_loc = (By.XPATH, '//*[@class="ant-table-row ant-table-row-level-0"]/td[8]')
+    first_data_area_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[7]')
     # 第一条数据的计划开始时间
-    first_data_plan_start_time_loc = (By.XPATH, '//*[@class="ant-table-row ant-table-row-level-0"]/td[9]')
+    first_data_plan_start_time_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[8]')
+    # 第二条数据的计划开始时间
+    second_data_plan_start_time_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[3]/td[8]')
     # 第一条数据的计划结束时间
-    first_data_plan_end_time_loc = (By.XPATH, '//*[@class="ant-table-row ant-table-row-level-0"]/td[10]')
+    first_data_plan_end_time_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[9]')
+    # 第二条数据的计划结束时间
+    second_data_plan_end_time_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[3]/td[9]')
     # 第一条数据的工单发起人
-    first_data_initiator_loc = (By.XPATH, '//*[@class="ant-table-row ant-table-row-level-0"]/td[11]')
+    first_data_initiator_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[10]')
     # 第一条数据的工单接受人
-    first_data_responsible_person_loc = (By.XPATH, '//*[@class="ant-table-row ant-table-row-level-0"]/td[12]')
+    first_data_responsible_person_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[11]')
     # 第一条数据的当前处理人
-    first_data_current_handler_loc = (By.XPATH, '//*[@class="ant-table-row ant-table-row-level-0"]/td[13]')
+    first_data_current_handler_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[12]')
     # 第一条数据的实际处理人
     first_data_actual_handler_loc = (By.XPATH, '//*[@class="ant-table-row ant-table-row-level-0"]/td[14]')
-
+    # 第一条工单那的删除按钮 //*[text()="删除"]/..
+    first_data_delete_button_loc = (By.XPATH, '//*[text()="删除"]/..')
     # 勾选复选框后 展示勾选数量元素
     checkbox_number_loc = (By.XPATH, '//*[text()="删除工单"]/following-sibling::*')
+
+    # =================2025.1.8 新增=========================
+    # 确认删除按钮
+    confirm_delete_button_loc = (By.XPATH, '//*[text()="确 定"]')
+    #取消删除按钮
+    cancel_delete_button_loc = (By.XPATH, '//*[text()="取 消"]')
+    #手工新增工单界面 是否存在 //div[@class="ant-modal-mask"]
+    manual_add_work_order_dialog_mask_loc = (By.XPATH, '//div[@class="ant-modal-mask"]')

@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from common.base_method import BasePage
 from test_case_locator.project_management.alarm_configuration_locator.outdoor_cabinet_alarm_configuration_locator import \
     OutdoorCabinetAlarmConfigurationLocator
-from test_case_object.work_order_management.work_order_list.test_work_order_list_09 import logger
+from test_case_object.work_order_management.work_order_list.test_work_order_list_07 import logger
 
 
 class OutdoorCabinetAlarmConfigurationPage(BasePage):
