@@ -71,4 +71,3 @@ class MyAlreadyDoPage(MyNeedToDoPage):
         except Exception as e:
             logger.error("没有查询条件当前处理状态")
             return 1
-

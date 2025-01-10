@@ -5,10 +5,12 @@ from test_case_page.operation_and_maintenance_workbench.management_role_page imp
 )
 
 
-@allure.title("管理角色页面跳转")
-@allure.feature("管理角色")
+@allure.feature("运维工作")
+@allure.story("管理角色")
+@allure.title("跳转至管理角色页面")
 class TestManagementRole01:
 
+    @allure.description("跳转至管理角色页面")
     def test_management_role_01(self, login_driver):
         management_role_page = ManagementRolePage(login_driver)
         try:

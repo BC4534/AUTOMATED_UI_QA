@@ -21,9 +21,7 @@ class TestExecuteRole03:
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
             execute_role_page.test_execute_role_03_1()
-            assert (
-                MyNeedToDoPage(login_driver).is_my_need_to_do_page()== "true"
-            )
+            assert MyNeedToDoPage(login_driver).is_my_need_to_do_page() == "true"
             logger.info(f"{self.__class__.__name__}执行用例通过")
         except Exception as e:
             logger.error(e)
@@ -37,7 +35,7 @@ class TestExecuteRole03:
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
             execute_role_page.test_execute_role_03_2()
-            assert MyAlreadyDoPage(login_driver).is_my_already_do_page()== "true"
+            assert MyAlreadyDoPage(login_driver).is_my_already_do_page() == "true"
             assert MyAlreadyDoPage(login_driver).get_handle_status_text() == "已完成"
             logger.info(f"{self.__class__.__name__}执行用例通过")
         except Exception as e:
@@ -52,12 +50,7 @@ class TestExecuteRole03:
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
             execute_role_page.test_execute_role_03_3()
-            assert (
-                MyNeedToDoPage(
-                    login_driver
-                ).is_my_need_to_do_page()
-                == "true"
-            )
+            assert MyNeedToDoPage(login_driver).is_my_need_to_do_page() == "true"
             logger.info(f"{self.__class__.__name__}执行用例通过")
         except Exception as e:
             logger.error(e)

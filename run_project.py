@@ -60,9 +60,7 @@ def main():
     # 指定 allure 报告目录
     allure_dir = all_file_path.allure_report_path
     # 指定测试模块
-    test_module = (
-        r"D:\CODE\AUTOMATED_UI_QA\test_case_object"
-    )
+    test_module = r"D:\CODE\AUTOMATED_UI_QA\test_case_object"
 
     # 运行 pytest 测试用例并生成 allure 报告
     run_pytest(allure_dir=allure_dir, test_module=test_module)

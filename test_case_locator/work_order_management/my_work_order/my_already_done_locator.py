@@ -107,5 +107,8 @@ class MyAlreadyDoLocator:
         '//*[@class="ant-table-tbody"]/tr[2]/td[12]',
     )
 
-    #处理状态当前选项
-    handle_current_status_loc = (By.XPATH, '//*[text()="处理状态"]/following::span[@class="ant-select-selection-item"]')
+    # 处理状态当前选项
+    handle_current_status_loc = (
+        By.XPATH,
+        '//*[text()="处理状态"]/following::span[@class="ant-select-selection-item"]',
+    )
