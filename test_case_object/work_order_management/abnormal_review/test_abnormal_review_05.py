@@ -1,7 +1,8 @@
 import allure
 from common.loggerhandler import logger
-from test_case_page.work_order_management.abnormal_review.abnormal_details_page import AbnormalDetailsPage
-
+from test_case_page.work_order_management.abnormal_review.abnormal_details_page import (
+    AbnormalDetailsPage,
+)
 
 
 @allure.feature("工单管理")
@@ -9,8 +10,9 @@ from test_case_page.work_order_management.abnormal_review.abnormal_details_page 
 @allure.title("异常明细")
 class TestAbnormalReview05(object):
     """
-            异常明细界面跳转
+    异常明细界面跳转
     """
+
     # 异常明细界面跳转
     @allure.description("异常明细界面跳转")
     def test_abnormal_review_05(self, login_driver):

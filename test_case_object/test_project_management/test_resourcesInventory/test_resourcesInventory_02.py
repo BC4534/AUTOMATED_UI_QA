@@ -1,7 +1,9 @@
 import allure
 
 from common.loggerhandler import logger
-from test_case_page.project_management.resourcesInventory_page import ResourcesInventoryPage
+from test_case_page.project_management.resourcesInventory_page import (
+    ResourcesInventoryPage,
+)
 
 
 @allure.feature("项目管理模块")
@@ -24,7 +26,10 @@ class TestResourcesInventory02:
             resources_inventory_page.click_project_count()
             assert resources_inventory_page.get_project_name_loc_text() == "项目名称"
             resources_inventory_page.click_confirm_button()
-            assert resources_inventory_page.get_resources_inventory_name_input_placeholder() == "请输入人员名称"
+            assert (
+                resources_inventory_page.get_resources_inventory_name_input_placeholder()
+                == "请输入人员名称"
+            )
             logger.info(f"{self.__class__.__name__} 测试用例执行成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
@@ -46,7 +51,10 @@ class TestResourcesInventory02:
             resources_inventory_page.click_implementation_project_count()
             assert resources_inventory_page.get_project_name_loc_text() == "项目名称"
             resources_inventory_page.click_confirm_button()
-            assert resources_inventory_page.get_resources_inventory_name_input_placeholder() == "请输入人员名称"
+            assert (
+                resources_inventory_page.get_resources_inventory_name_input_placeholder()
+                == "请输入人员名称"
+            )
             logger.info(f"{self.__class__.__name__} 测试用例执行成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
@@ -68,7 +76,10 @@ class TestResourcesInventory02:
             resources_inventory_page.click_after_sales_warranty_project_count()
             assert resources_inventory_page.get_project_name_loc_text() == "项目名称"
             resources_inventory_page.click_confirm_button()
-            assert resources_inventory_page.get_resources_inventory_name_input_placeholder() == "请输入人员名称"
+            assert (
+                resources_inventory_page.get_resources_inventory_name_input_placeholder()
+                == "请输入人员名称"
+            )
             logger.info(f"{self.__class__.__name__} 测试用例执行成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
@@ -90,7 +101,10 @@ class TestResourcesInventory02:
             resources_inventory_page.click_after_sales_expired_project_count()
             assert resources_inventory_page.get_project_name_loc_text() == "项目名称"
             resources_inventory_page.click_confirm_button()
-            assert resources_inventory_page.get_resources_inventory_name_input_placeholder() == "请输入人员名称"
+            assert (
+                resources_inventory_page.get_resources_inventory_name_input_placeholder()
+                == "请输入人员名称"
+            )
             logger.info(f"{self.__class__.__name__} 测试用例执行成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
@@ -112,7 +126,10 @@ class TestResourcesInventory02:
             resources_inventory_page.click_task_count()
             assert resources_inventory_page.get_work_order_name_loc_text() == "工单名称"
             resources_inventory_page.click_confirm_button()
-            assert resources_inventory_page.get_resources_inventory_name_input_placeholder() == "请输入人员名称"
+            assert (
+                resources_inventory_page.get_resources_inventory_name_input_placeholder()
+                == "请输入人员名称"
+            )
             logger.info(f"{self.__class__.__name__} 测试用例执行成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
@@ -134,7 +151,10 @@ class TestResourcesInventory02:
             resources_inventory_page.click_implementation_work_order_count()
             assert resources_inventory_page.get_work_order_name_loc_text() == "工单名称"
             resources_inventory_page.click_confirm_button()
-            assert resources_inventory_page.get_resources_inventory_name_input_placeholder() == "请输入人员名称"
+            assert (
+                resources_inventory_page.get_resources_inventory_name_input_placeholder()
+                == "请输入人员名称"
+            )
             logger.info(f"{self.__class__.__name__} 测试用例执行成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
@@ -156,7 +176,10 @@ class TestResourcesInventory02:
             resources_inventory_page.click_inspection_work_order_count()
             assert resources_inventory_page.get_work_order_name_loc_text() == "工单名称"
             resources_inventory_page.click_confirm_button()
-            assert resources_inventory_page.get_resources_inventory_name_input_placeholder() == "请输入人员名称"
+            assert (
+                resources_inventory_page.get_resources_inventory_name_input_placeholder()
+                == "请输入人员名称"
+            )
             logger.info(f"{self.__class__.__name__} 测试用例执行成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
@@ -178,7 +201,10 @@ class TestResourcesInventory02:
             resources_inventory_page.click_abnormal_work_order_count()
             assert resources_inventory_page.get_work_order_name_loc_text() == "工单名称"
             resources_inventory_page.click_confirm_button()
-            assert resources_inventory_page.get_resources_inventory_name_input_placeholder() == "请输入人员名称"
+            assert (
+                resources_inventory_page.get_resources_inventory_name_input_placeholder()
+                == "请输入人员名称"
+            )
             logger.info(f"{self.__class__.__name__} 测试用例执行成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
@@ -200,7 +226,10 @@ class TestResourcesInventory02:
             resources_inventory_page.click_pending_work_order_count()
             assert resources_inventory_page.get_work_order_name_loc_text() == "工单名称"
             resources_inventory_page.click_confirm_button()
-            assert resources_inventory_page.get_resources_inventory_name_input_placeholder() == "请输入人员名称"
+            assert (
+                resources_inventory_page.get_resources_inventory_name_input_placeholder()
+                == "请输入人员名称"
+            )
             logger.info(f"{self.__class__.__name__} 测试用例执行成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")

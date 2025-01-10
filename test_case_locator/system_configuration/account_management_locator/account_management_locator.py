@@ -1,11 +1,15 @@
 from selenium.webdriver.common.by import By
 
+
 class AccountManagementLocator:
-    system_config_module_class_attributes_loc = (By.XPATH, '//*[text()="系统配置"]/../..')
+    system_config_module_class_attributes_loc = (
+        By.XPATH,
+        '//*[text()="系统配置"]/../..',
+    )
     # 系统配置
     cancel_batch_delete_button_loc = (By.XPATH, '//*[text()="取 消"]')
     confirm_batch_delete_button_loc = (By.XPATH, '//*[text()="确 定"]')
-    system_config_loc = (By.XPATH,'//*[text()="系统配置"]')
+    system_config_loc = (By.XPATH, '//*[text()="系统配置"]')
     # 账号管理
     account_management_loc = (By.XPATH, '//*[text()="账号管理"]')
 
@@ -15,7 +19,10 @@ class AccountManagementLocator:
     # 批量删除
     batch_delete_button_loc = (By.XPATH, '//*[text()="批量删除"]')
     # 批量删除 后 数量元素
-    batch_delete_button_count_loc = (By.XPATH, '//*[text()="批量删除"]/following-sibling::span')
+    batch_delete_button_count_loc = (
+        By.XPATH,
+        '//*[text()="批量删除"]/following-sibling::span',
+    )
     # 账号输入框 //*[@placeholder="请输入账号"]
     account_input_loc = (By.XPATH, '//*[@placeholder="请输入账号"]')
     # 姓名输入框
@@ -30,23 +37,47 @@ class AccountManagementLocator:
     add_account_element_text_loc = (By.XPATH, '//div[text()= "新增账号"]')
 
     # 新增账号 账号字段输入框
-    add_account_account_input_loc = (By.XPATH, '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入账号"]')
+    add_account_account_input_loc = (
+        By.XPATH,
+        '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入账号"]',
+    )
     # 新增账号 姓名输入框
-    add_account_name_input_loc = (By.XPATH, '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入姓名"]')
+    add_account_name_input_loc = (
+        By.XPATH,
+        '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入姓名"]',
+    )
     # 新增账号 密码输入框
-    add_account_password_input_loc = (By.XPATH, '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入密码"]')
+    add_account_password_input_loc = (
+        By.XPATH,
+        '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入密码"]',
+    )
     # 邮箱输入框
-    add_account_email_input_loc = (By.XPATH, '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入邮箱"]')
+    add_account_email_input_loc = (
+        By.XPATH,
+        '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入邮箱"]',
+    )
     # 新增账号 手机号输入框
-    add_account_phone_input_loc = (By.XPATH, '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入手机号"]')
+    add_account_phone_input_loc = (
+        By.XPATH,
+        '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入手机号"]',
+    )
     # 绑定角
 
     # 新增账号 管辖区域选择框
-    add_account_area_select_loc = (By.XPATH, '(//*[@class="ant-select-selection-overflow"])[1]')
+    add_account_area_select_loc = (
+        By.XPATH,
+        '(//*[@class="ant-select-selection-overflow"])[1]',
+    )
     # 新增账号 绑定角色选择框
-    add_account_role_select_loc = (By.XPATH, '(//*[@class="ant-select-selection-overflow"])[2]')
+    add_account_role_select_loc = (
+        By.XPATH,
+        '(//*[@class="ant-select-selection-overflow"])[2]',
+    )
     # 新增账号 备注输入框
-    add_account_remark_input_loc = (By.XPATH, '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入备注"]')
+    add_account_remark_input_loc = (
+        By.XPATH,
+        '//*[@class="ant-form-item-control-input"]//input[@placeholder="请输入备注"]',
+    )
     # 新增账号 确认按钮
     add_account_confirm_button_loc = (By.XPATH, '//*[text()="确 定"]')
     # 新增账号 取消按钮
@@ -70,26 +101,41 @@ class AccountManagementLocator:
     account_role_option_loc = (By.XPATH, '//*[@title="系统管理员"]')
 
     # 云平台账号关联
-    account_cloud_platform_select_loc = (By.XPATH, '//*[@title="绑定云平台账号"]/following::div')
+    account_cloud_platform_select_loc = (
+        By.XPATH,
+        '//*[@title="绑定云平台账号"]/following::div',
+    )
     # 云平台账号关联选项 系统管理员
-    account_cloud_platform_option_system_administrator_loc = (By.XPATH, '//*[@class="ant-select-item-option-content" and text()="系统管理员"]')
-
-
-
+    account_cloud_platform_option_system_administrator_loc = (
+        By.XPATH,
+        '//*[@class="ant-select-item-option-content" and text()="系统管理员"]',
+    )
 
     # 新增账号页面
     add_account_page_loc = (By.XPATH, '//*[@class="ant-modal-content"]')
 
     # 第一个账号
-    first_account_loc = (By.XPATH, '//*[@class="ant-table-tbody"]//td[@class="ant-table-cell"]')
+    first_account_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]//td[@class="ant-table-cell"]',
+    )
     # 第二个账号
     second_account_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[3]/td[2]')
     # 第一个账号的姓名
-    first_account_name_loc = (By.XPATH, '//*[@class="ant-table-tbody"]//td[@class="ant-table-cell"][2]')
+    first_account_name_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]//td[@class="ant-table-cell"][2]',
+    )
     # 第一个账号的绑定角色
-    first_account_role_loc = (By.XPATH, '//*[@class="ant-table-tbody"]//td[@class="ant-table-cell"][6]')
+    first_account_role_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]//td[@class="ant-table-cell"][6]',
+    )
     # 第一个账号管辖区域""
-    first_account_area_loc = (By.XPATH, '//*[@class="ant-table-tbody"]//td[@class="ant-table-cell"][5]')
+    first_account_area_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]//td[@class="ant-table-cell"][5]',
+    )
     # 页面提示弹窗
     page_tip_loc = (By.XPATH, '//*[@class="ant-message-notice-content"]//span[2]')
 
@@ -111,14 +157,23 @@ class AccountManagementLocator:
     add_account_close_loc = (By.XPATH, '//*[@class="ant-modal-wrap"]')
 
     # 全选账号复选框
-    all_account_checkbox_loc = (By.XPATH, '//*[@class="ant-checkbox-wrapper css-1hzb5nd"]')
+    all_account_checkbox_loc = (
+        By.XPATH,
+        '//*[@class="ant-checkbox-wrapper css-1hzb5nd"]',
+    )
     # 第一个复选框
     # first_account_checkbox_loc = (By.XPATH, '(//*[@class="ant-checkbox ant-wave-target css-1hzb5nd"])[2]')
-    first_account_checkbox_loc = (By.XPATH, '(//*[@class="ant-checkbox-wrapper css-1hzb5nd"])[2]')
+    first_account_checkbox_loc = (
+        By.XPATH,
+        '(//*[@class="ant-checkbox-wrapper css-1hzb5nd"])[2]',
+    )
     # first_account_checkbox_loc = (By.XPATH, '(//*[@type="checkbox"])[2]')
 
     #  第二个复选框
-    second_account_check_box_loc = (By.XPATH, '(//*[@class="ant-checkbox-wrapper css-1hzb5nd"])[3]')
+    second_account_check_box_loc = (
+        By.XPATH,
+        '(//*[@class="ant-checkbox-wrapper css-1hzb5nd"])[3]',
+    )
 
     # 搜索相关
     # 账号输入框
@@ -128,10 +183,11 @@ class AccountManagementLocator:
     # 绑定角色
     search_role_select_loc = (By.XPATH, '//*[@class="ant-select-selection-search"]')
     # 管辖区域
-    search_area_select_loc = (By.XPATH, '(//*[@class="ant-select-selection-search"])[2]')
+    search_area_select_loc = (
+        By.XPATH,
+        '(//*[@class="ant-select-selection-search"])[2]',
+    )
     # 搜索按钮
     search_button_loc = (By.XPATH, '//*[text()="搜 索"]')
     # 重置按钮
     reset_button_loc = (By.XPATH, '//*[text()="重 置"]')
-
-

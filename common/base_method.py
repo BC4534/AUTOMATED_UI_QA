@@ -17,7 +17,7 @@ from test_case_locator.login_locator import LoginLocator
 from common import all_file_path
 
 
-class BasePage():
+class BasePage:
     def __init__(self, driver):
         self.driver = driver
         self.logger = logger
@@ -53,10 +53,10 @@ class BasePage():
             raise
 
     # 执行js
-    def execute_script(self, script,element ):
+    def execute_script(self, script, element):
         self.logger.info(f"准备执行js:{script}")
         try:
-            self.driver.execute_script(script,element)
+            self.driver.execute_script(script, element)
             self.logger.info(f"执行js成功:{script}")
         except Exception as e:
             self.logger.error(f"执行js失败:{e}")
@@ -69,7 +69,9 @@ class BasePage():
         try:
             timeout = int(timeout)
             frequency = int(frequency)
-            element = WebDriverWait(self.driver, timeout, frequency).until(EC.visibility_of_element_located(loc))
+            element = WebDriverWait(self.driver, timeout, frequency).until(
+                EC.visibility_of_element_located(loc)
+            )
             self.logger.info(f"{loc}元素可见成功")
             return element
         except TimeoutException:
@@ -86,7 +88,9 @@ class BasePage():
         try:
             timeout = int(timeout)
             frequency = int(frequency)
-            WebDriverWait(self.driver, timeout, frequency).until(EC.invisibility_of_element_located(loc))
+            WebDriverWait(self.driver, timeout, frequency).until(
+                EC.invisibility_of_element_located(loc)
+            )
             self.logger.info(f"{loc}元素不可见成功")
             return True
         except TimeoutException:
@@ -95,7 +99,6 @@ class BasePage():
         except Exception as e:
             self.logger.error(f"等待元素不可见失败:{e}")
             raise
-
 
     # 截图
     def get_screenshot_png(self, filename=None):
@@ -271,6 +274,7 @@ class BasePage():
         except Exception as e:
             self.logger.error(f"输入内容失败:{e}")
             raise
+
     # 清除并输入内容
     def send_keys_by_clear(self, loc, value):
         self.logger.info(f"准备清除并输入内容:{value}")
@@ -324,13 +328,13 @@ class BasePage():
             clear_scripts = [
                 "arguments[0].value = '';",  # 清除input和textarea的value
                 "arguments[0].textContent = '';",  # 清除文本节点的内容
-                "arguments[0].innerHTML = '';"  # 清除HTML元素的内容
+                "arguments[0].innerHTML = '';",  # 清除HTML元素的内容
             ]
             for script in clear_scripts:
                 try:
                     self.execute_script(script, ele)
                     # 检查是否清除成功
-                    if ele.get_attribute('value') == '' or ele.text == '':
+                    if ele.get_attribute("value") == "" or ele.text == "":
                         self.logger.info("通过JS清除成功")
                         return
                 except Exception as e:
@@ -348,7 +352,7 @@ class BasePage():
         try:
             ele = self.visibility_of_element_located(loc)
             # 获取输入框中的值
-            input_value = ele.get_attribute('value')
+            input_value = ele.get_attribute("value")
             if input_value is not None:
                 # 逐个删除输入框中的字符
                 for i in input_value:
@@ -358,6 +362,7 @@ class BasePage():
         except Exception as e:
             self.logger.error(f"通过模拟人的行为清除失败:{e}")
             raise
+
     # 点击
     def click_element(self, loc):
         self.logger.info("准备点击")
@@ -380,7 +385,6 @@ class BasePage():
         except Exception as e:
             self.logger.error(f"通过JS点击失败:{e}")
             raise
-
 
     # 双击
     def double_click(self, loc):
@@ -433,11 +437,12 @@ class BasePage():
         self.logger.info("准备全选")
         try:
             ele = self.visibility_of_element_located(loc)
-            ele.send_keys(Keys.CONTROL, 'a')
+            ele.send_keys(Keys.CONTROL, "a")
             self.logger.info("全选成功")
         except Exception as e:
             self.logger.error(f"全选失败:{e}")
             raise
+
     # 键盘操作 delete
     def delete(self, loc):
         self.logger.info("准备删除")
@@ -459,6 +464,7 @@ class BasePage():
         except Exception as e:
             self.logger.error(f"鼠标移入失败:{e}")
             raise
+
     # 浏览器放大缩小
     def zoom_page(self, zoom_factor=1):
         """
@@ -468,7 +474,9 @@ class BasePage():
         try:
             self.logger.info("准备调整页面缩放")
             # 获取当前缩放比例，如果未设置过，则默认为1
-            current_zoom = self.driver.execute_script("return document.body.style.zoom || 1;")
+            current_zoom = self.driver.execute_script(
+                "return document.body.style.zoom || 1;"
+            )
             # 计算新的缩放比例
             new_zoom = float(current_zoom) * zoom_factor
             # 设置新的缩放比例，确保缩放比例不会低于0
@@ -481,6 +489,7 @@ class BasePage():
         except Exception as e:
             self.logger.error(f"页面缩放调整失败: {e}")
             raise
+
     #
 
     # 鼠标滚动
@@ -528,6 +537,7 @@ class BasePage():
         except Exception as e:
             self.logger.error(f"点击元素失败:{e}")
             raise
+
     # 封装AcitonChains mouseDown操作
     def action_chains_mouse_down(self, loc):
         self.logger.info("准备鼠标左键按下")
@@ -550,8 +560,9 @@ class BasePage():
         except Exception as e:
             self.logger.error(f"获取元素标签名失败:{e}")
             raise
+
     # 随机暂定0到1秒
-    def random_sleep(self,T):
+    def random_sleep(self, T):
         # self.logger.info(f"准备随机暂定0到{T}秒")
         try:
             time.sleep(random.uniform(0, T))
@@ -559,6 +570,7 @@ class BasePage():
         except Exception as e:
             self.logger.error(f"随机暂定0到{T}秒失败:{e}")
             raise
+
     # 获取当前浏览器的所有window handles
     def get_window_handles(self):
         self.logger.info("准备获取当前浏览器的所有window handles")
@@ -582,8 +594,8 @@ class BasePage():
     # 输入特定时间
     def input_time(self, time, time_input_ele):
         """
-                输入指定的日期。
-                """
+        输入指定的日期。
+        """
         self.move_to_element(time_input_ele)
         self.click_element(time_input_ele)
 
@@ -591,7 +603,7 @@ class BasePage():
         current_year = int(self.text(BasicLocator.current_year_value_loc)[0:4])
         current_month = self.text(BasicLocator.current_month_value_loc)[0:2]
 
-        if not re.match(r'^\d+$', current_month):
+        if not re.match(r"^\d+$", current_month):
             current_month = int(current_month[0:1])
         else:
             current_month = int(current_month)
@@ -628,11 +640,14 @@ class BasePage():
         点击指定的日期。
         """
         self.click_element(
-            (By.XPATH, f'//*[@class="ant-picker-cell ant-picker-cell-in-view"]/div[text()="{day}"]'))
+            (
+                By.XPATH,
+                f'//*[@class="ant-picker-cell ant-picker-cell-in-view"]/div[text()="{day}"]',
+            )
+        )
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     driver = webdriver.Chrome()
     basepage = BasePage(driver)
     basepage.get("http://192.168.1.82:3322/")

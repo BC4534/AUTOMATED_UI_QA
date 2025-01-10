@@ -29,10 +29,14 @@ allure_report_path = os.path.join(project_path, "output", "allure_report")
 
 # 配置项
 # 飞书机器人webhook
-feishu_webhook_url = 'https://open.feishu.cn/open-apis/bot/v2/hook/f0c97e2c-f0a7-4ba4-b5bc-d454718c9c20'
+feishu_webhook_url = (
+    "https://open.feishu.cn/open-apis/bot/v2/hook/f0c97e2c-f0a7-4ba4-b5bc-d454718c9c20"
+)
 # allure report链接
-report_link_path = 'http://localhost:63342/AUTOMATED_UI_QA/output/allure_report/report/index.html'
+report_link_path = (
+    "http://localhost:63342/AUTOMATED_UI_QA/output/allure_report/report/index.html"
+)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # print(allure_report_path)
     pass

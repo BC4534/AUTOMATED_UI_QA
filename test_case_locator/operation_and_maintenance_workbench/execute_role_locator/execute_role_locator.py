@@ -1,8 +1,12 @@
 from selenium.webdriver.common.by import By
 
+
 class ExecuteRoleLocator:
     # 运维工作台基本元素
-    operation_and_maintenance_workbench_basic_loc = (By.XPATH, '//*[text()="运维工作台"]/../..')
+    operation_and_maintenance_workbench_basic_loc = (
+        By.XPATH,
+        '//*[text()="运维工作台"]/../..',
+    )
     # 运维工作台
     operation_and_maintenance_workbench = (By.XPATH, '//*[text()="运维工作台"]')
     # 在途项目看板
@@ -22,18 +26,25 @@ class ExecuteRoleLocator:
     # 工单总数 数量
     work_order_number_loc = (By.XPATH, '//*[text()="工单总数"]/following-sibling::a')
     # 已执行工单  数量
-    executed_work_order_number_loc = (By.XPATH, '//*[text()="已执行工单"]/following-sibling::a')
+    executed_work_order_number_loc = (
+        By.XPATH,
+        '//*[text()="已执行工单"]/following-sibling::a',
+    )
     # 待执行工单  数量
-    pending_work_order_number_loc = (By.XPATH, '//*[text()="待执行工单"]/following-sibling::a')
-
+    pending_work_order_number_loc = (
+        By.XPATH,
+        '//*[text()="待执行工单"]/following-sibling::a',
+    )
 
     # 任务过程看板 周
     week_loc = (By.XPATH, '//*[text()="周"]')
     # 任务过程看板 月
     month_loc = (By.XPATH, '//*[text()="月"]')
     # 任务过程看板，断言元素
-    week_or_month_assert_loc = (By.XPATH, '//*[@class="ant-radio-button"]/following-sibling::span')
-
+    week_or_month_assert_loc = (
+        By.XPATH,
+        '//*[@class="ant-radio-button"]/following-sibling::span',
+    )
 
     # ----------负责项目统计
     # 区域选择框
@@ -51,8 +62,10 @@ class ExecuteRoleLocator:
 
     #  大储运维（宁夏）项X按钮
     #  //*[text()="大储运维（宁夏）"]/following-sibling::span
-    area_big_storage_operation_close_loc = (By.XPATH, '//*[text()="大储运维（宁夏）"]/following-sibling::span')
+    area_big_storage_operation_close_loc = (
+        By.XPATH,
+        '//*[text()="大储运维（宁夏）"]/following-sibling::span',
+    )
 
     # 区域 取消 全部选项 按钮
     area_cancel_all_loc = (By.XPATH, '(//*[@aria-label="close-circle"])[2]')
-

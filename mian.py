@@ -6,7 +6,7 @@ import webbrowser
 from common import all_file_path
 from common.robothandler import sync_to_feishu
 
-os.environ['PYTHONIOENCODING'] = 'utf-8'
+os.environ["PYTHONIOENCODING"] = "utf-8"
 
 
 def run_pytest(allure_dir, test_paths):
@@ -15,8 +15,8 @@ def run_pytest(allure_dir, test_paths):
         os.makedirs(allure_dir)
 
     # 构建 pytest 命令，包括 allure 报告目录和 --clean-alluredir 选项
-    command = [sys.executable, '-m', 'pytest']
-    command.extend(['--alluredir', allure_dir, '--clean-alluredir'])
+    command = [sys.executable, "-m", "pytest"]
+    command.extend(["--alluredir", allure_dir, "--clean-alluredir"])
 
     # 遍历测试路径列表，添加到命令中
     for path in test_paths:
@@ -27,7 +27,9 @@ def run_pytest(allure_dir, test_paths):
             # 如果是文件，则添加文件路径
             command.append(path)
         else:
-            print(f"Warning: {path} is neither a file nor a directory and will be skipped.")
+            print(
+                f"Warning: {path} is neither a file nor a directory and will be skipped."
+            )
 
     # 运行 pytest 命令
     try:
@@ -39,12 +41,14 @@ def run_pytest(allure_dir, test_paths):
 
 def generate_allure_report(allure_dir):
     # 复制 environment.properties 文件到 allure 报告目录
-    env_properties_path = os.path.join(os.path.dirname(__file__), 'environment.properties')
+    env_properties_path = os.path.join(
+        os.path.dirname(__file__), "environment.properties"
+    )
     print(env_properties_path)
     if os.path.exists(env_properties_path):
         shutil.copy(env_properties_path, allure_dir)
     # 构建 allure 报告命令
-    generate_command = f'allure generate {allure_dir} -o {allure_dir}/report'
+    generate_command = f"allure generate {allure_dir} -o {allure_dir}/report"
 
     # 运行 allure 报告命令
     try:
@@ -63,7 +67,7 @@ def main():
     allure_dir = all_file_path.allure_report_path
     # 指定测试路径列表，可以包含文件或目录
     test_paths = [
-        r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_project_management\test_spare_part_management"
+        r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_system_config\test_role_management"
     ]
 
     # 运行 pytest 测试用例并生成 allure 报告
@@ -76,5 +80,5 @@ def main():
     sync_to_feishu()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

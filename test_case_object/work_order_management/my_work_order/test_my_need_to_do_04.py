@@ -1,8 +1,9 @@
 import allure
 
 from common.loggerhandler import logger
-from test_case_page.work_order_management.my_work_order.my_need_to_do_page import MyNeedToDoPage
-
+from test_case_page.work_order_management.my_work_order.my_need_to_do_page import (
+    MyNeedToDoPage,
+)
 
 
 @allure.feature("工单管理")
@@ -28,7 +29,7 @@ class TestMyNeedToDo04:
             raise e
 
     @allure.description("工单发布时间查询")
-    def test_my_need_to_do_04_02(self,login_driver):
+    def test_my_need_to_do_04_02(self, login_driver):
         my_need_to_do_page = MyNeedToDoPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
@@ -41,7 +42,7 @@ class TestMyNeedToDo04:
             raise e
 
     @allure.description("工单名称查询")
-    def test_my_need_to_do_04_03(self,login_driver):
+    def test_my_need_to_do_04_03(self, login_driver):
         my_need_to_do_page = MyNeedToDoPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
@@ -174,7 +175,9 @@ class TestMyNeedToDo04:
             my_need_to_do_page.input_work_order_initiator("系统管理员")
             my_need_to_do_page.click_search_button()
             if my_need_to_do_page.get_first_work_order_initiator() != 1:
-                assert my_need_to_do_page.get_first_work_order_initiator() == "系统管理员"
+                assert (
+                    my_need_to_do_page.get_first_work_order_initiator() == "系统管理员"
+                )
             logger.info(f"{self.__class__.__name__}用例执行通过")
         except Exception as e:
             logger.error(f"{self.__class__.__name__}用例执行失败，错误信息为：{e}")

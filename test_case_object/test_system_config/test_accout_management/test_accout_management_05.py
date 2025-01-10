@@ -1,8 +1,11 @@
 import allure
 from common.loggerhandler import logger
-from test_case_locator.system_configuration.account_management_locator.account_management_locator import \
-    AccountManagementLocator
-from test_case_page.system_configuration.account_management_page import AccountManagementPage
+from test_case_locator.system_configuration.account_management_locator.account_management_locator import (
+    AccountManagementLocator,
+)
+from test_case_page.system_configuration.account_management_page import (
+    AccountManagementPage,
+)
 
 # account,name,password,phone,area,role,remark 临时数据 字典
 
@@ -10,7 +13,7 @@ from test_case_page.system_configuration.account_management_page import AccountM
 @allure.title("新增账号,X按钮")
 @allure.feature("账号管理")
 # @pytest.mark.skip(reason="暂未解决")
-class TestAccountManagement05():
+class TestAccountManagement05:
     """
     新增账号，取消按钮
     """

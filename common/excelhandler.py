@@ -31,7 +31,7 @@ class ExcelHandler:
         return df
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     filepath = r"D:\CODE\AUTOMATED_UI_QA\test_case_data\项目告警类型.xlsx"
 
     df = ExcelHandler(filepath).read_excel()

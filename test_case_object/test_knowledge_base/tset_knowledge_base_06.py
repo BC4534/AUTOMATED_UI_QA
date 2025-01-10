@@ -2,13 +2,14 @@ import allure
 from common.loggerhandler import logger
 from test_case_page.knowledge_base.knowledge_base_page import KnowledgeBasePage
 
+
 @allure.feature("知识库")
 @allure.story("知识库")
 @allure.title("查询")
-class TestKnowledgeBase06():
+class TestKnowledgeBase06:
 
     @allure.description("发布时间查询")
-    def test_knowledge_base_06_1(self,login_driver):
+    def test_knowledge_base_06_1(self, login_driver):
         knowledge_base_page = KnowledgeBasePage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
@@ -26,7 +27,9 @@ class TestKnowledgeBase06():
             knowledge_base_page.switch_to_knowledge_base_page()
             knowledge_base_page.click_reset_button()
             second_knowledge_name = knowledge_base_page.get_second_knowledge_name()
-            knowledge_base_page.input_knowledge_name_query_condition(second_knowledge_name)
+            knowledge_base_page.input_knowledge_name_query_condition(
+                second_knowledge_name
+            )
             knowledge_base_page.click_search_button()
             _ = knowledge_base_page.get_first_knowledge_name()
             if _ != 1:
@@ -99,6 +102,7 @@ class TestKnowledgeBase06():
             logger.error(f"{self.__class__.__name__}执行用例失败,错误信息为:{e}")
             knowledge_base_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
+
     @allure.description("关联设备类型查询")
     def test_knowledge_base_06_6(self, login_driver):
         knowledge_base_page = KnowledgeBasePage(login_driver)
@@ -108,7 +112,7 @@ class TestKnowledgeBase06():
             knowledge_base_page.click_reset_button()
             knowledge_base_page.select_device_type_query_condition("215")
             knowledge_base_page.click_search_button()
-            type1 =  knowledge_base_page.get_first_device_type()
+            type1 = knowledge_base_page.get_first_device_type()
             if type1 != 1:
                 assert type1 == "215"
             knowledge_base_page.click_reset_button()
@@ -185,6 +189,3 @@ class TestKnowledgeBase06():
             logger.error(f"{self.__class__.__name__}执行用例失败,错误信息为:{e}")
             knowledge_base_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
-
-
-

@@ -1,11 +1,16 @@
 import allure
-from test_case_page.project_management.electronic_archives_page.add_operation_maintenance_management_info_page import \
-    AddOperationMaintenanceManagementInfoPage
-from test_case_page.project_management.electronic_archives_page.add_project_basic_info_page import \
-    AddProjectBaseInfoPage
-from test_case_page.project_management.electronic_archives_page.add_project_detail_info_page import \
-    AddProjectDetailInfoPage
-from test_case_page.project_management.electronic_archives_page.electronic_archives_page import ElectronicArchivesPage
+from test_case_page.project_management.electronic_archives_page.add_operation_maintenance_management_info_page import (
+    AddOperationMaintenanceManagementInfoPage,
+)
+from test_case_page.project_management.electronic_archives_page.add_project_basic_info_page import (
+    AddProjectBaseInfoPage,
+)
+from test_case_page.project_management.electronic_archives_page.add_project_detail_info_page import (
+    AddProjectDetailInfoPage,
+)
+from test_case_page.project_management.electronic_archives_page.electronic_archives_page import (
+    ElectronicArchivesPage,
+)
 from common.loggerhandler import logger
 
 base_info_data = {
@@ -35,7 +40,7 @@ detail_info_station_station_data = {
     "station_belong_city": "UI测试电站所属市",
     "station_belong_area": "UI测试电站所属区",
     "longitude": "121.0",
-    "latitude": "31.0"
+    "latitude": "31.0",
 }
 datail_info_device_configuration_data = {
     "battery_cabinet_number": 11,  # 电池仓数量
@@ -51,10 +56,9 @@ datail_info_device_configuration_data = {
     "charge_discharge_efficiency": 85,
     "fire_medium": "全氟乙酮",
     "rated_charge_discharge_rate": "0.5",
-    "associated_station_information": "UI测试关联电站信息"
+    "associated_station_information": "UI测试关联电站信息",
 }
 detail_info_manufacturer_data = {
-
     "bms_vendor": "bms供应商",
     "bms_vendor_phone": 18700000001,
     "pcs_vendor": "pcs供应商",
@@ -104,13 +108,13 @@ detail_info_manufacturer_data = {
                 """
 maintain_implement_info_data = {
     "maintain_implement_info": "2023-01-01",
-    "maintain_implement_person": "系统管理员"
+    "maintain_implement_person": "系统管理员",
 }
 operation_maintenance_management_info_data = {
     "first_inspection_time": "2023-01-01",
     "operation_maintenance_person": "系统管理员",
     "inspection_cycle": "1",
-    "inspection_group": ""
+    "inspection_group": "",
 }
 
 
@@ -121,7 +125,9 @@ operation_maintenance_management_info_data = {
 class TestElectronicArchives04:
 
     def test_electronic_archives_04(self, login_driver):
-        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(
+            login_driver
+        )
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()
@@ -138,11 +144,13 @@ class TestElectronicArchives04:
                 product_type=base_info_data["product_type"],
                 outdoor_cabinet_type=base_info_data["outdoor_cabinet_type"],
                 project_area=base_info_data["project_area"],
-                is_support_inspection=base_info_data["is_support_inspection"]
+                is_support_inspection=base_info_data["is_support_inspection"],
             )
             logger.debug("填写基本信息成功")
             add_election_archives_page.click_next_button()
-            assert add_election_archives_page.get_page_tip_text() == "项目名称不允许重复"
+            assert (
+                add_election_archives_page.get_page_tip_text() == "项目名称不允许重复"
+            )
             add_election_archives_page.click_close_button()
 
         except Exception as e:

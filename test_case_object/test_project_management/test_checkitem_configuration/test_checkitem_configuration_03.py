@@ -1,7 +1,9 @@
 import allure
 
 from common.loggerhandler import logger
-from test_case_page.project_management.checkitem_configuration_page import CheckItemConfigurationPage
+from test_case_page.project_management.checkitem_configuration_page import (
+    CheckItemConfigurationPage,
+)
 
 
 @allure.feature("项目管理")
@@ -19,12 +21,11 @@ class TestCheckItemConfiguration03:
             second_name = check_item_configuration_page.get_second_checkitem_name()
             check_item_configuration_page.search_checkitem_by_name(second_name)
             check_item_configuration_page.click_search_button()
-            assert second_name in check_item_configuration_page.get_first_checkitem_name()
+            assert (
+                second_name in check_item_configuration_page.get_first_checkitem_name()
+            )
             logger.error(f"{self.__class__.__name__} 执行用例成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 执行用例失败,错误信息为：{e}")
             check_item_configuration_page.get_screenshot_png("巡检项名称查询")
             raise e
-
-
-

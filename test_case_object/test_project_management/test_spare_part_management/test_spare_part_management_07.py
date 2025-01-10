@@ -1,8 +1,9 @@
-
 import allure
 import pytest
 from common.loggerhandler import logger
-from test_case_page.project_management.spare_part_management_page import SparePartManagementPage
+from test_case_page.project_management.spare_part_management_page import (
+    SparePartManagementPage,
+)
 
 spare_part_inbound_data = {
     "part_attribute": "采日自采备件",
@@ -12,7 +13,7 @@ spare_part_inbound_data = {
     "part_type": "EMS类附件",
     "part_vendor": "bms供应商",
     "part_warehouse": "上海备品仓",
-    "part_inbound_remark": "UI测试备件入库备注"
+    "part_inbound_remark": "UI测试备件入库备注",
 }
 spare_part_inbound_data2 = {
     "part_attribute": "采日自研备件",
@@ -22,7 +23,7 @@ spare_part_inbound_data2 = {
     "part_type": "EMS类附件",
     "part_vendor": "bms供应商",
     "part_warehouse": "上海备品仓",
-    "part_inbound_remark": "UI测试备件入库备注"
+    "part_inbound_remark": "UI测试备件入库备注",
 }
 spare_part_inbound_data3 = {
     "part_attribute": "供应商预存备件",
@@ -32,7 +33,7 @@ spare_part_inbound_data3 = {
     "part_type": "EMS类附件",
     "part_vendor": "bms供应商",
     "part_warehouse": "上海备品仓",
-    "part_inbound_remark": "UI测试备件入库备注"
+    "part_inbound_remark": "UI测试备件入库备注",
 }
 
 
@@ -53,7 +54,10 @@ class TestSparePartManagement07:
             spare_part_management_page.check_all_spare_part_checkbox()
             spare_part_management_page.click_delete_spare_part_button()
             # 库存不为0的备品或备件不能删除!
-            assert spare_part_management_page.get_page_tip_text() == "库存不为0的备品或备件不能删除!"
+            assert (
+                spare_part_management_page.get_page_tip_text()
+                == "库存不为0的备品或备件不能删除!"
+            )
             spare_part_management_page.refresh()
             logger.info(f"{self.__class__.__name__} 测试用例执行成功")
         except Exception as e:
@@ -68,11 +72,15 @@ class TestSparePartManagement07:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             spare_part_management_page.switch_to_spare_part_management_page()
             while True:
-                first_spare_part_name = spare_part_management_page.get_first_spare_part_name()
-                if "UI测试" in first_spare_part_name :
+                first_spare_part_name = (
+                    spare_part_management_page.get_first_spare_part_name()
+                )
+                if "UI测试" in first_spare_part_name:
                     if spare_part_management_page.get_first_spare_part_number() != "0":
                         spare_part_management_page.click_first_spare_part_receive_button()
-                        old_number = spare_part_management_page.get_spare_part_receive_stock_number()
+                        old_number = (
+                            spare_part_management_page.get_spare_part_receive_stock_number()
+                        )
                         spare_part_management_page.spare_part_receive(
                             part_number=str(int(old_number) + 1),
                             part_project="_",
@@ -82,7 +90,10 @@ class TestSparePartManagement07:
                     spare_part_management_page.check_first_spare_part_checkbox()
                     spare_part_management_page.click_delete_spare_part_button()
                     spare_part_management_page.refresh()
-                    assert spare_part_management_page.get_first_spare_part_name() != first_spare_part_name
+                    assert (
+                        spare_part_management_page.get_first_spare_part_name()
+                        != first_spare_part_name
+                    )
                     logger.info(f"{self.__class__.__name__} 测试用例执行成功")
                 else:
                     logger.info("结束循环")
@@ -91,5 +102,3 @@ class TestSparePartManagement07:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
             spare_part_management_page.get_screenshot_png("备件管理-新增采日自采备件")
             raise e
-
-

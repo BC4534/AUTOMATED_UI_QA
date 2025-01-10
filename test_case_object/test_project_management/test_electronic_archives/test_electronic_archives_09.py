@@ -1,6 +1,7 @@
 import allure
-from test_case_page.project_management.electronic_archives_page.add_operation_maintenance_management_info_page import \
-    AddOperationMaintenanceManagementInfoPage
+from test_case_page.project_management.electronic_archives_page.add_operation_maintenance_management_info_page import (
+    AddOperationMaintenanceManagementInfoPage,
+)
 
 from common.loggerhandler import logger
 
@@ -31,7 +32,7 @@ detail_info_station_station_data = {
     "station_belong_city": "UI测试电站所属市",
     "station_belong_area": "UI测试电站所属区",
     "longitude": "121.0",
-    "latitude": "31.0"
+    "latitude": "31.0",
 }
 datail_info_device_configuration_data = {
     "battery_cabinet_number": 11,  # 电池仓数量
@@ -47,10 +48,9 @@ datail_info_device_configuration_data = {
     "charge_discharge_efficiency": 85,
     "fire_medium": "全氟乙酮",
     "rated_charge_discharge_rate": "0.5",
-    "associated_station_information": "UI测试关联电站信息"
+    "associated_station_information": "UI测试关联电站信息",
 }
 detail_info_manufacturer_data = {
-
     "bms_vendor": "bms供应商",
     "bms_vendor_phone": 18700000001,
     "pcs_vendor": "pcs供应商",
@@ -100,13 +100,13 @@ detail_info_manufacturer_data = {
                 """
 maintain_implement_info_data = {
     "maintain_implement_info": "2023-01-01",
-    "maintain_implement_person": "系统管理员"
+    "maintain_implement_person": "系统管理员",
 }
 operation_maintenance_management_info_data = {
     "first_inspection_time": "2023-01-01",
     "operation_maintenance_person": "系统管理员",
     "inspection_cycle": "1",
-    "inspection_group": ""
+    "inspection_group": "",
 }
 
 
@@ -117,7 +117,9 @@ class TestElectronicArchives09:
 
     @allure.description("项目名称查询")
     def test_electronic_archives_09_1(self, login_driver):
-        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(
+            login_driver
+        )
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()
@@ -134,7 +136,9 @@ class TestElectronicArchives09:
 
     @allure.description("立项时间查询")
     def test_electronic_archives_09_2(self, login_driver):
-        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(
+            login_driver
+        )
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()
@@ -142,8 +146,10 @@ class TestElectronicArchives09:
             t = add_election_archives_page.get_second_project_init_time()
             add_election_archives_page.input_init_time_query_condition(t)
             add_election_archives_page.click_search_button()
-            first_project_init_time = add_election_archives_page.get_first_project_init_time()
-            assert t ==  first_project_init_time
+            first_project_init_time = (
+                add_election_archives_page.get_first_project_init_time()
+            )
+            assert t == first_project_init_time
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
             add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
@@ -151,7 +157,9 @@ class TestElectronicArchives09:
 
     @allure.description("工单所属区域查询")
     def test_electronic_archives_09_3(self, login_driver):
-        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(
+            login_driver
+        )
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()
@@ -168,7 +176,9 @@ class TestElectronicArchives09:
 
     @allure.description("项目阶段查询")
     def test_electronic_archives_09_4(self, login_driver):
-        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(
+            login_driver
+        )
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()
@@ -176,7 +186,10 @@ class TestElectronicArchives09:
             second_project_stage = add_election_archives_page.get_second_project_stage()
             add_election_archives_page.input_project_stage_query(second_project_stage)
             add_election_archives_page.click_search_button()
-            assert second_project_stage == add_election_archives_page.get_first_project_stage()
+            assert (
+                second_project_stage
+                == add_election_archives_page.get_first_project_stage()
+            )
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
             add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
@@ -184,15 +197,24 @@ class TestElectronicArchives09:
 
     @allure.description("项目进度查询")
     def test_electronic_archives_09_5(self, login_driver):
-        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(
+            login_driver
+        )
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()
             add_election_archives_page.click_reset_button()
-            second_project_progress = add_election_archives_page.get_second_project_progress()
-            add_election_archives_page.input_project_progress_query(second_project_progress)
+            second_project_progress = (
+                add_election_archives_page.get_second_project_progress()
+            )
+            add_election_archives_page.input_project_progress_query(
+                second_project_progress
+            )
             add_election_archives_page.click_search_button()
-            assert second_project_progress == add_election_archives_page.get_first_project_progress()
+            assert (
+                second_project_progress
+                == add_election_archives_page.get_first_project_progress()
+            )
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
             add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
@@ -200,7 +222,9 @@ class TestElectronicArchives09:
 
     @allure.description("项目类型查询")
     def test_electronic_archives_09_6(self, login_driver):
-        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(
+            login_driver
+        )
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()
@@ -208,7 +232,10 @@ class TestElectronicArchives09:
             second_project_type = add_election_archives_page.get_second_project_type()
             add_election_archives_page.input_project_type_query(second_project_type)
             add_election_archives_page.click_search_button()
-            assert second_project_type == add_election_archives_page.get_first_project_type()
+            assert (
+                second_project_type
+                == add_election_archives_page.get_first_project_type()
+            )
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
             add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
@@ -216,15 +243,24 @@ class TestElectronicArchives09:
 
     @allure.description("产品类型查询")
     def test_electronic_archives_09_7(self, login_driver):
-        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(
+            login_driver
+        )
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()
             add_election_archives_page.click_reset_button()
-            second_project_product_type = add_election_archives_page.get_second_project_product_type()
-            add_election_archives_page.input_project_product_type_query(second_project_product_type)
+            second_project_product_type = (
+                add_election_archives_page.get_second_project_product_type()
+            )
+            add_election_archives_page.input_project_product_type_query(
+                second_project_product_type
+            )
             add_election_archives_page.click_search_button()
-            assert second_project_product_type == add_election_archives_page.get_first_project_product_type()
+            assert (
+                second_project_product_type
+                == add_election_archives_page.get_first_project_product_type()
+            )
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
             add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
@@ -232,15 +268,24 @@ class TestElectronicArchives09:
 
     @allure.description("实施负责人查询")
     def test_electronic_archives_09_8(self, login_driver):
-        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(
+            login_driver
+        )
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()
             add_election_archives_page.click_reset_button()
-            second_project_implement_leader = add_election_archives_page.get_second_project_implement_leader()
-            add_election_archives_page.input_project_implement_leader_query(second_project_implement_leader)
+            second_project_implement_leader = (
+                add_election_archives_page.get_second_project_implement_leader()
+            )
+            add_election_archives_page.input_project_implement_leader_query(
+                second_project_implement_leader
+            )
             add_election_archives_page.click_search_button()
-            assert second_project_implement_leader == add_election_archives_page.get_first_project_implement_leader()
+            assert (
+                second_project_implement_leader
+                == add_election_archives_page.get_first_project_implement_leader()
+            )
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
             add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
@@ -248,15 +293,24 @@ class TestElectronicArchives09:
 
     @allure.description("运维负责人查询")
     def test_electronic_archives_09_9(self, login_driver):
-        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(
+            login_driver
+        )
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()
             add_election_archives_page.click_reset_button()
-            second_project_operation_leader = add_election_archives_page.get_second_project_operation_leader()
-            add_election_archives_page.input_project_operation_leader_query(second_project_operation_leader)
+            second_project_operation_leader = (
+                add_election_archives_page.get_second_project_operation_leader()
+            )
+            add_election_archives_page.input_project_operation_leader_query(
+                second_project_operation_leader
+            )
             add_election_archives_page.click_search_button()
-            assert second_project_operation_leader == add_election_archives_page.get_first_project_operation_leader()
+            assert (
+                second_project_operation_leader
+                == add_election_archives_page.get_first_project_operation_leader()
+            )
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
             add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
@@ -264,7 +318,9 @@ class TestElectronicArchives09:
 
     @allure.description("状态查询")
     def test_electronic_archives_09_10(self, login_driver):
-        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(
+            login_driver
+        )
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()
@@ -282,19 +338,30 @@ class TestElectronicArchives09:
 
     @allure.description("是否支持标准巡检查询")
     def test_electronic_archives_09_11(self, login_driver):
-        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(
+            login_driver
+        )
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()
             add_election_archives_page.click_reset_button()
-            add_election_archives_page.input_project_is_support_standard_inspection_query("是")
+            add_election_archives_page.input_project_is_support_standard_inspection_query(
+                "是"
+            )
             add_election_archives_page.click_search_button()
-            assert add_election_archives_page.get_first_project_is_support_standard_inspection() == "是"
-            add_election_archives_page.input_project_is_support_standard_inspection_query("否")
+            assert (
+                add_election_archives_page.get_first_project_is_support_standard_inspection()
+                == "是"
+            )
+            add_election_archives_page.input_project_is_support_standard_inspection_query(
+                "否"
+            )
             add_election_archives_page.click_search_button()
-            assert add_election_archives_page.get_first_project_is_support_standard_inspection() == "否"
+            assert (
+                add_election_archives_page.get_first_project_is_support_standard_inspection()
+                == "否"
+            )
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
             add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
-

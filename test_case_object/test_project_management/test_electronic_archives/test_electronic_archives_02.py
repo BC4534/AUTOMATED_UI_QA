@@ -1,12 +1,17 @@
 import allure
 
-from test_case_page.project_management.electronic_archives_page.add_operation_maintenance_management_info_page import \
-    AddOperationMaintenanceManagementInfoPage
-from test_case_page.project_management.electronic_archives_page.add_project_basic_info_page import \
-    AddProjectBaseInfoPage
-from test_case_page.project_management.electronic_archives_page.add_project_detail_info_page import \
-    AddProjectDetailInfoPage
-from test_case_page.project_management.electronic_archives_page.electronic_archives_page import ElectronicArchivesPage
+from test_case_page.project_management.electronic_archives_page.add_operation_maintenance_management_info_page import (
+    AddOperationMaintenanceManagementInfoPage,
+)
+from test_case_page.project_management.electronic_archives_page.add_project_basic_info_page import (
+    AddProjectBaseInfoPage,
+)
+from test_case_page.project_management.electronic_archives_page.add_project_detail_info_page import (
+    AddProjectDetailInfoPage,
+)
+from test_case_page.project_management.electronic_archives_page.electronic_archives_page import (
+    ElectronicArchivesPage,
+)
 from common.loggerhandler import logger
 
 base_info_data = {
@@ -36,7 +41,7 @@ detail_info_station_station_data = {
     "station_belong_city": "UI测试电站所属市",
     "station_belong_area": "UI测试电站所属区",
     "longitude": "121.0",
-    "latitude": "31.0"
+    "latitude": "31.0",
 }
 datail_info_device_configuration_data = {
     "battery_cabinet_number": 11,  # 电池仓数量
@@ -52,10 +57,9 @@ datail_info_device_configuration_data = {
     "charge_discharge_efficiency": 85,
     "fire_medium": "全氟乙酮",
     "rated_charge_discharge_rate": "0.5",
-    "associated_station_information": "UI测试关联电站信息"
+    "associated_station_information": "UI测试关联电站信息",
 }
 detail_info_manufacturer_data = {
-
     "bms_vendor": "bms供应商",
     "bms_vendor_phone": 18700000001,
     "pcs_vendor": "pcs供应商",
@@ -105,13 +109,13 @@ detail_info_manufacturer_data = {
                 """
 maintain_implement_info_data = {
     "maintain_implement_info": "2023-01-01",
-    "maintain_implement_person": "系统管理员"
+    "maintain_implement_person": "系统管理员",
 }
 operation_maintenance_management_info_data = {
     "first_inspection_time": "2023-01-01",
     "operation_maintenance_person": "系统管理员",
     "inspection_cycle": "1",
-    "inspection_group": ""
+    "inspection_group": "",
 }
 
 
@@ -122,7 +126,9 @@ class TestElectronicArchives02:
 
     @allure.description("新增项目")
     def test_electronic_archives_02_1(self, login_driver):
-        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(
+            login_driver
+        )
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()
@@ -138,45 +144,78 @@ class TestElectronicArchives02:
                 product_type=base_info_data["product_type"],
                 outdoor_cabinet_type=base_info_data["outdoor_cabinet_type"],
                 project_area=base_info_data["project_area"],
-                is_support_inspection=base_info_data["is_support_inspection"]
+                is_support_inspection=base_info_data["is_support_inspection"],
             )
             logger.debug("填写基本信息成功")
-            add_election_archives_page.click_next_button() # 填写完基础数据，前往详细数据
+            add_election_archives_page.click_next_button()  # 填写完基础数据，前往详细数据
             add_election_archives_page.fill_station_detail_info(
                 owner_name=detail_info_station_station_data["owner_name"],
                 project_address=detail_info_station_station_data["project_address"],
                 station_name=detail_info_station_station_data["station_name"],
                 station_contact=detail_info_station_station_data["station_contact"],
-                station_contact_phone=detail_info_station_station_data["station_contact_phone"],
-                total_package_unit_name=detail_info_station_station_data["total_package_unit_name"],
+                station_contact_phone=detail_info_station_station_data[
+                    "station_contact_phone"
+                ],
+                total_package_unit_name=detail_info_station_station_data[
+                    "total_package_unit_name"
+                ],
                 our_supply_range=detail_info_station_station_data["our_supply_range"],
-                project_start_end_time=detail_info_station_station_data["project_start_end_time"],
+                project_start_end_time=detail_info_station_station_data[
+                    "project_start_end_time"
+                ],
                 station_internal_storage_unit_grouping=detail_info_station_station_data[
-                    "station_internal_storage_unit_grouping"],
-                station_belong_province=detail_info_station_station_data["station_belong_province"],
-                station_belong_city=detail_info_station_station_data["station_belong_city"],
-                station_belong_area=detail_info_station_station_data["station_belong_area"],
+                    "station_internal_storage_unit_grouping"
+                ],
+                station_belong_province=detail_info_station_station_data[
+                    "station_belong_province"
+                ],
+                station_belong_city=detail_info_station_station_data[
+                    "station_belong_city"
+                ],
+                station_belong_area=detail_info_station_station_data[
+                    "station_belong_area"
+                ],
                 longitude=detail_info_station_station_data["longitude"],
-                latitude=detail_info_station_station_data["latitude"]
+                latitude=detail_info_station_station_data["latitude"],
             )
             logger.debug("填写详细信息-电站信息成功")
             add_election_archives_page.fill_device_configuration_info(
-                battery_cabinet_number=datail_info_device_configuration_data["battery_cabinet_number"],
+                battery_cabinet_number=datail_info_device_configuration_data[
+                    "battery_cabinet_number"
+                ],
                 single_battery_cabinet_capacity=datail_info_device_configuration_data[
-                    "single_battery_cabinet_capacity"],
+                    "single_battery_cabinet_capacity"
+                ],
                 pcs_type=datail_info_device_configuration_data["pcs_type"],
-                pcs_unit_number=datail_info_device_configuration_data["pcs_unit_number"],
-                battery_material=datail_info_device_configuration_data["battery_material"],
-                battery_grouping_method=datail_info_device_configuration_data["battery_grouping_method"],
+                pcs_unit_number=datail_info_device_configuration_data[
+                    "pcs_unit_number"
+                ],
+                battery_material=datail_info_device_configuration_data[
+                    "battery_material"
+                ],
+                battery_grouping_method=datail_info_device_configuration_data[
+                    "battery_grouping_method"
+                ],
                 pcs_max_power=datail_info_device_configuration_data["pcs_max_power"],
                 battery_cluster_grouping_method=datail_info_device_configuration_data[
-                    "battery_cluster_grouping_method"],
-                battery_module_grouping_method=datail_info_device_configuration_data["battery_module_grouping_method"],
-                single_cell_capacity=datail_info_device_configuration_data["single_cell_capacity"],
-                charge_discharge_efficiency=datail_info_device_configuration_data["charge_discharge_efficiency"],
+                    "battery_cluster_grouping_method"
+                ],
+                battery_module_grouping_method=datail_info_device_configuration_data[
+                    "battery_module_grouping_method"
+                ],
+                single_cell_capacity=datail_info_device_configuration_data[
+                    "single_cell_capacity"
+                ],
+                charge_discharge_efficiency=datail_info_device_configuration_data[
+                    "charge_discharge_efficiency"
+                ],
                 fire_medium=datail_info_device_configuration_data["fire_medium"],
-                rated_charge_discharge_rate=datail_info_device_configuration_data["rated_charge_discharge_rate"],
-                associated_station_information=datail_info_device_configuration_data["associated_station_information"]
+                rated_charge_discharge_rate=datail_info_device_configuration_data[
+                    "rated_charge_discharge_rate"
+                ],
+                associated_station_information=datail_info_device_configuration_data[
+                    "associated_station_information"
+                ],
             )
             logger.debug("填写详细信息-设备配置信息成功")
             add_election_archives_page.fill_manufacturer_info(
@@ -185,54 +224,97 @@ class TestElectronicArchives02:
                 pcs_vendor=detail_info_manufacturer_data["pcs_vendor"],
                 pcs_vendor_phone=detail_info_manufacturer_data["pcs_vendor_phone"],
                 transformer_vendor=detail_info_manufacturer_data["transformer_vendor"],
-                transformer_vendor_phone=detail_info_manufacturer_data["transformer_vendor_phone"],
-                liquid_cooling_system_vendor=detail_info_manufacturer_data["liquid_cooling_system_vendor"],
-                liquid_cooling_system_vendor_phone=detail_info_manufacturer_data["liquid_cooling_system_vendor_phone"],
-                air_conditioner_vendor=detail_info_manufacturer_data["air_conditioner_vendor"],
-                air_conditioner_vendor_phone=detail_info_manufacturer_data["air_conditioner_vendor_phone"],
-                pack_assembly_vendor=detail_info_manufacturer_data["pack_assembly_vendor"],
-                pack_assembly_vendor_phone=detail_info_manufacturer_data["pack_assembly_vendor_phone"],
+                transformer_vendor_phone=detail_info_manufacturer_data[
+                    "transformer_vendor_phone"
+                ],
+                liquid_cooling_system_vendor=detail_info_manufacturer_data[
+                    "liquid_cooling_system_vendor"
+                ],
+                liquid_cooling_system_vendor_phone=detail_info_manufacturer_data[
+                    "liquid_cooling_system_vendor_phone"
+                ],
+                air_conditioner_vendor=detail_info_manufacturer_data[
+                    "air_conditioner_vendor"
+                ],
+                air_conditioner_vendor_phone=detail_info_manufacturer_data[
+                    "air_conditioner_vendor_phone"
+                ],
+                pack_assembly_vendor=detail_info_manufacturer_data[
+                    "pack_assembly_vendor"
+                ],
+                pack_assembly_vendor_phone=detail_info_manufacturer_data[
+                    "pack_assembly_vendor_phone"
+                ],
                 cell_vendor=detail_info_manufacturer_data["cell_vendor"],
                 cell_vendor_phone=detail_info_manufacturer_data["cell_vendor_phone"],
                 battery_box_vendor=detail_info_manufacturer_data["battery_box_vendor"],
-                battery_box_vendor_phone=detail_info_manufacturer_data["battery_box_vendor_phone"],
-                fire_protection_vendor=detail_info_manufacturer_data["fire_protection_vendor"],
-                fire_protection_vendor_phone=detail_info_manufacturer_data["fire_protection_vendor_phone"],
+                battery_box_vendor_phone=detail_info_manufacturer_data[
+                    "battery_box_vendor_phone"
+                ],
+                fire_protection_vendor=detail_info_manufacturer_data[
+                    "fire_protection_vendor"
+                ],
+                fire_protection_vendor_phone=detail_info_manufacturer_data[
+                    "fire_protection_vendor_phone"
+                ],
                 ems_vendor=detail_info_manufacturer_data["ems_vendor"],
                 ems_vendor_phone=detail_info_manufacturer_data["ems_vendor_phone"],
-                busbar_cabinet_vendor=detail_info_manufacturer_data["busbar_cabinet_vendor"],
-                busbar_cabinet_vendor_phone=detail_info_manufacturer_data["busbar_cabinet_vendor_phone"])
-            add_election_archives_page.click_next_button() # 前往维护实施管理界面
+                busbar_cabinet_vendor=detail_info_manufacturer_data[
+                    "busbar_cabinet_vendor"
+                ],
+                busbar_cabinet_vendor_phone=detail_info_manufacturer_data[
+                    "busbar_cabinet_vendor_phone"
+                ],
+            )
+            add_election_archives_page.click_next_button()  # 前往维护实施管理界面
 
             add_election_archives_page.fill_maintain_implement_info(
-                maintain_implement_info=maintain_implement_info_data["maintain_implement_info"],
-                maintain_implement_person=maintain_implement_info_data["maintain_implement_person"]
+                maintain_implement_info=maintain_implement_info_data[
+                    "maintain_implement_info"
+                ],
+                maintain_implement_person=maintain_implement_info_data[
+                    "maintain_implement_person"
+                ],
             )
             logger.debug("填写维护实施管理信息成功")
-            add_election_archives_page.click_next_button() # 前往运维管理界面
+            add_election_archives_page.click_next_button()  # 前往运维管理界面
             add_election_archives_page.fill_operation_maintenance_management_info(
-                operation_maintenance_person=operation_maintenance_management_info_data["operation_maintenance_person"],
-                first_inspection_time=operation_maintenance_management_info_data["first_inspection_time"],
-                inspection_cycle=operation_maintenance_management_info_data["inspection_cycle"],
-                inspection_group=operation_maintenance_management_info_data["inspection_group"]
-
+                operation_maintenance_person=operation_maintenance_management_info_data[
+                    "operation_maintenance_person"
+                ],
+                first_inspection_time=operation_maintenance_management_info_data[
+                    "first_inspection_time"
+                ],
+                inspection_cycle=operation_maintenance_management_info_data[
+                    "inspection_cycle"
+                ],
+                inspection_group=operation_maintenance_management_info_data[
+                    "inspection_group"
+                ],
             )
             logger.debug("填写运维管理信息成功")
             add_election_archives_page.click_submit_button()
-            assert add_election_archives_page.get_first_project_name() == base_info_data["project_name"]
+            assert (
+                add_election_archives_page.get_first_project_name()
+                == base_info_data["project_name"]
+            )
             add_election_archives_page.delete_first_project()
-
 
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
             add_election_archives_page.get_screenshot_png(f"{self.__class__.__name__}")
-            if add_election_archives_page.get_first_project_name() == base_info_data["project_name"]:
+            if (
+                add_election_archives_page.get_first_project_name()
+                == base_info_data["project_name"]
+            ):
                 add_election_archives_page.delete_first_project()
             raise e
 
     @allure.description("验证新增项目弹框文本")
     def test_electronic_archives_02_2(self, login_driver):
-        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(
+            login_driver
+        )
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()

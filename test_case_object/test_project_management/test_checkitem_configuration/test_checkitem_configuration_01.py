@@ -1,7 +1,9 @@
 import allure
 
 from common.loggerhandler import logger
-from test_case_page.project_management.checkitem_configuration_page import CheckItemConfigurationPage
+from test_case_page.project_management.checkitem_configuration_page import (
+    CheckItemConfigurationPage,
+)
 
 
 @allure.feature("项目管理")
@@ -15,12 +17,12 @@ class TestCheckItemConfiguration01:
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             check_item_configuration_page.switch_to_resources_inventory_page()
-            assert check_item_configuration_page.get_checkitem_name_input_tip_text() == "巡检项名称"
+            assert (
+                check_item_configuration_page.get_checkitem_name_input_tip_text()
+                == "巡检项名称"
+            )
             logger.error(f"{self.__class__.__name__} 执行用例成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 执行用例失败,错误信息为：{e}")
             check_item_configuration_page.get_screenshot_png("检查项配置页面跳转")
             raise e
-
-
-

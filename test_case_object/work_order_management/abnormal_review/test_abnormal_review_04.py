@@ -2,8 +2,9 @@ import allure
 import pytest
 
 from common.loggerhandler import logger
-from test_case_page.work_order_management.abnormal_review.abnormal_statistic_page import AbnormalStatisticPage
-
+from test_case_page.work_order_management.abnormal_review.abnormal_statistic_page import (
+    AbnormalStatisticPage,
+)
 
 
 @allure.feature("工单管理")
@@ -12,8 +13,9 @@ from test_case_page.work_order_management.abnormal_review.abnormal_statistic_pag
 @pytest.mark.usefixtures("login_driver")
 class TestAbnormalReview04(object):
     """
-            时间维度切换
+    时间维度切换
     """
+
     # 时间维度切换
     @allure.description("时间维度切换")
     def test_abnormal_review_04(self, login_driver):

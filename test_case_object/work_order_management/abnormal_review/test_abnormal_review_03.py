@@ -2,8 +2,9 @@ import allure
 import pytest
 
 from common.loggerhandler import logger
-from test_case_page.work_order_management.abnormal_review.abnormal_statistic_page import AbnormalStatisticPage
-
+from test_case_page.work_order_management.abnormal_review.abnormal_statistic_page import (
+    AbnormalStatisticPage,
+)
 
 
 @allure.feature("工单管理")
@@ -12,8 +13,9 @@ from test_case_page.work_order_management.abnormal_review.abnormal_statistic_pag
 @pytest.mark.usefixtures("login_driver")
 class TestAbnormalReview03(object):
     """
-            场景类型切换
+    场景类型切换
     """
+
     # 产品类型切换
     @allure.description("场景类型切换")
     def test_abnormal_review_03(self, login_driver):

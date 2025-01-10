@@ -1,8 +1,11 @@
 import allure
 from common.loggerhandler import logger
-from test_case_locator.system_configuration.account_management_locator.account_management_locator import \
-    AccountManagementLocator
-from test_case_page.system_configuration.account_management_page import AccountManagementPage
+from test_case_locator.system_configuration.account_management_locator.account_management_locator import (
+    AccountManagementLocator,
+)
+from test_case_page.system_configuration.account_management_page import (
+    AccountManagementPage,
+)
 
 
 # account,name,password,phone,area,role,remark 临时数据 字典
@@ -15,13 +18,14 @@ data = {
     "area": "东部",
     "role": "系统管理员",
     "cloud_platform_account": "",
-    "remark": "UI自动化账号管理备注"
+    "remark": "UI自动化账号管理备注",
 }
+
 
 @allure.title("删除账号，勾选第一条数据，点击删除按钮")
 @allure.feature("账号管理")
 # @pytest.mark.skip(reason="")
-class TestAccountManagement11():
+class TestAccountManagement11:
     """
     勾选第一条数据，点击删除按钮,点击取消确认删除按钮
     """
@@ -34,7 +38,7 @@ class TestAccountManagement11():
             old_first_account = account_management_page.get_first_account_text()
             account_management_page.account_management_11()
             new_first_account = account_management_page.get_first_account_text()
-            assert  old_first_account == new_first_account
+            assert old_first_account == new_first_account
             logger.info(f"{self.__class__.__name__}执行用例成功")
         except Exception as e:
             logger.info(f"{self.__class__.__name__}执行用例失败")

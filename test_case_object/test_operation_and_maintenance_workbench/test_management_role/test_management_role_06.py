@@ -1,7 +1,9 @@
 import allure
 import pytest
 from common.loggerhandler import logger
-from test_case_page.operation_and_maintenance_workbench.management_role_page import ManagementRolePage
+from test_case_page.operation_and_maintenance_workbench.management_role_page import (
+    ManagementRolePage,
+)
 
 
 @pytest.mark.usefixtures("login_driver")
@@ -11,6 +13,7 @@ class TestManagementRole06:
     """
     时间维度相关
     """
+
     def test_management_role_06(self, login_driver):
         management_role_page = ManagementRolePage(login_driver)
         try:
@@ -25,4 +28,3 @@ class TestManagementRole06:
             logger.error(f"{self.__class__.__name__}执行用例失败")
             management_role_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
-

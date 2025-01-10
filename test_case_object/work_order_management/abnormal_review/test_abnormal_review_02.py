@@ -1,7 +1,9 @@
 import allure
 import pytest
 from common.loggerhandler import logger
-from test_case_page.work_order_management.abnormal_review.abnormal_statistic_page import AbnormalStatisticPage
+from test_case_page.work_order_management.abnormal_review.abnormal_statistic_page import (
+    AbnormalStatisticPage,
+)
 
 
 @allure.feature("工单管理")
@@ -9,8 +11,9 @@ from test_case_page.work_order_management.abnormal_review.abnormal_statistic_pag
 @allure.title("异常统计")
 class TestAbnormalReview02(object):
     """
-            显示数据条件切换
+    显示数据条件切换
     """
+
     # 产品类型切换
     @allure.description("产品类型切换")
     def test_abnormal_review_02(self, login_driver):
@@ -25,7 +28,10 @@ class TestAbnormalReview02(object):
             abnormal_statistic_page.test_abnormal_statistic_02_3()
             assert abnormal_statistic_page.get_product_type_input_text() == "非系统"
             abnormal_statistic_page.test_abnormal_statistic_02_4()
-            assert abnormal_statistic_page.get_product_type_no_input_text() == "请选择产品类型"
+            assert (
+                abnormal_statistic_page.get_product_type_no_input_text()
+                == "请选择产品类型"
+            )
             logger.info(f"{self.__class__.__name__}执行用例通过")
         except Exception as e:
             logger.error(f"{self.__class__.__name__}执行用例失败，错误信息为：{e}")

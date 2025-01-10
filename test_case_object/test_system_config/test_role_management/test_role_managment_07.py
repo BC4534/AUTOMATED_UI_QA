@@ -3,16 +3,14 @@ from test_case_page.system_configuration.role_management_page import RoleManagem
 from common.loggerhandler import logger
 
 
-
-data = {
-    "name": "测试角色",
-    "remark": "测试角色备注"
-}
+data = {"name": "测试角色", "remark": "测试角色备注"}
 
 
-@allure.title("角色管理-新增角色：勾选第一条角色数据，正常填写新增数据，第一条数据不应该被覆盖")
+@allure.title(
+    "角色管理-新增角色：勾选第一条角色数据，正常填写新增数据，第一条数据不应该被覆盖"
+)
 @allure.feature("角色管理")
-class TestRoleManagment07():
+class TestRoleManagment07:
     """
     角色管理-新增角色：勾选第一条角色数据，正常填写新增数据，第一条数据不应该被覆盖
     断言： 通过判断操作前第一个数据是不是与操作后的第二个数据一致
@@ -33,4 +31,3 @@ class TestRoleManagment07():
             logger.info(f"{self.__class__.__name__}执行用例失败")
             role_management_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
-

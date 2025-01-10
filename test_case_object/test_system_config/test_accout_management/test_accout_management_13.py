@@ -1,8 +1,11 @@
 import allure
 from common.loggerhandler import logger
-from test_case_locator.system_configuration.account_management_locator.account_management_locator import \
-    AccountManagementLocator
-from test_case_page.system_configuration.account_management_page import AccountManagementPage
+from test_case_locator.system_configuration.account_management_locator.account_management_locator import (
+    AccountManagementLocator,
+)
+from test_case_page.system_configuration.account_management_page import (
+    AccountManagementPage,
+)
 
 
 data = {
@@ -14,7 +17,7 @@ data = {
     "email": "management_12@qq.com",
     "role": "",
     "cloud_platform": "",
-    "remark": "test_account_management_12"
+    "remark": "test_account_management_12",
 }
 data2 = {
     "account": "test_account_management_12_2",
@@ -25,14 +28,14 @@ data2 = {
     "email": "management_12_2@qq.com",
     "role": "",
     "cloud_platform": "",
-    "remark": "test_account_management_12_2"
+    "remark": "test_account_management_12_2",
 }
 
 
 @allure.title("验证全选按钮")
 @allure.feature("账号管理")
 # @pytest.mark.skip(reason="")
-class TestAccountManagement13():
+class TestAccountManagement13:
     """
     验证全选按钮
     """

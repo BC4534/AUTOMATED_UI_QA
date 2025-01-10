@@ -1,12 +1,13 @@
 import allure
 from common.loggerhandler import logger
-from test_case_page.operation_and_maintenance_workbench.execute_role_page import ExecuteRolePage
-
+from test_case_page.operation_and_maintenance_workbench.execute_role_page import (
+    ExecuteRolePage,
+)
 
 
 @allure.title("执行角色，数据维度切换 ")
 @allure.feature("执行角色")
-class TestExecuteRole02():
+class TestExecuteRole02:
 
     def test_execute_role_02(self, login_driver):
         execute_role_page = ExecuteRolePage(login_driver)

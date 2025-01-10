@@ -3,15 +3,12 @@ from test_case_page.system_configuration.role_management_page import RoleManagem
 from common.loggerhandler import logger
 
 
-data = {
-    "name": "测试角色",
-    "remark": "测试角色备注"
-}
+data = {"name": "测试角色", "remark": "测试角色备注"}
 
 
 @allure.title("角色管理-删除角色")
 @allure.feature("角色管理")
-class TestRoleManagment09():
+class TestRoleManagment09:
     """
     角色管理-删除角色
     实现思路 ： 先自己新增一条 再删掉
@@ -33,4 +30,3 @@ class TestRoleManagment09():
             logger.info(f"{self.__class__.__name__}执行用例失败")
             role_management_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
-

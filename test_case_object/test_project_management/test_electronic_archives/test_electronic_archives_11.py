@@ -1,12 +1,17 @@
 import allure
 
-from test_case_page.project_management.electronic_archives_page.add_operation_maintenance_management_info_page import \
-    AddOperationMaintenanceManagementInfoPage
-from test_case_page.project_management.electronic_archives_page.add_project_basic_info_page import \
-    AddProjectBaseInfoPage
-from test_case_page.project_management.electronic_archives_page.add_project_detail_info_page import \
-    AddProjectDetailInfoPage
-from test_case_page.project_management.electronic_archives_page.electronic_archives_page import ElectronicArchivesPage
+from test_case_page.project_management.electronic_archives_page.add_operation_maintenance_management_info_page import (
+    AddOperationMaintenanceManagementInfoPage,
+)
+from test_case_page.project_management.electronic_archives_page.add_project_basic_info_page import (
+    AddProjectBaseInfoPage,
+)
+from test_case_page.project_management.electronic_archives_page.add_project_detail_info_page import (
+    AddProjectDetailInfoPage,
+)
+from test_case_page.project_management.electronic_archives_page.electronic_archives_page import (
+    ElectronicArchivesPage,
+)
 from common.loggerhandler import logger
 
 
@@ -17,7 +22,9 @@ class TestElectronicArchives10:
 
     @allure.description("通过点击界面的不同页面，实现翻页")
     def test_electronic_archives_08_1(self, login_driver):
-        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(login_driver)
+        add_election_archives_page = AddOperationMaintenanceManagementInfoPage(
+            login_driver
+        )
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             add_election_archives_page.switch_to_electronic_archives()

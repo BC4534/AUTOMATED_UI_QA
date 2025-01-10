@@ -3,13 +3,16 @@ from selenium.webdriver.common.by import By
 
 class ElectronicArchivesLocator:
     # 项目管理模块
-    project_management_module_class_attributes_loc = (By.XPATH, '//*[text()="项目管理"]/../..')
+    project_management_module_class_attributes_loc = (
+        By.XPATH,
+        '//*[text()="项目管理"]/../..',
+    )
     # 项目管理
     project_management_loc = (By.XPATH, '//*[text()="项目管理"]')
     # 电子档案
     electronic_archives_loc = (By.XPATH, '//*[text()="电子档案"]')
 
-    #==================搜索功能======================
+    # ==================搜索功能======================
     # 搜索按钮
     search_button_loc = (By.XPATH, '//*[text()="搜 索"]')
     # 重置按钮
@@ -22,7 +25,10 @@ class ElectronicArchivesLocator:
     # 项目名称输入框
     project_name_input_loc = (By.XPATH, '//*[@placeholder="请输入项目名称"]')
     # 立项时间选择框
-    project_time_select_loc = (By.XPATH, '//*[text()="立项时间："]/following::input[@placeholder="请选择日期"]')
+    project_time_select_loc = (
+        By.XPATH,
+        '//*[text()="立项时间："]/following::input[@placeholder="请选择日期"]',
+    )
     # 立项时间 - 前一年
     project_time_last_year_loc = (By.XPATH, '//*[@title="前一年"]')
     # 立项时间 - 后一年
@@ -37,7 +43,6 @@ class ElectronicArchivesLocator:
     current_year_loc = (By.XPATH, '//*[@class="ant-picker-year-btn"]')
     # 当前所选月份
     current_month_loc = (By.XPATH, '//*[@class="ant-picker-month-btn"]')
-
 
     # 工单所属区域选择框
     work_order_area_select_loc = (By.XPATH, '//*[@class="ant-select-selection-search"]')
@@ -109,7 +114,7 @@ class ElectronicArchivesLocator:
     status_effective_loc = (By.XPATH, '//*[@title="已生效"]')
 
     # ======================查询结束====================
-    #=======================主界面元素====================
+    # =======================主界面元素====================
     # 新增项目按钮
     add_project_button_loc = (By.XPATH, '//*[text()="新增项目"]')
 
@@ -132,11 +137,20 @@ class ElectronicArchivesLocator:
     # 第一个项目详情按钮
     first_project_detail_button_loc = (By.XPATH, '//*[text()="详情"]')
     # 第一个项目批量下载巡检项按钮
-    first_project_download_inspection_item_button_loc = (By.XPATH, '//*[text()="批量下载巡检码"]')
+    first_project_download_inspection_item_button_loc = (
+        By.XPATH,
+        '//*[text()="批量下载巡检码"]',
+    )
     # 第一个执行巡检的编辑按钮
-    first_project_execute_inspection_edit_button_loc = (By.XPATH, '//*[@class="ant-table-measure-row"]/following::span[text()="是"]/following::a[text()="编辑"]')
+    first_project_execute_inspection_edit_button_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-measure-row"]/following::span[text()="是"]/following::a[text()="编辑"]',
+    )
     # 项目资料里面的批量下载巡检码 //*[text()="巡检组管理"]/following::span[text()="批量下载巡检码"]
-    project_info_download_inspection_item_loc = (By.XPATH, '//*[text()="巡检组管理"]/following::span[text()="批量下载巡检码"]')
+    project_info_download_inspection_item_loc = (
+        By.XPATH,
+        '//*[text()="巡检组管理"]/following::span[text()="批量下载巡检码"]',
+    )
 
     # 确认删除按钮
     confirm_delete_button_loc = (By.XPATH, '//*[text()="确 定"]')
@@ -144,26 +158,41 @@ class ElectronicArchivesLocator:
     cancel_delete_button_loc = (By.XPATH, '//*[text()="取 消"]')
 
     # 页面提示信息 //*[@class="ant-message-notice-content"]/div/span[last()]
-    page_tip_loc = (By.XPATH, '//*[@class="ant-message-notice-content"]/div/span[last()]')
+    page_tip_loc = (
+        By.XPATH,
+        '//*[@class="ant-message-notice-content"]/div/span[last()]',
+    )
     # page_tip_loc = (By.XPATH, '//*[@aria-label="check-circle"]/following::span')
-
-
-
 
     # 第一个项目名称
     first_project_name_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td')
     # 第二个项目名称
     second_project_name_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[3]/td')
     # 第一个项目立项时间
-    first_project_init_time_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[3]')
+    first_project_init_time_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]/tr[2]/td[3]',
+    )
     # 第二个项目立项时间
-    second_project_init_time_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[3]/td[3]')
+    second_project_init_time_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]/tr[3]/td[3]',
+    )
     # 当前年 //*[@class="ant-picker-header-view"]/button[1]
-    current_year_value_loc = (By.XPATH, '//*[@class="ant-picker-header-view"]/button[1]')
+    current_year_value_loc = (
+        By.XPATH,
+        '//*[@class="ant-picker-header-view"]/button[1]',
+    )
     # 当前月 //*[@class="ant-picker-header-view"]/button[2]
-    current_month_value_loc = (By.XPATH, '//*[@class="ant-picker-header-view"]/button[2]')
+    current_month_value_loc = (
+        By.XPATH,
+        '//*[@class="ant-picker-header-view"]/button[2]',
+    )
     # 前一年按钮 //*[@class="ant-picker-header-super-prev-btn"]
-    previous_year_button_loc = (By.XPATH, '//*[@class="ant-picker-header-super-prev-btn"]')
+    previous_year_button_loc = (
+        By.XPATH,
+        '//*[@class="ant-picker-header-super-prev-btn"]',
+    )
     # 后一年按钮 class="ant-picker-header-super-next-btn"
     next_year_button_loc = (By.XPATH, '//*[@class="ant-picker-header-super-next-btn"]')
     # 前一月按钮 //*[@class="ant-picker-header-prev-btn"]
@@ -184,8 +213,10 @@ class ElectronicArchivesLocator:
     # 第一个项目进度
     first_project_progress_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[7]')
     # 第二个项目进度
-    second_project_progress_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[3]/td[7]')
-
+    second_project_progress_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]/tr[3]/td[7]',
+    )
 
     # 第一个项目类型
     first_project_type_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[9]')
@@ -193,26 +224,46 @@ class ElectronicArchivesLocator:
     second_project_type_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[3]/td[9]')
 
     # 第一个产品类型
-    first_project_product_type_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[11]')
+    first_project_product_type_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]/tr[2]/td[11]',
+    )
     # 第二个产品类型
-    second_project_product_type_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[3]/td[11]')
+    second_project_product_type_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]/tr[3]/td[11]',
+    )
 
     # 第一实施负责人
-    first_project_implement_leader_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[12]')
+    first_project_implement_leader_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]/tr[2]/td[12]',
+    )
     # 第二个实施负责人
-    second_project_implement_leader_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[3]/td[12]')
+    second_project_implement_leader_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]/tr[3]/td[12]',
+    )
 
     # 第一个运维负责人
-    first_project_operation_leader_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[13]')
+    first_project_operation_leader_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]/tr[2]/td[13]',
+    )
     # 第二个运维负责人
-    second_project_operation_leader_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[3]/td[13]')
+    second_project_operation_leader_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]/tr[3]/td[13]',
+    )
 
     # 第一个项目状态
     first_project_status_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[14]')
 
     # 第一个项目是否支持标准巡检
-    first_project_is_support_standard_inspection_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[8]')
-
+    first_project_is_support_standard_inspection_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]/tr[2]/td[8]',
+    )
 
     # 项目基础资料维护
     project_basic_info_loc = (By.XPATH, '//*[text()="项目基础资料维护"]')
@@ -224,26 +275,39 @@ class ElectronicArchivesLocator:
     operation_management_info_loc = (By.XPATH, '//*[text()="运维管理信息"]')
 
     # 项目基础资料维护 状态判断
-    project_basic_info_status_loc = (By.XPATH, '//*[@class="ant-modal-body"]/div/div[1]')
+    project_basic_info_status_loc = (
+        By.XPATH,
+        '//*[@class="ant-modal-body"]/div/div[1]',
+    )
     # 项目详细资料维护 状态判断
-    project_detail_info_status_loc = (By.XPATH, '//*[@class="ant-modal-body"]/div/div[2]')
+    project_detail_info_status_loc = (
+        By.XPATH,
+        '//*[@class="ant-modal-body"]/div/div[2]',
+    )
     # 维护实施管理信息 状态判断
-    implementation_maintenance_info_status_loc = (By.XPATH, '//*[@class="ant-modal-body"]/div/div[3]')
+    implementation_maintenance_info_status_loc = (
+        By.XPATH,
+        '//*[@class="ant-modal-body"]/div/div[3]',
+    )
     # 运维管理信息 状态判断
-    operation_management_info_status_loc = (By.XPATH, '//*[@class="ant-modal-body"]/div/div[4]')
+    operation_management_info_status_loc = (
+        By.XPATH,
+        '//*[@class="ant-modal-body"]/div/div[4]',
+    )
 
     # 获取项目详情页面的title  //*[@class="ant-modal-title"]/div/div[2]
     edit_project_title_loc = (By.XPATH, '//*[@class="ant-modal-title"]/div/div[2]')
 
-
-
     # 获取项目详情页面的title  //*[@class="ant-drawer-header-title"]
-    project_detail_info_title_loc = (By.XPATH, '//*[@class="ant-drawer-header-title"]/div')
+    project_detail_info_title_loc = (
+        By.XPATH,
+        '//*[@class="ant-drawer-header-title"]/div',
+    )
 
     # X按钮 //*[@class="anticon anticon-close"]
     close_button_loc = (By.XPATH, '//*[@class="anticon anticon-close"]')
 
-    #第二页
+    # 第二页
     page_2_loc = (By.XPATH, '//*[@rel="nofollow" and text()=2]')
     # 第一页
     page_1_loc = (By.XPATH, '//*[@rel="nofollow" and text()=1]')
@@ -251,10 +315,3 @@ class ElectronicArchivesLocator:
     next_page_loc = (By.XPATH, '//*[contains(@class,"ant-pagination-next")]')
     # 上一页
     previous_page_loc = (By.XPATH, '//*[contains(@class,"ant-pagination-prev")]')
-
-
-
-
-
-
-

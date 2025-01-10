@@ -9,6 +9,7 @@ class LoginLocator:
     (By.ID, "pwd")：登录界面密码输入框
     (By.ID, "login")：登录界面登录按钮
     """
+
     # 登录界面用户名,密码,登录按钮
     login_username_loc = (By.ID, "username")
     login_password_loc = (By.ID, "password")
@@ -32,7 +33,7 @@ class LoginLocator:
     logout_button_loc = (By.XPATH, "//*[text()='登出']")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     from common.base_method import BasePage
 
     driver = webdriver.Chrome()

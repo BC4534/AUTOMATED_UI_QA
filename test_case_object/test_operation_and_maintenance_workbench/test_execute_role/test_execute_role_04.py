@@ -1,15 +1,19 @@
 import allure
 from common.loggerhandler import logger
-from test_case_page.operation_and_maintenance_workbench.execute_role_page import ExecuteRolePage
-from test_case_page.work_order_management.my_work_order.my_already_do_page import MyAlreadyDonePage
-from test_case_page.work_order_management.my_work_order.my_need_to_do_page import MyNeedToDoPage
-
-
+from test_case_page.operation_and_maintenance_workbench.execute_role_page import (
+    ExecuteRolePage,
+)
+from test_case_page.work_order_management.my_work_order.my_already_do_page import (
+    MyAlreadyDonePage,
+)
+from test_case_page.work_order_management.my_work_order.my_need_to_do_page import (
+    MyNeedToDoPage,
+)
 
 
 @allure.title("执行角色，任务过程看板切换年月 ")
 @allure.feature("执行角色")
-class TestExecuteRole04():
+class TestExecuteRole04:
 
     # 任务过程看片切换年月”
     def test_execute_role_04(self, login_driver):
@@ -26,5 +30,3 @@ class TestExecuteRole04():
             logger.error(f"{self.__class__.__name__}执行用例失败")
             execute_role_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
-
-

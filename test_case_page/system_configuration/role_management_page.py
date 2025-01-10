@@ -1,6 +1,8 @@
 import time
 from common.base_method import BasePage
-from test_case_locator.system_configuration.role_management_locator.role_management_locator import RoleManagementLocator
+from test_case_locator.system_configuration.role_management_locator.role_management_locator import (
+    RoleManagementLocator,
+)
 from common.loggerhandler import logger
 
 
@@ -10,11 +12,16 @@ class RoleManagementPage(BasePage):
     # 未展开：class="ant-menu-submenu ant-menu-submenu-inline"
     # 展开 ：class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
     def get_system_config_module_class_attributes(self):
-        return self.get_attribute(RoleManagementLocator.system_config_module_class_attributes_loc, "class")
+        return self.get_attribute(
+            RoleManagementLocator.system_config_module_class_attributes_loc, "class"
+        )
 
     # 角色管理，页面跳转
     def role_management_01(self):
-        if self.get_system_config_module_class_attributes() == "ant-menu-submenu ant-menu-submenu-inline":
+        if (
+            self.get_system_config_module_class_attributes()
+            == "ant-menu-submenu ant-menu-submenu-inline"
+        ):
             self.click_element(RoleManagementLocator.system_config_loc)
         time.sleep(0.2)
         self.click_element_by_js(RoleManagementLocator.role_management_loc)
@@ -31,6 +38,7 @@ class RoleManagementPage(BasePage):
         self.role_management_01()
         self.click_add_role_button()
         self.click_confirm_button()
+
     # 正常新增，填写数据后点关闭
     def role_management_04(self, name, remark):
         self.click_add_role_button()
@@ -65,6 +73,7 @@ class RoleManagementPage(BasePage):
         self.role_management_01()
         time.sleep(3)
         self.click_batch_delete_button()
+
     # 删除角色 ，单条
     def role_management_09(self, name, remark):
         self.click_add_role_button()
@@ -73,6 +82,7 @@ class RoleManagementPage(BasePage):
         self.click_confirm_button()
         time.sleep(0.5)
         self.test_case_data_recover()
+
     # 重复新增
     def role_management_10(self, name, remark):
         self.role_management_01()
@@ -87,6 +97,7 @@ class RoleManagementPage(BasePage):
         time.sleep(0.5)
         self.click_confirm_button()
         time.sleep(0.5)
+
     # 针对 role_management_11的删除
     def role_management_11_delete(self):
         self.refresh()
@@ -120,7 +131,6 @@ class RoleManagementPage(BasePage):
         self.click_first_data_edit_button()
         return self.text(RoleManagementLocator.page_name_loc)
 
-
     # 验证新增页面打开是否正确
     def role_management_15(self):
         self.role_management_01()
@@ -129,7 +139,7 @@ class RoleManagementPage(BasePage):
         return self.text(RoleManagementLocator.page_name_loc)
 
     # 验证查询功能
-    def role_management_16(self,name):
+    def role_management_16(self, name):
         self.search_role_name(name)
 
     # 想橘色名称查询框输入查询条件
@@ -139,9 +149,11 @@ class RoleManagementPage(BasePage):
     # 读取角色名称查询框输入值
     def get_select_role_name_input(self):
         return self.text(RoleManagementLocator.select_role_name_input_loc)
+
     # 点击全选按钮
     def click_all_checkbox(self):
         self.click_element(RoleManagementLocator.all_role_checkbox_loc)
+
     # 点击第一条数据的编辑按钮
     def click_first_data_edit_button(self):
         self.click_element(RoleManagementLocator.first_role_edit_button_loc)
@@ -149,25 +161,27 @@ class RoleManagementPage(BasePage):
     # 勾选第一条数据，新增角色
     def click_first_data_checkbox(self):
         self.click_element(RoleManagementLocator.first_role_checkbox_loc)
+
     # 获取新增角色界面断言元素的style属性值。
     def get_add_role_style(self):
         return self.get_attribute(RoleManagementLocator.role_page_assert_loc, "style")
+
     # 新增角色，必填项效验  角色名称提示信息
     def get_add_role_name_required(self):
         return self.text(RoleManagementLocator.add_role_name_required_loc)
+
     # 新增角色，必填项效验，角色说明提示信息
     def get_add_role_remark_required(self):
         return self.text(RoleManagementLocator.add_role_remark_required_loc)
+
     # 新增角色数据恢复
     def test_case_data_recover(self):
-        self.refresh()
         self.click_element(RoleManagementLocator.first_role_checkbox_loc)
-        time.sleep(0.5)
+        self.random_sleep(0.5)
         self.click_batch_delete_button()
-        time.sleep(0.5)
+        self.random_sleep(0.5)
         self.click_confirm_batch_delete_button()
-        time.sleep(0.5)
-
+        self.random_sleep(0.5)
 
     # 新增角色数据填写步骤
     def fill_add_role_data(self, role_name, remark):
@@ -189,7 +203,6 @@ class RoleManagementPage(BasePage):
         time.sleep(0.5)
         self.click_element(RoleManagementLocator.confirm_button_loc)
 
-
     # 点击取消按钮
     def click_cancel_button(self):
         self.click_element(RoleManagementLocator.cancel_button_loc)
@@ -198,28 +211,32 @@ class RoleManagementPage(BasePage):
     def click_close_button(self):
         self.click_element(RoleManagementLocator.close_button_loc)
 
-
     # 获取角色管理界面，新增角色按钮文本值
     def get_add_role_button_text(self):
         try:
             return self.text(RoleManagementLocator.add_role_button_loc)
         except Exception as e:
             raise e
+
     # 获取第一个角色名称
     def get_first_role_name(self):
         time.sleep(2)
         return self.text(RoleManagementLocator.first_role_name_loc)
+
     # 获取第二个角色名称
     def get_second_role_name(self):
         time.sleep(2)
         return self.text(RoleManagementLocator.second_role_name_loc)
-    #------------界面按基础钮操作----------------
+
+    # ------------界面按基础钮操作----------------
     # 点击新增角色按钮
     def click_add_role_button(self):
         self.click_element(RoleManagementLocator.add_role_button_loc)
+
     # 点击编辑按钮
     def click_edit_button(self):
         pass
+
     # 点击批量删除按钮
     def click_batch_delete_button(self):
         self.click_element(RoleManagementLocator.batch_delete_button_loc)
@@ -240,7 +257,7 @@ class RoleManagementPage(BasePage):
     def click_reset_button(self):
         self.click_element(RoleManagementLocator.reset_button_loc)
 
-    #----------------------------#
+    # ----------------------------#
     # 获取界面弹窗提示信息
     def get_page_tip(self):
         try:

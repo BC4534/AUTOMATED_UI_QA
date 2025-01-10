@@ -3,27 +3,31 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from common.all_file_path import webdriver_path
 
-class DriverHandler():
+
+class DriverHandler:
     def __init__(self, config_dict):
         self.config = config_dict
 
     def get_value(self, section, key):
         return self.config.get(section, {}).get(key, None)
 
+
 def setup_headless_mode(options, headless):
     if headless.lower() == "true":
-        options.add_argument('--headless')
+        options.add_argument("--headless")
     else:
-        options.add_argument('--no-headless')
+        options.add_argument("--no-headless")
+
 
 def set_download_prefs(options, download_dir):
     prefs = {
         "download.default_directory": download_dir,  # 指定下载目录
         "download.prompt_for_download": True,  # 弹出保存对话框
         "directory_upgrade": True,  # 允许覆盖
-        "safebrowsing.enabled": True  # 禁用安全浏览功能
+        "safebrowsing.enabled": True,  # 禁用安全浏览功能
     }
     options.add_experimental_option("prefs", prefs)
+
 
 def get_driver():
     config_dict = {
@@ -31,7 +35,7 @@ def get_driver():
             "driver_object": "chrome",
             "driver_path": webdriver_path,
             "driver_headless": "false",
-            "download.default_directory": r"D:\CODE\AUTOMATED_UI_QA\output"
+            "download.default_directory": r"D:\CODE\AUTOMATED_UI_QA\output",
         }
     }
     driver_handler = DriverHandler(config_dict)
@@ -42,7 +46,7 @@ def get_driver():
 
     if driver_value == "chrome":
         opt = ChromeOptions()
-        opt.add_argument('--disable-gpu')
+        opt.add_argument("--disable-gpu")
         setup_headless_mode(opt, driver_headless)
         set_download_prefs(opt, download_dir)
         return webdriver.Chrome(executable_path=driver_path, options=opt)

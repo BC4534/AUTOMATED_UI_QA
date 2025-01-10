@@ -3,14 +3,15 @@ from test_case_page.system_configuration.role_management_page import RoleManagem
 from common.loggerhandler import logger
 
 
-
+@allure.feature("系统配置")
+@allure.story("角色管理")
 @allure.title("角色管理-页面跳转")
-@allure.feature("角色管理")
-class TestRoleManagment01():
+class TestRoleManagment01:
     """
     角色管理-页面跳转
     """
 
+    @allure.description("角色管理-页面跳转")
     def test_role_management_01(self, login_driver):
         role_management_page = RoleManagementPage(login_driver)
         try:

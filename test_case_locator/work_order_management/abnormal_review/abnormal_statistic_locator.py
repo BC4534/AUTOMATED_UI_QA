@@ -15,8 +15,6 @@ class AbnormalStatisticLocator:
     # 判断是否在异常明细界面 //*[text()="异常明细"]/..
     abnormal_detail_class_loc = (By.XPATH, '//*[text()="异常明细"]/..')
 
-
-
     # 产品类型选择框
     product_type_select_loc = (By.XPATH, '//*[@class="ant-select-selector"]')
     # 产品类型-集装箱
@@ -53,8 +51,9 @@ class AbnormalStatisticLocator:
     # 年月选择框
     year_month_select_loc = (By.XPATH, '//*[@class="ant-picker-input"]')
     # 上一年、上一个月
-    year_month_previous_loc = (By.XPATH, '//*[@class="ant-picker-header-super-prev-btn"]')
+    year_month_previous_loc = (
+        By.XPATH,
+        '//*[@class="ant-picker-header-super-prev-btn"]',
+    )
     # 下一年、下一个月
     year_month_next_loc = (By.XPATH, '//*[@class="ant-picker-header-super-next-btn"]')
-
-

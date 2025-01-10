@@ -1,8 +1,12 @@
 import allure
 import pytest
 from common.loggerhandler import logger
-from test_case_page.work_order_management.abnormal_review.abnormal_details_page import AbnormalDetailsPage
-from test_case_page.work_order_management.abnormal_review.abnormal_statistic_page import AbnormalStatisticPage
+from test_case_page.work_order_management.abnormal_review.abnormal_details_page import (
+    AbnormalDetailsPage,
+)
+from test_case_page.work_order_management.abnormal_review.abnormal_statistic_page import (
+    AbnormalStatisticPage,
+)
 from test_case_page.work_order_management.work_order_list_page import WorkOrderListPage
 
 
@@ -10,8 +14,6 @@ from test_case_page.work_order_management.work_order_list_page import WorkOrderL
 @allure.story("异常复盘")
 @allure.title("异常明细")
 class TestAbnormalReview08:
-
-
 
     @allure.description("异常明细-详情按钮")
     def test_abnormal_review_08(self, login_driver):

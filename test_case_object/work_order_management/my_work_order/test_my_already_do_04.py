@@ -1,7 +1,8 @@
 import allure
 from common.loggerhandler import logger
-from test_case_page.work_order_management.my_work_order.my_already_do_page import MyAlreadyDoPage
-
+from test_case_page.work_order_management.my_work_order.my_already_do_page import (
+    MyAlreadyDoPage,
+)
 
 
 @allure.feature("工单管理")
@@ -173,7 +174,9 @@ class TestMyAlreadyDo04:
             my_already_do_page.input_work_order_initiator("系统管理员")
             my_already_do_page.click_search_button()
             if my_already_do_page.get_first_work_order_initiator() != 1:
-                assert my_already_do_page.get_first_work_order_initiator() == "系统管理员"
+                assert (
+                    my_already_do_page.get_first_work_order_initiator() == "系统管理员"
+                )
             logger.info(f"{self.__class__.__name__}用例执行通过")
         except Exception as e:
             logger.error(f"{self.__class__.__name__}用例执行失败，错误信息为：{e}")
@@ -190,7 +193,9 @@ class TestMyAlreadyDo04:
             my_already_do_page.input_work_order_receiver("系统管理员")
             my_already_do_page.click_search_button()
             if my_already_do_page.get_first_work_order_initiator() != 1:
-                assert my_already_do_page.get_first_work_order_receiver() == "系统管理员"
+                assert (
+                    my_already_do_page.get_first_work_order_receiver() == "系统管理员"
+                )
             logger.info(f"{self.__class__.__name__}用例执行通过")
         except Exception as e:
             logger.error(f"{self.__class__.__name__}用例执行失败，错误信息为：{e}")
@@ -207,7 +212,10 @@ class TestMyAlreadyDo04:
             my_already_do_page.input_current_handler("系统管理员")
             my_already_do_page.click_search_button()
             if my_already_do_page.get_first_work_order_initiator() != 1:
-                assert my_already_do_page.get_first_work_order_current_handler() == "系统管理员"
+                assert (
+                    my_already_do_page.get_first_work_order_current_handler()
+                    == "系统管理员"
+                )
             logger.info(f"{self.__class__.__name__}用例执行通过")
         except Exception as e:
             logger.error(f"{self.__class__.__name__}用例执行失败，错误信息为：{e}")
@@ -226,6 +234,3 @@ class TestMyAlreadyDo04:
             logger.error(f"{self.__class__.__name__}用例执行失败，错误信息为：{e}")
             my_already_do_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
-
-
-

@@ -3,15 +3,12 @@ from test_case_page.system_configuration.role_management_page import RoleManagem
 from common.loggerhandler import logger
 
 
-data = {
-    "name": "测试角色",
-    "remark": "测试角色备注"
-}
+data = {"name": "测试角色", "remark": "测试角色备注"}
 
 
 @allure.title("角色管理-新增角色：重复新增")
 @allure.feature("角色管理")
-class TestRoleManagment10():
+class TestRoleManagment10:
     """
     角色管理-新增角色：重复新增
     断言： 名称不允许重复
@@ -29,4 +26,3 @@ class TestRoleManagment10():
             logger.info(f"{self.__class__.__name__}执行用例失败")
             role_management_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
-

@@ -1,8 +1,9 @@
 import allure
 
 from common.loggerhandler import logger
-from test_case_page.work_order_management.my_work_order.my_need_to_do_page import MyNeedToDoPage
-
+from test_case_page.work_order_management.my_work_order.my_need_to_do_page import (
+    MyNeedToDoPage,
+)
 
 
 @allure.feature("工单管理")
@@ -10,7 +11,7 @@ from test_case_page.work_order_management.my_work_order.my_need_to_do_page impor
 @allure.title("我的待办")
 class TestMyNeedToDo01:
     @allure.description("切换至我的待办页")
-    def test_my_need_to_do_01(self,login_driver):
+    def test_my_need_to_do_01(self, login_driver):
         my_need_to_do_page = MyNeedToDoPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
@@ -21,4 +22,3 @@ class TestMyNeedToDo01:
             logger.error(f"{self.__class__.__name__}用例执行失败，错误信息为：{e}")
             my_need_to_do_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
-

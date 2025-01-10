@@ -1,7 +1,9 @@
 import allure
 import pytest
 from common.loggerhandler import logger
-from test_case_page.operation_and_maintenance_workbench.management_role_page import ManagementRolePage
+from test_case_page.operation_and_maintenance_workbench.management_role_page import (
+    ManagementRolePage,
+)
 
 
 @pytest.mark.usefixtures("login_driver")

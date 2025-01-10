@@ -3,16 +3,12 @@ from test_case_page.system_configuration.role_management_page import RoleManagem
 from common.loggerhandler import logger
 
 
-
-data = {
-    "name": "测试角色",
-    "remark": "测试角色备注"
-}
+data = {"name": "测试角色", "remark": "测试角色备注"}
 
 
 @allure.title("角色管理-新增角色：正常填写新增数据，后点取消")
 @allure.feature("角色管理")
-class TestRoleManagment05():
+class TestRoleManagment05:
     """
     角色管理-新增角色：正常填写新增数据，后点取消
     断言： 通过判断操作前后，第一个角色是否一致
@@ -32,4 +28,3 @@ class TestRoleManagment05():
             logger.info(f"{self.__class__.__name__}执行用例失败")
             role_management_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
-

@@ -6,7 +6,7 @@ import webbrowser
 from common import all_file_path
 from common.robothandler import sync_to_feishu
 
-os.environ['PYTHONIOENCODING'] = 'utf-8'
+os.environ["PYTHONIOENCODING"] = "utf-8"
 
 
 def run_pytest(allure_dir, test_module=all_file_path.project_path):
@@ -15,7 +15,15 @@ def run_pytest(allure_dir, test_module=all_file_path.project_path):
         os.makedirs(allure_dir)
 
     # 构建 pytest 命令，包括 allure 报告目录和 --clean-alluredir 选项
-    command = [sys.executable, '-m', 'pytest',test_module, '--alluredir', allure_dir, '--clean-alluredir' ]
+    command = [
+        sys.executable,
+        "-m",
+        "pytest",
+        test_module,
+        "--alluredir",
+        allure_dir,
+        "--clean-alluredir",
+    ]
 
     # 运行 pytest 命令
     try:
@@ -27,12 +35,14 @@ def run_pytest(allure_dir, test_module=all_file_path.project_path):
 
 def generate_allure_report(allure_dir):
     # 复制 environment.properties 文件到 allure 报告目录
-    env_properties_path = os.path.join(os.path.dirname(__file__), 'environment.properties')
+    env_properties_path = os.path.join(
+        os.path.dirname(__file__), "environment.properties"
+    )
     print(env_properties_path)
     if os.path.exists(env_properties_path):
         shutil.copy(env_properties_path, allure_dir)
     # 构建 allure 报告命令
-    generate_command = f'allure generate {allure_dir} -o {allure_dir}/report'
+    generate_command = f"allure generate {allure_dir} -o {allure_dir}/report"
 
     # 运行 allure 报告命令
     try:
@@ -50,11 +60,13 @@ def main():
     # 指定 allure 报告目录
     allure_dir = all_file_path.allure_report_path
     # 指定测试模块
-    test_module = (r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_system_config\test_role_management\test_role_managment_07.py"
-                   r"")
+    test_module = (
+        r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_system_config\test_role_management\test_role_managment_07.py"
+        r""
+    )
 
     # 运行 pytest 测试用例并生成 allure 报告
-    run_pytest(allure_dir=allure_dir,test_module=test_module)
+    run_pytest(allure_dir=allure_dir, test_module=test_module)
 
     # 生成 allure 报告
     generate_allure_report(allure_dir)
@@ -63,5 +75,5 @@ def main():
     sync_to_feishu()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

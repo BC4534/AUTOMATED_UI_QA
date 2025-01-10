@@ -1,12 +1,11 @@
 from selenium.webdriver.common.by import By
 
 
-
 class KnowledgeBaseLocator:
     # 知识库
     knowledge_base_loc = (By.XPATH, '//*[text()="知识库"]/../..')
 
-    #---------搜索相关元素
+    # ---------搜索相关元素
     # 搜索
     search_button_loc = (By.XPATH, '//*[text()="搜 索"]/..')
     # 重置按钮
@@ -30,18 +29,29 @@ class KnowledgeBaseLocator:
     # 关闭按钮
     close_button_loc = (By.XPATH, '//*[@aria-label="Close"]')
 
-
     # ---------新增知识界面
     # 知识类型选择框  //*[@title="知识类型"]/following::div[@class="ant-select-selector"]
-    knowledge_type_select_loc = (By.XPATH, '//*[@title="知识类型"]/following::div[@class="ant-select-selector"]')
+    knowledge_type_select_loc = (
+        By.XPATH,
+        '//*[@title="知识类型"]/following::div[@class="ant-select-selector"]',
+    )
     # 知识标题
     title_input_loc = (By.XPATH, '//*[@placeholder="请输入标题"]')
     # 关联项目选择框
-    project_select_loc = (By.XPATH, '//*[@title="关联项目"]/following::div[@class="ant-select-selector"]')
+    project_select_loc = (
+        By.XPATH,
+        '//*[@title="关联项目"]/following::div[@class="ant-select-selector"]',
+    )
     # 关联设备类型选择框
-    device_type_select_loc = (By.XPATH, '//*[text()="关联设备类型"]/following::div[@class="ant-select-selector"]')
+    device_type_select_loc = (
+        By.XPATH,
+        '//*[text()="关联设备类型"]/following::div[@class="ant-select-selector"]',
+    )
     # 异常环节选择框
-    abnormal_select_loc = (By.XPATH, '//*[@title="异常环节"]/following::div[@class="ant-select-selector"]')
+    abnormal_select_loc = (
+        By.XPATH,
+        '//*[@title="异常环节"]/following::div[@class="ant-select-selector"]',
+    )
     # 知识内容
     content_input_loc = (By.XPATH, '//*[@class="w-e-text-container"]/div[3]/div')
     # 提交按钮
@@ -61,14 +71,20 @@ class KnowledgeBaseLocator:
     device_container_option_loc = (By.XPATH, '//*[@title="集装箱"]')
 
     # 关联项目下的第一个选项
-    first_project_option_loc = (By.XPATH, '//*[@id="projectId_list"]/following::div[@aria-selected]')
+    first_project_option_loc = (
+        By.XPATH,
+        '//*[@id="projectId_list"]/following::div[@aria-selected]',
+    )
     # 知识类型
     # 问题总结选项
     problem_summary_option_loc = (By.XPATH, '//*[@title="问题总结" and @aria-selected]')
     # 规则制度选项
     rule_regulation_option_loc = (By.XPATH, '//*[@title="规章制度"and @aria-selected]')
     # 行业标准选项
-    industry_standard_option_loc = (By.XPATH, '//*[@title="行业标准"and @aria-selected]')
+    industry_standard_option_loc = (
+        By.XPATH,
+        '//*[@title="行业标准"and @aria-selected]',
+    )
     # 项目资料选项
     project_info_option_loc = (By.XPATH, '//*[@title="项目资料" and @aria-selected]')
     # 异常环节下的
@@ -99,11 +115,20 @@ class KnowledgeBaseLocator:
     # 知识标题必填项提示文本 //*[@id="title_help"]/div
     title_required_text_loc = (By.XPATH, '//*[@id="title_help"]/div')
     # 第一条知识的复选框
-    first_knowledge_checkbox_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[1]//span')
+    first_knowledge_checkbox_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]/tr[2]/td[1]//span',
+    )
     # 第二条知识的复选框
-    second_knowledge_checkbox_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[3]/td[1]//span')
+    second_knowledge_checkbox_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]/tr[3]/td[1]//span',
+    )
     # 第三条知识的复选框
-    third_knowledge_checkbox_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[4]/td[1]//span')
+    third_knowledge_checkbox_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]/tr[4]/td[1]//span',
+    )
     # 第一条知识的详情按钮
     first_knowledge_detail_button_loc = (By.XPATH, '//*[text()="详情"]')
     # 第一条知识的编辑按钮
@@ -133,9 +158,15 @@ class KnowledgeBaseLocator:
     # 异常环节选择框
     query_abnormal_select_loc = (By.XPATH, '//*[text()="请选择异常环节"]/../..')
     # 第一个知识的异常环节
-    first_knowledge_abnormal_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[9]')
+    first_knowledge_abnormal_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]/tr[2]/td[9]',
+    )
     # 第一个知识的关联设备类型
-    first_knowledge_device_type_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[8]')
+    first_knowledge_device_type_loc = (
+        By.XPATH,
+        '//*[@class="ant-table-tbody"]/tr[2]/td[8]',
+    )
     # 第一个知识的撰写人
     first_knowledge_writer_loc = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[2]/td[7]')
     # 撰写人选择框
@@ -152,13 +183,9 @@ class KnowledgeBaseLocator:
     # 审核按钮界面的审核通过选项
     audit_pass_option_loc = (By.XPATH, '//*[text()="审核通过"]/preceding-sibling::span')
     # 审核按钮界面的审核拒绝选项
-    audit_reject_option_loc = (By.XPATH, '//*[text()="审核拒绝"]/preceding-sibling::span')
+    audit_reject_option_loc = (
+        By.XPATH,
+        '//*[text()="审核拒绝"]/preceding-sibling::span',
+    )
     # 审核备注输入框 id="remark"
     audit_remark_input_loc = (By.XPATH, '//*[@id="remark"]')
-
-
-
-
-
-
-

@@ -3,15 +3,15 @@ import time
 import allure
 import pytest
 from common.loggerhandler import logger
-from test_case_page.project_management.spare_part_management_page import SparePartManagementPage
-
+from test_case_page.project_management.spare_part_management_page import (
+    SparePartManagementPage,
+)
 
 
 @allure.feature("项目管理模块")
 @allure.story("备件管理功能")
 @allure.title("翻页功能")
 class TestSparePartManagement05:
-
 
     @allure.description("备件领用-翻页功能")
     def test_spare_part_management_05(self, login_driver):
@@ -26,9 +26,3 @@ class TestSparePartManagement05:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")
             spare_part_management_page.get_screenshot_png("备件管理-翻页功能")
             raise e
-
-
-
-
-
-

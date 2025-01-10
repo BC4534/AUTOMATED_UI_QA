@@ -5,14 +5,13 @@ from common.loggerhandler import logger
 from test_case_page.work_order_management.work_order_list_page import WorkOrderListPage
 
 
-
 @allure.feature("工单管理")
 @allure.story("工单列表")
 @allure.title("工单列表-验证搜索功能")
 class TestWorkOrderList07(object):
 
     @allure.story("发布时间搜索")
-    def test_work_order_list_07_1(self,login_driver):
+    def test_work_order_list_07_1(self, login_driver):
         work_order_list_page = WorkOrderListPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
@@ -24,9 +23,10 @@ class TestWorkOrderList07(object):
             logger.error(f"{self.__class__.__name__}用例执行失败，错误信息为：{e}")
             work_order_list_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
+
     # 验证处理状态
     @allure.description("验证处理状态搜索")
-    def test_work_order_list_07_2(self,login_driver):
+    def test_work_order_list_07_2(self, login_driver):
         work_order_list_page = WorkOrderListPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
@@ -48,17 +48,22 @@ class TestWorkOrderList07(object):
 
     # 工单编号搜索
     @allure.description("验证工单编号搜索")
-    def test_work_order_list_07_3(self,login_driver):
+    def test_work_order_list_07_3(self, login_driver):
         work_order_list_page = WorkOrderListPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
             work_order_list_page.switch_to_work_order_list_page()
             work_order_list_page.click_reset_button()
-            second_work_order_number = work_order_list_page.get_second_work_order_number()
+            second_work_order_number = (
+                work_order_list_page.get_second_work_order_number()
+            )
             work_order_list_page.test_work_order_list_07_3(second_work_order_number)
             work_order_list_page.click_search_button()
             if second_work_order_number != 1:
-                assert second_work_order_number == work_order_list_page.get_first_work_order_number()
+                assert (
+                    second_work_order_number
+                    == work_order_list_page.get_first_work_order_number()
+                )
             logger.info(f"{self.__class__.__name__}用例执行通过")
             work_order_list_page.click_reset_button()
         except Exception as e:
@@ -78,7 +83,10 @@ class TestWorkOrderList07(object):
             work_order_list_page.test_work_order_list_07_4(second_work_order_name)
             work_order_list_page.click_search_button()
             if second_work_order_name != 1:
-                assert second_work_order_name in work_order_list_page.get_first_work_order_name()
+                assert (
+                    second_work_order_name
+                    in work_order_list_page.get_first_work_order_name()
+                )
             logger.info(f"{self.__class__.__name__}用例执行通过")
             work_order_list_page.click_reset_button()
         except Exception as e:
@@ -94,12 +102,17 @@ class TestWorkOrderList07(object):
             logger.info(f"{self.__class__.__name__}开始执行用例")
             work_order_list_page.switch_to_work_order_list_page()
             work_order_list_page.click_reset_button()
-            association_project = work_order_list_page.get_second_work_order_association_project()
+            association_project = (
+                work_order_list_page.get_second_work_order_association_project()
+            )
             if association_project != 1:
                 _ = work_order_list_page.test_work_order_list_07_5(association_project)
                 work_order_list_page.click_search_button()
                 if _ != 1:
-                    assert association_project in work_order_list_page.get_first_data_association_project_text()
+                    assert (
+                        association_project
+                        in work_order_list_page.get_first_data_association_project_text()
+                    )
             logger.info(f"{self.__class__.__name__}用例执行通过")
         except Exception as e:
             logger.error(f"{self.__class__.__name__}用例执行失败，错误信息为：{e}")
@@ -149,7 +162,10 @@ class TestWorkOrderList07(object):
             if time != 1:
                 work_order_list_page.test_work_order_list_07_7(time)
                 work_order_list_page.click_search_button()
-                assert time[0:11] == work_order_list_page.get_first_data_plan_start_time()[0:11]
+                assert (
+                    time[0:11]
+                    == work_order_list_page.get_first_data_plan_start_time()[0:11]
+                )
             logger.info(f"{self.__class__.__name__}用例执行通过")
         except Exception as e:
             logger.error(f"{self.__class__.__name__}用例执行失败，错误信息为：{e}")
@@ -168,7 +184,10 @@ class TestWorkOrderList07(object):
             if time != 1:
                 work_order_list_page.test_work_order_list_07_8(time)
                 work_order_list_page.click_search_button()
-                assert time[0:11] == work_order_list_page.get_first_data_plan_end_time()[0:11]
+                assert (
+                    time[0:11]
+                    == work_order_list_page.get_first_data_plan_end_time()[0:11]
+                )
             logger.info(f"{self.__class__.__name__}用例执行通过")
         except Exception as e:
             # 外层的异常处理，记录错误信息并截图
@@ -194,14 +213,15 @@ class TestWorkOrderList07(object):
             work_order_list_page.click_search_button()
 
             if _ != 1:
-                assert work_order_list_page.get_first_work_order_area() == "大储运维（宁夏）"
+                assert (
+                    work_order_list_page.get_first_work_order_area()
+                    == "大储运维（宁夏）"
+                )
             logger.info(f"{self.__class__.__name__}用例执行通过")
         except Exception as e:
             logger.error(f"{self.__class__.__name__}用例执行失败，错误信息为：{e}")
             work_order_list_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
-
-
 
     # 工单发起人
     @allure.description("验证工单发起人搜索")
@@ -240,6 +260,7 @@ class TestWorkOrderList07(object):
             logger.error(f"{self.__class__.__name__}用例执行失败，错误信息为：{e}")
             work_order_list_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
+
     # 当前处理人
     @allure.description("验证当前处理人搜索")
     def test_work_order_list_07_12(self, login_driver):
@@ -250,7 +271,9 @@ class TestWorkOrderList07(object):
             work_order_list_page.click_reset_button()
             work_order_list_page.input_work_order_current_handler("")
             work_order_list_page.click_search_button()
-            current_handler = work_order_list_page.get_first_work_order_current_handler()
+            current_handler = (
+                work_order_list_page.get_first_work_order_current_handler()
+            )
             if current_handler != 1:
                 assert current_handler == "系统管理员"
             logger.info(f"{self.__class__.__name__}用例执行通过")
