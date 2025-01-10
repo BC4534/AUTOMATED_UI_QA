@@ -1,4 +1,6 @@
 import time
+
+import allure
 from selenium.webdriver.common.by import By
 from common.base_method import BasePage
 from common.loggerhandler import logger
@@ -35,6 +37,12 @@ class SparePartManagementPage(BasePage):
         time.sleep(1)
         self.click_element(SparePartManagementLocator.fill_data_confirm_button_loc)
         time.sleep(1)
+
+    @allure.step("点击备件领用确定按钮")
+    def click_spare_part_receive_confirm_button(self):
+        time.sleep(1)
+        self.click_element(SparePartManagementLocator.spare_part_receive_confirm_button_loc)
+
 
     # 点击备件入库 取消按钮
     def click_spare_part_inbound_cancel_button(self):
@@ -267,18 +275,20 @@ class SparePartManagementPage(BasePage):
 
     # 翻页功能
     def page_turning(self):
-        # 判断第二页是否存在
-        if self.visibility_of_element_located(
-            SparePartManagementLocator.second_page_loc
-        ):
-            self.click_element(SparePartManagementLocator.second_page_loc)
-            self.random_sleep(0.5)
-            self.click_element(SparePartManagementLocator.previous_page_loc)
-            self.random_sleep(0.5)
-            self.click_element(SparePartManagementLocator.next_page_loc)
-            self.random_sleep(0.5)
-            self.click_element(SparePartManagementLocator.first_page_loc)
-            self.random_sleep(0.5)
+        try:
+            # 判断第二页是否存在
+            if self.visibility_of_element_located(SparePartManagementLocator.second_page_loc):
+                self.click_element(SparePartManagementLocator.second_page_loc)
+                self.random_sleep(0.5)
+                self.click_element(SparePartManagementLocator.previous_page_loc)
+                self.random_sleep(0.5)
+                self.click_element(SparePartManagementLocator.next_page_loc)
+                self.random_sleep(0.5)
+                self.click_element(SparePartManagementLocator.first_page_loc)
+                self.random_sleep(0.5)
+        except:
+            logger.info("第二页不存在")
+            return 1
 
     # 判断当前所在页 class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
     def is_current_page(self, loc=SparePartManagementLocator.first_page_loc):
@@ -386,6 +396,7 @@ class SparePartManagementPage(BasePage):
 
     # 获取第一个备件 属性
     def get_first_spare_part_attribute(self):
+        self.random_sleep(0.5)
         return self.text(SparePartManagementLocator.first_spare_part_attribute_text_loc)
 
     # 第二个备件 属性
@@ -417,6 +428,7 @@ class SparePartManagementPage(BasePage):
 
     # 获取第一个备件 供应商
     def get_first_spare_part_supplier(self):
+        self.random_sleep(0.5)
         return self.text(SparePartManagementLocator.first_spare_part_supplier_text_loc)
 
     # 获取第二个备件 供应商

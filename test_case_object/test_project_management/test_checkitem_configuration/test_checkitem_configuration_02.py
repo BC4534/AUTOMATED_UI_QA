@@ -1,5 +1,3 @@
-from tabnanny import check
-
 import allure
 
 from common.loggerhandler import logger
@@ -89,7 +87,6 @@ class TestCheckItemConfiguration02:
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             check_item_configuration_page.switch_to_resources_inventory_page()
-            last_name = check_item_configuration_page.get_last_checkitem_name()
             check_item_configuration_page.click_add_checkitem_button()
             check_item_configuration_page.add_checkitem(
                 checkitem_name=checkitem_data["checkitem_name"],
@@ -115,7 +112,6 @@ class TestCheckItemConfiguration02:
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             check_item_configuration_page.switch_to_resources_inventory_page()
-            last_name = check_item_configuration_page.get_last_checkitem_name()
             check_item_configuration_page.click_add_checkitem_button()
             check_item_configuration_page.add_checkitem(
                 checkitem_name=checkitem_data["checkitem_name"],

@@ -42,9 +42,9 @@ class SparePartManagementLocator:
 
     # ----------搜索框 相关元素 ----------
     # 搜索按钮
-    search_button_loc = (By.XPATH, '//*[text()="搜 索"]')
+    search_button_loc = (By.XPATH, '//*[text()="搜 索"]/..')
     # 重置按钮
-    reset_button_loc = (By.XPATH, '//*[text()="重 置"]')
+    reset_button_loc = (By.XPATH, '//*[text()="重 置"]/..')
     # 备件名称输入框
     search_spare_part_name_input_loc = (By.XPATH, '//*[@placeholder="请输入备件名称"]')
     # 备件类型选择框
@@ -312,9 +312,9 @@ class SparePartManagementLocator:
         '//*[@id="operateRemark"]',
     )
     # 确认 按钮
-    fill_data_confirm_button_loc = (By.XPATH, '//*[text()="确 定"]')
+    fill_data_confirm_button_loc = (By.XPATH, '//*[text()="确 定"]/..')
     # 取消 按钮
-    fill_data_cancel_button_loc = (By.XPATH, '//*[text()="取 消"]')
+    fill_data_cancel_button_loc = (By.XPATH, '//*[text()="取 消"]/..')
     # X 按钮
     fill_data_close_button_loc = (By.XPATH, '//*[@class="ant-modal-close"]')
 
@@ -356,9 +356,9 @@ class SparePartManagementLocator:
     first_spare_part_receive_button_loc = (By.XPATH, '//*[text()="备件领用"]/..')
 
     # 备件领用的确认按钮
-    spare_part_receive_confirm_button_loc = (By.XPATH, '//*[text()="确 定"]')
+    spare_part_receive_confirm_button_loc = (By.XPATH, '//*[text()="备件领用"]/following::span[text()="确 定"]/..')
     # 备件领用的取消按钮
-    spare_part_receive_cancel_button_loc = (By.XPATH, '//*[text()="取 消"]')
+    spare_part_receive_cancel_button_loc = (By.XPATH, '//*[text()="备件领用"]/following::span[text()="取 消"]/..')
     # 备件领用的关闭按钮
     spare_part_receive_close_button_loc = (By.XPATH, '//*[@class="ant-modal-close"]')
     # 备件领用页面的title //*[ @class="ant-modal-title" and text()="备件领用"]
@@ -389,3 +389,5 @@ class SparePartManagementLocator:
     previous_page_loc = (By.XPATH, '//*[@title="上一页"]')
     # 下一页 //*[@title="下一页"]
     next_page_loc = (By.XPATH, '//*[@title="下一页"]')
+
+

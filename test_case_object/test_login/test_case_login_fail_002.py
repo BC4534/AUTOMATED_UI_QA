@@ -1,6 +1,4 @@
 import allure
-import pytest
-from selenium import webdriver
 from test_case_page.loginpage import LoginPage
 from common.loggerhandler import logger
 from common.driverhandler import get_driver
@@ -23,11 +21,8 @@ class Test_Case_Login_Fail_002:
         loginpage = LoginPage(get_driver())
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            loginpage.login(
-                url=login_data["url"],
-                username=login_data["username"],
-                password=login_data["password"],
-            )
+            loginpage.login(url=login_data["url"], username=login_data["username"], password=login_data["password"])
+
             assert loginpage.password_null_assert() == "请输入必填字段"
             logger.info(f"{self.__class__.__name__}执行用例成功")
         except Exception as e:

@@ -11,13 +11,13 @@ from test_case_page.operation_and_maintenance_workbench.management_role_page imp
 @allure.feature("管理角色")
 class TestManagementRole02:
 
+    @allure.description("管理角色,切换数据维度")
     def test_management_role_02(self, login_driver):
         management_role_page = ManagementRolePage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
             management_role_page.management_role_02()
         except Exception as e:
-            logger.error(e)
-            logger.error(f"{self.__class__.__name__}执行用例失败")
+            logger.error(f"{self.__class__.__name__}执行用例失败,失败原因:{e}")
             management_role_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e

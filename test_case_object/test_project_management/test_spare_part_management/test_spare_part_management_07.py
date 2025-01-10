@@ -1,5 +1,4 @@
 import allure
-import pytest
 from common.loggerhandler import logger
 from test_case_page.project_management.spare_part_management_page import (
     SparePartManagementPage,
@@ -46,7 +45,7 @@ class TestSparePartManagement07:
     """
 
     @allure.description("删除备件，备件数量不等于0")
-    def test_spare_part_management_07(self, login_driver):
+    def test_spare_part_management_07_1(self, login_driver):
         spare_part_management_page = SparePartManagementPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
@@ -66,7 +65,7 @@ class TestSparePartManagement07:
             raise e
 
     @allure.description("删除备件，备件数量不等于0")
-    def test_spare_part_management_07(self, login_driver):
+    def test_spare_part_management_07_2(self, login_driver):
         spare_part_management_page = SparePartManagementPage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")

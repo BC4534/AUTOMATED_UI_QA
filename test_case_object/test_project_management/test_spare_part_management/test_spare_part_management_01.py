@@ -1,5 +1,4 @@
 import allure
-import pytest
 from common.loggerhandler import logger
 from test_case_page.project_management.spare_part_management_page import (
     SparePartManagementPage,

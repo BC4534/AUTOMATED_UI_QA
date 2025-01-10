@@ -89,12 +89,13 @@ class OutdoorCabinetAlarmConfigurationPage(BasePage):
             self.click_element(
                 OutdoorCabinetAlarmConfigurationLocator.previous_page_loc
             )
+            self.random_sleep(1)
             a = self.get_attribute(
                 OutdoorCabinetAlarmConfigurationLocator.first_page_loc, "class"
             )
             return "ant-pagination-item-active" in a
         else:
-            return True
+            return False
 
     # 编辑功能
     # 点击第一个告警的 编辑按钮

@@ -1,11 +1,7 @@
 import allure
-import pytest
 from common.loggerhandler import logger
 from test_case_page.work_order_management.abnormal_review.abnormal_details_page import (
     AbnormalDetailsPage,
-)
-from test_case_page.work_order_management.abnormal_review.abnormal_statistic_page import (
-    AbnormalStatisticPage,
 )
 
 

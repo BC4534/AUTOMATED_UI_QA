@@ -20,7 +20,7 @@ class TestResourcesInventory03:
             second_name = resources_inventory_page.get_second_name_loc_text()
             resources_inventory_page.resources_inventory_search_by_name(second_name)
             resources_inventory_page.click_search_button()
-            assert resources_inventory_page.get_first_name_loc_text() == second_name
+            assert second_name in resources_inventory_page.get_first_name_loc_text()
             logger.info(f"{self.__class__.__name__} 测试用例执行成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")

@@ -96,6 +96,7 @@ class ContainerAlarmConfigurationPage(BasePage):
 
     @allure.step("判断批量更新弹框页面是否关闭")
     def check_batch_update_close(self):
+        self.random_sleep(1)
         try:
             self.visibility_of_element_located(
                 ContainerAlarmConfigurationLocator.batch_update_file_format_loc

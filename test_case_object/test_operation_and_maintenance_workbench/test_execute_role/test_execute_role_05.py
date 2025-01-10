@@ -5,11 +5,13 @@ from test_case_page.operation_and_maintenance_workbench.execute_role_page import
 )
 
 
+@allure.feature("运维工作台")
+@allure.story("执行角色")
 @allure.title("执行角色，负责项目统计部分用例 ")
-@allure.feature("执行角色")
 class TestExecuteRole05:
 
     # 负责项目统计部分用例”
+    @allure.description("负责项目统计,区域切换")
     def test_execute_role_05(self, login_driver):
         execute_role_page = ExecuteRolePage(login_driver)
         try:
@@ -25,7 +27,6 @@ class TestExecuteRole05:
             assert execute_role_page.get_area_select_text() == ""
             logger.info(f"{self.__class__.__name__}执行用例通过")
         except Exception as e:
-            logger.error(e)
-            logger.error(f"{self.__class__.__name__}执行用例失败")
+            logger.error(f"{self.__class__.__name__}执行用例失败,错误信息为:{e}")
             execute_role_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e

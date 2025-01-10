@@ -5,11 +5,13 @@ from test_case_page.operation_and_maintenance_workbench.execute_role_page import
 )
 
 
+@allure.feature("运维工作台")
+@allure.story("执行角色")
 @allure.title("执行角色，任务过程看板切换年月 ")
-@allure.feature("执行角色")
 class TestExecuteRole04:
 
     # 任务过程看片切换年月”
+    @allure.description("执行角色，任务过程看板切换年月 ")
     def test_execute_role_04(self, login_driver):
         execute_role_page = ExecuteRolePage(login_driver)
         try:

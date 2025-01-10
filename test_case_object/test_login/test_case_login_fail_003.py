@@ -25,11 +25,8 @@ class Test_Case_Login_Fail_003:
         loginpage = LoginPage(get_driver())
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            loginpage.login(
-                url=login_data["url"],
-                username=login_data["username"],
-                password=login_data["password"],
-            )
+            loginpage.login(url=login_data["url"], username=login_data["username"], password=login_data["password"])
+
             assert loginpage.login_fail_assert() == "用户名或密码错误!"
             logger.info(f"{self.__class__.__name__}执行用例成功")
         except Exception as e:

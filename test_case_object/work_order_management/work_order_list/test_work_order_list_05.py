@@ -15,7 +15,7 @@ class TestWorkOrderList05(object):
             logger.info(f"{self.__class__.__name__}开始执行用例")
             work_order_list_page.switch_to_work_order_list_page()
             work_order_list_page.test_work_order_list_05()
-            assert work_order_list_page.is_mask_dialog_exist() == False
+            assert work_order_list_page.is_mask_dialog_exist() is False
             logger.info(f"{self.__class__.__name__}用例执行通过")
         except Exception as e:
             logger.error(f"{self.__class__.__name__}用例执行失败，错误信息为：{e}")

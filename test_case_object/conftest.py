@@ -29,9 +29,18 @@ def login_driver():
     logger.debug("登录后置完成")
 
 
-@pytest.fixture(scope="module")
-def moult_fixture():
-    pass
+@pytest.fixture(scope="session")
+def url_fixture():
+    # 实现登录前置
+    logger.debug("开始登录前置")
+    driver = get_driver()
+    driver.maximize_window()
+    LoginPage(driver).open_login_page(login_data["url"])
+    logger.debug("前置登录成功")
+    yield driver
+    logger.debug("开始登录后置")
+    driver.close()
+    logger.debug("登录后置完成")
 
 
 @pytest.fixture(scope="class")

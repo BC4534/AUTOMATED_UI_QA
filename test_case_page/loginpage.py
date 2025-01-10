@@ -1,5 +1,4 @@
 import time
-
 from common.base_method import BasePage
 import allure
 from test_case_locator.login_locator import LoginLocator
@@ -13,6 +12,17 @@ class LoginPage(BasePage):
         self.send_keys(LoginLocator.login_username_loc, username)
         self.send_keys(LoginLocator.login_password_loc, password)
         self.click_element(LoginLocator.login_submit_loc)
+
+    @allure.step("输入账号密码")
+    def input_username_password(self, username, password):
+        self.send_keys(LoginLocator.login_username_loc, username)
+        self.send_keys(LoginLocator.login_password_loc, password)
+        self.click_element(LoginLocator.login_submit_loc)
+
+    @allure.step("打开登录页面")
+    def open_login_page(self, url):
+        self.get(url)
+        self.maximize_window()
 
     @allure.step("登录运维管理系统")
     def mask_login(self, url, username, password):

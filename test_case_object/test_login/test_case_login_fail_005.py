@@ -24,11 +24,7 @@ class Test_Case_Login_Fail_005:
         loginpage = LoginPage(get_driver())
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
-            loginpage.mask_login(
-                url=login_data["url"],
-                username=login_data["username"],
-                password=login_data["password"],
-            )
+            loginpage.login(url=login_data["url"], username=login_data["username"], password=login_data["password"])
             password_value = loginpage.read_password_value()
             assert password_value == login_data["password"]
             logger.info(f"{self.__class__.__name__}执行用例成功")

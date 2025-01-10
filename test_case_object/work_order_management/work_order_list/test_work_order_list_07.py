@@ -1,5 +1,3 @@
-from datetime import datetime
-
 import allure
 from common.loggerhandler import logger
 from test_case_page.work_order_management.work_order_list_page import WorkOrderListPage

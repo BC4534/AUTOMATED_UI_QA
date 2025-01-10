@@ -67,7 +67,10 @@ def main():
     allure_dir = all_file_path.allure_report_path
     # 指定测试路径列表，可以包含文件或目录
     test_paths = [
-        r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_system_config\test_role_management"
+        # r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_login",
+        # r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_operation_and_maintenance_workbench",
+        r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_project_management\test_spare_part_management",
+
     ]
 
     # 运行 pytest 测试用例并生成 allure 报告

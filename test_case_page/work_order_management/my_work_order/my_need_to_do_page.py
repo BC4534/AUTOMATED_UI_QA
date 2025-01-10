@@ -1,24 +1,14 @@
-import time
 import allure
 from selenium.webdriver.common.by import By
-from common.base_method import BasePage
 from common.loggerhandler import logger
 from test_case_locator.work_order_management.my_work_order.my_need_to_do_locator import (
     MyNeedToDoLocator,
-)
-from test_case_locator.work_order_management.work_order_list_locator import (
-    WorkOrderListLocator,
 )
 from test_case_page.work_order_management.work_order_list_page import WorkOrderListPage
 
 
 class MyNeedToDoPage(WorkOrderListPage):
 
-    @allure.step("判断工单管理是否展开")
-    def _get_work_order_management_is_expand(self):
-        return "ant-menu-submenu-open" not in self.get_attribute(
-            MyNeedToDoLocator.work_order_management_expand_loc, "class"
-        )
 
     @allure.step("判断是否在我的待办界面")
     def is_my_need_to_do_page(self):

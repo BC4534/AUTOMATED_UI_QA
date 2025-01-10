@@ -10,12 +10,13 @@ from test_case_page.work_order_management.my_work_order.my_need_to_do_page impor
 from test_case_page.work_order_management.work_order_list_page import WorkOrderListPage
 
 
-@pytest.mark.usefixtures("login_driver")
+@allure.feature("运维工作台")
+@allure.story("管理角色")
 @allure.title("管理角色,工单跳转")
-@allure.feature("管理角色")
 class TestManagementRole03:
 
     # 在途异常工单跳转
+    @allure.description("在途异常工单跳转")
     def test_management_role_03_1(self, login_driver):
         management_role_page = ManagementRolePage(login_driver)
         try:
@@ -35,12 +36,12 @@ class TestManagementRole03:
             )
             logger.info(f"{self.__class__.__name__}执行用例通过")
         except Exception as e:
-            logger.error(e)
-            logger.error(f"{self.__class__.__name__}执行用例失败")
+            logger.error(f"{self.__class__.__name__}执行用例失败,失败原因为:{e}")
             management_role_page.get_screenshot_png(f"{self.__class__.__name__}")
             raise e
 
     # 在途其他工单跳转
+    @allure.description("在途其他工单跳转")
     def test_management_role_03_2(self, login_driver):
         management_role_page = ManagementRolePage(login_driver)
         try:
@@ -80,6 +81,7 @@ class TestManagementRole03:
             raise e
 
     # 发起工单数跳转
+    @allure.description("发起工单数跳转")
     def test_management_role_03_3(self, login_driver):
         management_role_page = ManagementRolePage(login_driver)
         try:
@@ -99,6 +101,7 @@ class TestManagementRole03:
             raise e
 
     # 已执行工单总数跳转
+    @allure.description("已执行工单总数跳转")
     def test_management_role_03_4(self, login_driver):
         management_role_page = ManagementRolePage(login_driver)
         try:
@@ -122,17 +125,13 @@ class TestManagementRole03:
             raise e
 
     # 待执行工单数跳转
+    @allure.description("待执行工单数跳转")
     def test_management_role_03_5(self, login_driver):
         management_role_page = ManagementRolePage(login_driver)
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
             management_role_page.management_role_03_5()
-            assert (
-                MyNeedToDoPage(
-                    login_driver
-                ).get_my_need_to_do_element_aria_selected_value()
-                == "true"
-            )
+            assert MyNeedToDoPage(login_driver).is_my_need_to_do_page()== "true"
             logger.info(f"{self.__class__.__name__}执行用例通过")
         except Exception as e:
             logger.error(e)
@@ -146,24 +145,9 @@ class TestManagementRole03:
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
             management_role_page.management_role_03_6()
-            assert (
-                MyNeedToDoPage(
-                    login_driver
-                ).get_my_need_to_do_element_aria_selected_value()
-                == "true"
-            )
-            assert (
-                WorkOrderListPage(
-                    login_driver
-                ).get_manual_abnormal_work_order_type_text()
-                == "手工异常工单"
-            )
-            assert (
-                WorkOrderListPage(
-                    login_driver
-                ).get_system_abnormal_work_order_type_text()
-                == "系统异常工单"
-            )
+            assert MyNeedToDoPage(login_driver).is_my_need_to_do_page()== "true"
+            assert WorkOrderListPage(login_driver).get_manual_abnormal_work_order_type_text() == "手工异常工单"
+            assert WorkOrderListPage(login_driver).get_system_abnormal_work_order_type_text() == "系统异常工单"
             logger.info(f"{self.__class__.__name__}执行用例通过")
         except Exception as e:
             logger.error(e)

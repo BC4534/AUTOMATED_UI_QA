@@ -6,14 +6,14 @@ from test_case_page.operation_and_maintenance_workbench.management_role_page imp
 )
 
 
-@pytest.mark.usefixtures("login_driver")
+@allure.feature("运维工作台")
+@allure.story("管理角色")
 @allure.title("管理角色,人员任务统计部分用例")
-@allure.feature("管理角色")
 class TestManagementRole06:
     """
     时间维度相关
     """
-
+    @allure.description("管理角色,人员任务统计部分用例,切换时间维度为年,月")
     def test_management_role_06(self, login_driver):
         management_role_page = ManagementRolePage(login_driver)
         try:

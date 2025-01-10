@@ -1,17 +1,8 @@
 import allure
-
 from test_case_page.project_management.electronic_archives_page.add_operation_maintenance_management_info_page import (
     AddOperationMaintenanceManagementInfoPage,
 )
-from test_case_page.project_management.electronic_archives_page.add_project_basic_info_page import (
-    AddProjectBaseInfoPage,
-)
-from test_case_page.project_management.electronic_archives_page.add_project_detail_info_page import (
-    AddProjectDetailInfoPage,
-)
-from test_case_page.project_management.electronic_archives_page.electronic_archives_page import (
-    ElectronicArchivesPage,
-)
+
 from common.loggerhandler import logger
 
 base_info_data = {

@@ -1,5 +1,6 @@
 import allure
 import pyautogui
+import pytest
 
 from common.loggerhandler import logger
 from test_case_page.project_management.alarm_configuration_page.outdoor_cabinet_alarm_configuration_page import (
@@ -10,6 +11,7 @@ from test_case_page.project_management.alarm_configuration_page.outdoor_cabinet_
 @allure.feature("项目管理")
 @allure.story("项目告警配置")
 @allure.title("批量更新按钮")
+@pytest.mark.skip(reason="暂时不能关闭win系统下载文件弹框,先跳过")
 class TestOutdoorCabinetAlarmConfiguration02:
     """
     现用例只能保证按钮能下载文件，不能保证文件内容准确性

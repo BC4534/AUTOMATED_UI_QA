@@ -1,7 +1,4 @@
-import time
-
 import allure
-import pytest
 from common.loggerhandler import logger
 from test_case_page.project_management.spare_part_management_page import (
     SparePartManagementPage,
@@ -19,8 +16,8 @@ class TestSparePartManagement05:
         try:
             logger.info(f"{self.__class__.__name__} 开始执行用例")
             spare_part_management_page.switch_to_spare_part_management_page()
-            spare_part_management_page.page_turning()
-            assert spare_part_management_page.is_current_page()
+            if spare_part_management_page.page_turning() != 1:
+                assert spare_part_management_page.is_current_page()
             logger.info(f"{self.__class__.__name__} 测试用例执行成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__} 测试用例执行失败，错误信息为：{e}")

@@ -1,7 +1,5 @@
-import time
 
 import allure
-import pytest
 from common.loggerhandler import logger
 from test_case_page.project_management.spare_part_management_page import (
     SparePartManagementPage,
@@ -39,7 +37,7 @@ class TestSparePartManagement04:
             assert (
                 spare_part_management_page.get_spare_part_receive_title() == "备件领用"
             )
-            spare_part_management_page.click_spare_part_inbound_confirm_button()
+            spare_part_management_page.click_spare_part_receive_confirm_button()
             assert "参数校验失败:" in spare_part_management_page.get_page_tip_text()
             spare_part_management_page.click_spare_part_inbound_cancel_button()
             logger.info(f"{self.__class__.__name__} 测试用例执行成功")
@@ -62,7 +60,7 @@ class TestSparePartManagement04:
                 spare_part_receive_data["part_project"],
                 spare_part_receive_data["part_remark"],
             )
-            spare_part_management_page.click_spare_part_inbound_confirm_button()
+            spare_part_management_page.click_spare_part_receive_confirm_button()
             assert (
                 "参数校验失败: 领用数量必须大于0"
                 in spare_part_management_page.get_page_tip_text()
@@ -145,7 +143,7 @@ class TestSparePartManagement04:
                 spare_part_receive_data2["part_project"],
                 spare_part_receive_data2["part_remark"],
             )
-            spare_part_management_page.click_spare_part_inbound_confirm_button()
+            spare_part_management_page.click_spare_part_receive_confirm_button()
             spare_part_management_page.click_first_spare_part_receive_button()
             assert (
                 spare_part_management_page.get_spare_part_receive_stock_number()
@@ -169,14 +167,14 @@ class TestSparePartManagement04:
                 spare_part_management_page.get_spare_part_receive_stock_number()
             )
             if old_number == "0":
-                logger.info(f"库存数量为0，无法进行测试")
+                logger.info("库存数量为0，无法进行测试")
             else:
                 spare_part_management_page.spare_part_receive(
                     part_number=str(int(old_number) + 1),
                     part_project=spare_part_receive_data3["part_project"],
                     part_remark=spare_part_receive_data3["part_remark"],
                 )
-                spare_part_management_page.click_spare_part_inbound_confirm_button()
+                spare_part_management_page.click_spare_part_receive_confirm_button()
                 spare_part_management_page.click_first_spare_part_receive_button()
                 assert (
                     spare_part_management_page.get_spare_part_receive_stock_number()
