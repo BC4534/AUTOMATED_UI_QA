@@ -63,3 +63,12 @@ class MyAlreadyDoPage(MyNeedToDoPage):
         except Exception as e:
             logger.error("没有第一个当前处理人")
             return 1
+
+    @allure.step("获取查询条件当前处理状态")
+    def get_handle_status_text(self):
+        try:
+            return self.text(MyAlreadyDoLocator.handle_current_status_loc)
+        except Exception as e:
+            logger.error("没有查询条件当前处理状态")
+            return 1
+

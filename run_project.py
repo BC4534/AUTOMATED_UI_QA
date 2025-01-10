@@ -61,8 +61,7 @@ def main():
     allure_dir = all_file_path.allure_report_path
     # 指定测试模块
     test_module = (
-        r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_system_config\test_role_management\test_role_managment_07.py"
-        r""
+        r"D:\CODE\AUTOMATED_UI_QA\test_case_object"
     )
 
     # 运行 pytest 测试用例并生成 allure 报告

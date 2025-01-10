@@ -1,14 +1,6 @@
 import allure
 from common.loggerhandler import logger
-from test_case_page.operation_and_maintenance_workbench.execute_role_page import (
-    ExecuteRolePage,
-)
-from test_case_page.work_order_management.my_work_order.my_already_do_page import (
-    MyAlreadyDonePage,
-)
-from test_case_page.work_order_management.my_work_order.my_need_to_do_page import (
-    MyNeedToDoPage,
-)
+from test_case_page.operation_and_maintenance_workbench.execute_role_page import ExecuteRolePage
 
 
 @allure.title("执行角色，负责项目统计部分用例 ")

@@ -4,7 +4,7 @@ from test_case_page.operation_and_maintenance_workbench.execute_role_page import
     ExecuteRolePage,
 )
 from test_case_page.work_order_management.my_work_order.my_already_do_page import (
-    MyAlreadyDonePage,
+    MyAlreadyDoPage,
 )
 from test_case_page.work_order_management.my_work_order.my_need_to_do_page import (
     MyNeedToDoPage,
@@ -22,10 +22,7 @@ class TestExecuteRole03:
             logger.info(f"{self.__class__.__name__}开始执行用例")
             execute_role_page.test_execute_role_03_1()
             assert (
-                MyNeedToDoPage(
-                    login_driver
-                ).get_my_need_to_do_element_aria_selected_value()
-                == "true"
+                MyNeedToDoPage(login_driver).is_my_need_to_do_page()== "true"
             )
             logger.info(f"{self.__class__.__name__}执行用例通过")
         except Exception as e:
@@ -40,13 +37,8 @@ class TestExecuteRole03:
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")
             execute_role_page.test_execute_role_03_2()
-            assert (
-                MyAlreadyDonePage(
-                    login_driver
-                ).get_my_already_done_element_aria_selected_value()
-                == "true"
-            )
-            assert MyAlreadyDonePage(login_driver).get_handle_status_text() == "已完成"
+            assert MyAlreadyDoPage(login_driver).is_my_already_do_page()== "true"
+            assert MyAlreadyDoPage(login_driver).get_handle_status_text() == "已完成"
             logger.info(f"{self.__class__.__name__}执行用例通过")
         except Exception as e:
             logger.error(e)
@@ -63,7 +55,7 @@ class TestExecuteRole03:
             assert (
                 MyNeedToDoPage(
                     login_driver
-                ).get_my_need_to_do_element_aria_selected_value()
+                ).is_my_need_to_do_page()
                 == "true"
             )
             logger.info(f"{self.__class__.__name__}执行用例通过")
