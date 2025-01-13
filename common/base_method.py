@@ -591,60 +591,145 @@ class BasePage:
         except Exception as e:
             self.logger.error()
 
-    # 输入特定时间
-    def input_time(self, time, time_input_ele):
+    # 获取页面提示信息
+    def get_page_tip(self):
+        self.logger.info("准备获取页面提示信息")
+        try:
+            page_tip = self.text(BasicLocator.page_tip_loc)
+            self.logger.info("获取页面提示信息成功")
+            return page_tip
+        except Exception as e:
+            self.logger.error(f"获取页面提示信息失败:{e}")
+            raise
+
+    def input_time(self, time_input_ele, start_time, end_time=""):
         """
         输入指定的日期。
         """
         self.move_to_element(time_input_ele)
         self.click_element(time_input_ele)
 
-        # 获取当前年份和月份
-        current_year = int(self.text(BasicLocator.current_year_value_loc)[0:4])
-        current_month = self.text(BasicLocator.current_month_value_loc)[0:2]
 
+
+        # 处理开始时间
+        self._navigate_and_select_date(start_time)
+
+        # 处理结束时间
+        if end_time:
+            self._navigate_and_select_date(end_time)
+
+    def _navigate_and_select_date(self, date_str):
+        # 获取当前年份和月份
+        current_year = int(self.text(BasicLocator.current_year_value_loc)[:4])
+
+        current_month = self.text(BasicLocator.current_month_value_loc)[:2]
         if not re.match(r"^\d+$", current_month):
             current_month = int(current_month[0:1])
         else:
             current_month = int(current_month)
-        # 解析输入的日期
-        y = int(time[0:4])
-        m = int(time[5:7])
-        d = int(time[8:10])
+
+        """
+        导航到指定日期并选择。
+        """
+        year = int(date_str[:4])
+        month = int(date_str[5:7])
+        day = int(date_str[8:10])
 
         # 检查输入的日期是否合法
-        if not (1 <= m <= 12) or not (1 <= d <= 31):
+        if not (1 <= month <= 12) or not (1 <= day <= 31):
             raise ValueError("Invalid date format or value.")
 
         # 导航到目标年份
-        if y < current_year:
-            for _ in range(current_year - y):
-                self.click_element(BasicLocator.previous_year_button_loc)
-        elif y > current_year:
-            for _ in range(y - current_year):
-                self.click_element(BasicLocator.next_year_button_loc)
+        self._navigate_year(current_year, year)
 
         # 导航到目标月份
-        if m < current_month:
-            for _ in range(current_month - m):
-                self.click_element(BasicLocator.previous_month_button_loc)
-        elif m > current_month:
-            for _ in range(m - current_month):
-                self.click_element(BasicLocator.next_month_button_loc)
+        self._navigate_month(current_month, month)
 
         # 点击指定日期
-        self.click_date(d)
+        self.__click_date(day)
 
-    def click_date(self, day):
+    def _navigate_year(self, current_year, target_year):
+        """
+        导航到指定年份。
+        """
+        if target_year < current_year:
+            for _ in range(current_year - target_year):
+                self.click_element(BasicLocator.previous_year_button_loc)
+        elif target_year > current_year:
+            for _ in range(target_year - current_year):
+                self.click_element(BasicLocator.next_year_button_loc)
+
+    def _navigate_month(self, current_month, target_month):
+        """
+        导航到指定月份。
+        """
+        if target_month < current_month:
+            for _ in range(current_month - target_month):
+                self.click_element(BasicLocator.previous_month_button_loc)
+        elif target_month > current_month:
+            for _ in range(target_month - current_month):
+                self.click_element(BasicLocator.next_month_button_loc)
+
+    def __click_date(self, day):
         """
         点击指定的日期。
         """
-        self.click_element(
-            (
-                By.XPATH,
-                f'//*[@class="ant-picker-cell ant-picker-cell-in-view"]/div[text()="{day}"]',
-            )
-        )
+        self.click_element((By.XPATH,f'//*[contains(@class,"ant-picker-cell-in-view")]/div[text()="{day}"]'))
+
+    # 点击搜索按钮
+    def click_search_button(self):
+        self.logger.info("准备点击搜索按钮")
+        try:
+            self.click_element(BasicLocator.search_button_loc)
+            self.logger.info("点击搜索按钮成功")
+            self.random_sleep(1)
+        except Exception as e:
+            self.logger.error(f"点击搜索按钮失败:{e}")
+            raise
+    # 点击重置按钮
+    def click_reset_button(self):
+        self.logger.info("准备点击重置按钮")
+        try:
+            self.click_element(BasicLocator.reset_button_loc)
+            self.logger.info("点击重置按钮成功")
+        except Exception as e:
+            self.logger.error(f"点击重置按钮失败:{e}")
+            raise
+    # 点击关闭按钮
+    def click_close_button(self):
+        self.logger.info("准备点击关闭按钮")
+        try:
+            self.click_element(BasicLocator.close_button_loc)
+            self.logger.info("点击关闭按钮成功")
+        except Exception as e:
+            self.logger.error(f"点击关闭按钮失败:{e}")
+            raise
+
+    # 验证翻页功能
+    def verify_page_turning(self):
+        try:
+            if self.visibility_of_element_located(
+                    BasicLocator.second_page_loc
+            ):
+                self.click_element(BasicLocator.next_page_loc)
+                self.random_sleep(0.5)
+                self.click_element(BasicLocator.first_page_loc)
+                self.random_sleep(0.5)
+                self.click_element(BasicLocator.second_page_loc)
+                self.random_sleep(0.5)
+                self.click_element(
+                    BasicLocator.previous_page_loc
+                )
+                self.random_sleep(1)
+                a = self.get_attribute(
+                    BasicLocator.first_page_loc, "class"
+                )
+                return "ant-pagination-item-active" in a
+        except:
+            return 1
+
+
+
 
 
 if __name__ == "__main__":
