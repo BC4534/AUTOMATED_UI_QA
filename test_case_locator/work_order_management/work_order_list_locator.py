@@ -110,11 +110,6 @@ class WorkOrderListLocator:
         By.XPATH,
         '//*[text()="处理状态"]/following-sibling::div',
     )
-    # 未完成
-    handle_status_unfinished_loc = (
-        By.XPATH,
-        '//*[text()="未完成" and @class="ant-select-item-option-content"]',
-    )
     # 已完成
     handle_status_finished_loc = (
         By.XPATH,
@@ -139,7 +134,7 @@ class WorkOrderListLocator:
     # 搜索界面，关联项目文本
     select_association_project_text_loc = (
         By.XPATH,
-        '//*[text()="关联项目"]/following-sibling::div/div/span[2]',
+        '//*[text()="关联项目"]/following-sibling::div//span[2]',
     )
     # 关联项目 第一个选项
     association_project_first_option_loc = (
@@ -393,3 +388,9 @@ class WorkOrderListLocator:
     cancel_delete_button_loc = (By.XPATH, '//*[text()="取 消"]')
     # 手工新增工单界面 是否存在 //div[@class="ant-modal-mask"]
     manual_add_work_order_dialog_mask_loc = (By.XPATH, '//div[@class="ant-modal-mask"]')
+
+    # 工单类型搜索框,已输入的条件
+    work_order_type_search_entered_1_loc = (By.XPATH, '(//*[text()="工单类型"]/following::div[1]//span[@class="ant-select-selection-item-content"])[1]')
+    work_order_type_search_entered_2_loc = (By.XPATH, '(//*[text()="工单类型"]/following::div[1]//span[@class="ant-select-selection-item-content"])[2]')
+
+
