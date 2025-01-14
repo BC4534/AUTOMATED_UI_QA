@@ -23,6 +23,7 @@ class TestProjectOperationReport08:
                 report_page.click_search_button()
                 assert  second_download_task_name in report_page.get_first_download_task_name()
                 report_page.click_reset_button()
+            report_page.click_close_button()
             logger.info(f"{self.__class__.__name__}执行用例成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__}执行用例失败,错误原因{e}")
@@ -54,6 +55,7 @@ class TestProjectOperationReport08:
             s3 = report_page.get_first_download_task_status()
             if s3 != 1:
                 assert s3 == "失败"
+            report_page.click_close_button()
             logger.info(f"{self.__class__.__name__}执行用例成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__}执行用例失败,错误原因{e}")
@@ -72,6 +74,8 @@ class TestProjectOperationReport08:
             report_page.input_download_task_list_create_time(create_time=second_check_time)
             report_page.click_search_button()
             assert second_check_time[:10] == report_page.get_download_task_list_first_create_time()[:10]
+            report_page.click_reset_button()
+            report_page.click_close_button()
             logger.info(f"{self.__class__.__name__}执行用例成功")
         except Exception as e:
             logger.error(f"{self.__class__.__name__}执行用例失败,错误原因{e}")

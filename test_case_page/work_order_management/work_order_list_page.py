@@ -592,3 +592,11 @@ class WorkOrderListPage(BasePage):
         except:
             logger.error("获取第一个工单的当前处理人失败")
             return 1
+
+
+    # 获取工单类型 系统异常工单 文本
+    def get_work_order_type_search_entered_1_loc_text(self):
+        return self.text(WorkOrderListLocator.work_order_type_search_entered_1_loc)
+
+    def get_work_order_type_search_entered_2_loc_text(self):
+        return self.text(WorkOrderListLocator.work_order_type_search_entered_2_loc)

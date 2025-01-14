@@ -69,7 +69,7 @@ def main():
     test_paths = [
         # r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_login",
         # r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_operation_and_maintenance_workbench",
-        r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_project_management\test_spare_part_management",
+        r"D:\CODE\AUTOMATED_UI_QA\test_case_object\test_maintenance_tools",
 
     ]
 

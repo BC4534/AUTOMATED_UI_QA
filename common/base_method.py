@@ -9,6 +9,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
+from common.driverhandler import DriverHandler
 from common.loggerhandler import logger
 from selenium import webdriver
 
@@ -24,12 +26,12 @@ class BasePage:
 
     # 打开url
     def get(self, url):
-        self.logger.info(f"准备打开url:{url}")
+        self.logger.info(f"准备打开url: {url}")
         try:
             self.driver.get(url)
-            self.logger.info(f"打开url成功:{url}")
+            self.logger.info(f"打开url成功: {url}")
         except Exception as e:
-            self.logger.error(f"打开url失败:{e}")
+            self.logger.error(f"打开url失败: {e}")
             raise
 
     # 退出浏览器
@@ -78,7 +80,7 @@ class BasePage:
             self.logger.error(f"等待元素可见超时")
             raise
         except Exception as e:
-            self.logger.error(f"等待元素可见失败:{e}")
+            self.logger.error(f"等待元素可见失败: {e}")
             raise
 
     # 判断元素不可见
@@ -465,27 +467,56 @@ class BasePage:
             self.logger.error(f"鼠标移入失败:{e}")
             raise
 
-    # 浏览器放大缩小
-    def zoom_page(self, zoom_factor=1):
+    def zoom_with_ctrl_wheel(driver, scroll_amount):
         """
-        调整整个页面的缩放比例
+        模拟 Ctrl + 鼠标滚轮进行页面缩放
+        :param driver: Selenium WebDriver 实例
+        :param scroll_amount: 滚动量，正数为向上滚动（放大），负数为向下滚动（缩小）
+        """
+        try:
+            # 构建操作序列：按住Ctrl键，然后滚动鼠标滚轮
+            actions = ActionChains(driver)
+            actions.key_down(Keys.CONTROL).send_keys(Keys.PAGE_UP if scroll_amount > 0 else Keys.PAGE_DOWN).key_up(
+                Keys.CONTROL)
+            actions.perform()
+
+            print("模拟 Ctrl + 鼠标滚轮操作完成")
+        except Exception as e:
+            print(f"模拟 Ctrl + 鼠标滚轮操作失败: {e}")
+    # 浏览器放大缩小
+    def zoom_page(self, zoom_factor=1, max_zoom=5):
+        """
+        调整整个页面的缩放比例，并尝试调整窗口大小以适应屏幕
         :param zoom_factor: 缩放比例因子，大于1时放大页面，0到1之间时缩小页面
+        :param max_zoom: 允许的最大缩放比例，防止过度缩放
         """
         try:
             self.logger.info("准备调整页面缩放")
+
+            # 最大化浏览器窗口
+            self.driver.execute_script("window.maximize();")
+
             # 获取当前缩放比例，如果未设置过，则默认为1
-            current_zoom = self.driver.execute_script(
-                "return document.body.style.zoom || 1;"
-            )
-            # 计算新的缩放比例
-            new_zoom = float(current_zoom) * zoom_factor
-            # 设置新的缩放比例，确保缩放比例不会低于0
-            if new_zoom > 0:
-                self.driver.execute_script(f"document.body.style.zoom = '{new_zoom}';")
-                self.logger.info("页面缩放调整成功")
-            else:
-                self.logger.error("缩放比例因子无效，必须大于0")
-                raise ValueError("缩放比例因子必须大于0")
+            current_zoom = self.driver.execute_script("return window.devicePixelRatio || 1;")
+            new_zoom = current_zoom * zoom_factor
+
+            # 限制缩放比例的上限
+            if new_zoom > max_zoom:
+                self.logger.warning(f"缩放比例超过最大值，已限制为 {max_zoom}")
+                new_zoom = max_zoom
+
+            # 设置新的缩放比例
+            self.driver.execute_script(f"document.body.style.zoom = '{new_zoom}';")
+
+            # 短暂等待页面重新渲染
+            WebDriverWait(self.driver, 2).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
+
+            self.logger.info(f"页面缩放调整成功，新缩放比例: {new_zoom}")
+
+            # 记录窗口大小调整
+            window_size = self.driver.get_window_size()
+            self.logger.info(f"当前窗口大小: {window_size['width']}x{window_size['height']}")
+
         except Exception as e:
             self.logger.error(f"页面缩放调整失败: {e}")
             raise
@@ -590,6 +621,32 @@ class BasePage:
             self.logger.info("切换至窗口成功")
         except Exception as e:
             self.logger.error()
+
+    # 封装一个通过点击 上下左右按键 移动页面的方法
+    def scroll_page_by_keyboard(self, element, direction, times=1):
+        """
+        通过点击上下左右按键移动页面
+        :param element: 要操作的元素，通常为页面的 body 元素
+        :param direction: 移动方向，可选值为 'up'、'down'、'left'、'right'
+        :param times: 点击按键的次数，默认为1次
+        """
+        direction_keys = {
+            'up': Keys.ARROW_UP,
+            'down': Keys.ARROW_DOWN,
+            'left': Keys.ARROW_LEFT,
+            'right': Keys.ARROW_RIGHT
+        }
+        self.click_element(element)
+
+        key = direction_keys.get(direction)
+        if key is None:
+            raise ValueError("Invalid direction. Must be 'up', 'down', 'left', or 'right'.")
+
+        for _ in range(times):
+            element.send_keys(key)
+
+
+    # 运维系统特有 ===================================
 
     # 获取页面提示信息
     def get_page_tip(self):
@@ -733,33 +790,11 @@ class BasePage:
 
 
 if __name__ == "__main__":
-    driver = webdriver.Chrome()
+    from common.driverhandler import get_driver
+    driver = get_driver()
     basepage = BasePage(driver)
     basepage.get("http://192.168.1.82:3322/")
-
-    time.sleep(2)
-
     # basepage.quit()
     basepage.maximize_window()
-    time.sleep(2)
-    # basepage.get_screenshot_png("截图")
-    # print(basepage.get_window_size())
-    # basepage.set_window_size(100,100)
-    # time.sleep(2)
-    # print(basepage.get_title())
-    # basepage.get_current_url()
-    # time.sleep(2)
-    # print(basepage.get_window_position())
-    # basepage.set_window_position(200,200)
-    # time.sleep(2)
-    # print(basepage.get_page_source())
-    print(basepage.get_title())
-    print(basepage.get_current_url())
-    basepage.send_keys(LoginLocator.login_username_loc, "admin")
-    time.sleep(2)
-    basepage.send_keys(LoginLocator.login_password_loc, "123456")
-    basepage.clear(LoginLocator.login_username_loc)
-    time.sleep(2)
-    basepage.click_element(LoginLocator.login_submit_loc)
 
-    basepage.close()
+

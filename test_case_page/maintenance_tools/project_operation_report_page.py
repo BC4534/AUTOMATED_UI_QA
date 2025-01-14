@@ -1,3 +1,5 @@
+from os import times
+
 import allure
 from selenium.webdriver.common.by import By
 
@@ -184,6 +186,39 @@ class ProjectOperationReportPage(BasePage):
     def get_download_task_list_first_create_time(self) :
         try:
             return self.text(ProjectOperationReportLocator.download_task_list_button_first_task_create_time_loc)
+        except:
+            return 1
+
+    @allure.step("累计告警数（支持点击跳转至项目告警明细）") # //*[@class='ant-table-tbody']/tr[2]/td[11]
+    def click_accumulated_alarm_count(self) :
+        try:
+            for i in range(2, 12):
+                if self.text((By.XPATH, f'//*[@class="ant-table-tbody"]/tr[{i}]/td[11]')) != '':
+                    self.click_element((By.XPATH, f'//*[@class="ant-table-tbody"]/tr[{i}]/td[11]/span'))
+                    return self.text((By.XPATH, f'//*[@class="ant-table-tbody"]/tr[{i}]/td[4]'))
+        except:
+            return 1
+
+    @allure.step("累计工单数（支持点击跳转至项目工单列表）")
+    def click_accumulated_work_order_count(self) :
+        try:
+            for i in range(2, 12):
+                if self.text((By.XPATH, f'//*[@class="ant-table-tbody"]/tr[{i}]/td[12]')) != '':
+                    project_name = self.text((By.XPATH, f'//*[@class="ant-table-tbody"]/tr[{i}]/td[3]'))
+                    self.scroll_page_by_keyboard((By.XPATH, f'//*[@class="ant-table-tbody"]/tr[{i}]/td[3]'),'right',times=5 )
+                    self.click_element((By.XPATH, f'//*[@class="ant-table-tbody"]/tr[{i}]/td[12]/span'))
+                    return  project_name
+        except:
+            return 1
+
+    @allure.step("累计异常工单数（支持点击跳转至我的工单列表）")
+    def click_accumulated_abnormal_work_order_count(self) :
+        try:
+            for i in range(2, 12):
+                if self.text((By.XPATH, f'//*[@class="ant-table-tbody"]/tr[{i}]/td[13]')) != '':
+                    self.zoom_page(0.5)
+                    self.click_element((By.XPATH, f'//*[@class="ant-table-tbody"]/tr[{i}]/td[13]/span'))
+                    break
         except:
             return 1
 
