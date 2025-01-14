@@ -10,13 +10,14 @@ from common.driverhandler import get_driver
 login_data = {"url": "http://192.168.1.82:3322/", "username": "admin", "password": ""}
 
 
-@allure.title("登录界面测试用例")
+
 @allure.feature("登录模块")
-@allure.story("登录模块")
+@allure.story("登录失败")
 # @pytest.mark.skip(reason="跳过用例")
 class Test_Case_Login_Fail_002:
 
-    @allure.step("密码必填项效验")
+    @allure.title("密码必填项效验")
+    @allure.description("密码必填项效验")
     def test_login_fail_002(self):
         loginpage = LoginPage(get_driver())
         try:

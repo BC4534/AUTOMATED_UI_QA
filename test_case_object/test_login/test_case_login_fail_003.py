@@ -14,13 +14,13 @@ login_data = {
 }
 
 
-@allure.title("登录界面测试用例")
 @allure.feature("登录模块")
 @allure.story("登录失败")
 # @pytest.mark.skip(reason="跳过用例")
 class Test_Case_Login_Fail_003:
 
-    @allure.description("账号密码错误")
+    @allure.title("账号错误")
+    @allure.description("账号错误")
     def test_login_fail_003(self):
         loginpage = LoginPage(get_driver())
         try:

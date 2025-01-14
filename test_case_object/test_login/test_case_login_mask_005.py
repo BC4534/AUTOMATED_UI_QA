@@ -14,13 +14,15 @@ login_data = {
 }
 
 
-@allure.title("登录界面测试用例")
-@allure.feature("登录模块")
-# @pytest.mark.skip(reason="跳过用例")
-class Test_Case_Login_Fail_005:
 
-    @allure.story("验证掩码按钮")
-    def test_login_fail_005(self):
+@allure.feature("登录模块")
+@allure.story("验证掩码按钮")
+# @pytest.mark.skip(reason="跳过用例")
+class Test_Case_Login_mask_005:
+
+    @allure.description("验证掩码按钮")
+    @allure.title("验证掩码按钮")
+    def test_login_mask_005(self):
         loginpage = LoginPage(get_driver())
         try:
             logger.info(f"{self.__class__.__name__}开始执行用例")

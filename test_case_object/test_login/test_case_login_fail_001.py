@@ -8,16 +8,17 @@ from common.driverhandler import get_driver
     用例：用户名未填
 '''
 # 登录数据，先写在代码中，后面分离
-login_data = {"url": "http://192.168.1.82:3322/", "username": "", "password": ""}
+login_data = {"url": "http://192.168.1.82:3322/", "username": "", "password": "1234"}
 
 
 @allure.feature("登录模块")
 @allure.story("登录失败")
-@allure.title("登录界面测试用例")
 # @pytest.mark.skip(reason="跳过用例")
 class Test_Case_Login_Fail_001():
 
-    @allure.step("必填项效验")
+
+    @allure.title("账号必填项效验")
+    @allure.description("账号必填项效验")
     def test_login_fail_001(self):
         loginpage = LoginPage(get_driver())
         try:

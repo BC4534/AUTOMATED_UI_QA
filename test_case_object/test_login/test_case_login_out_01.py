@@ -3,13 +3,14 @@ from test_case_page.loginpage import LoginPage
 from common.loggerhandler import logger
 
 
-@allure.title("登出测试用例")
+
 @allure.feature("登录模块")
-@allure.story("登出模块")
+@allure.story("登出功能")
 # @pytest.mark.skip(reason="跳过用例")
 class Test_Case_Login_Out_01:
 
-    @allure.description("登出测试用例")
+    @allure.description("登出测试")
+    @allure.title("登出")
     def test_case_login_out01(self, login_driver):
         loginpage = LoginPage(login_driver)
         try:
