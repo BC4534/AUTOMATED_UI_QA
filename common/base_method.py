@@ -17,6 +17,7 @@ from test_case_locator.login_locator import LoginLocator
 from common import all_file_path
 
 
+
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
@@ -648,7 +649,9 @@ class BasePage:
 
 
 if __name__ == "__main__":
-    driver = webdriver.Chrome()
+
+
+    driver = DriverHandler().get_driver()
     basepage = BasePage(driver)
     basepage.get("http://192.168.1.82:3322/")
 

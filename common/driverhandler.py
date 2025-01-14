@@ -1,7 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
-from common.all_file_path import webdriver_path
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 
 
 class DriverHandler:
@@ -33,14 +34,13 @@ def get_driver():
     config_dict = {
         "driver": {
             "driver_object": "chrome",
-            "driver_path": webdriver_path,
             "driver_headless": "false",
-            "download.default_directory": r"D:\CODE\AUTOMATED_UI_QA\output",
+            "download.default_directory": r"D:\CODE\SERMATER_YWGLXT\output",
         }
     }
     driver_handler = DriverHandler(config_dict)
     driver_value = driver_handler.get_value("driver", "driver_object")
-    driver_path = driver_handler.get_value("driver", "driver_path")
+    # driver_path = driver_handler.get_value("driver", "driver_path")
     driver_headless = driver_handler.get_value("driver", "driver_headless")
     download_dir = driver_handler.get_value("driver", "download.default_directory")
 
@@ -49,11 +49,11 @@ def get_driver():
         opt.add_argument("--disable-gpu")
         setup_headless_mode(opt, driver_headless)
         set_download_prefs(opt, download_dir)
-        return webdriver.Chrome(executable_path=driver_path, options=opt)
+        return webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=opt)
     elif driver_value == "firefox":
         opt = FirefoxOptions()
         setup_headless_mode(opt, driver_headless)
         # Firefox 不支持通过 prefs 设置下载行为，需要使用不同的方法
-        return webdriver.Firefox(executable_path=driver_path, options=opt)
+        return webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=opt)
     else:
         raise ValueError("Unsupported browser type")
